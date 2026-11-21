@@ -1,45 +1,33 @@
-
-#!/usr/bin/env bash
-set -euo pipefail
-
-# Layer 18: Malware Protection Status (Read-Only Audit Helper)
-# Outputs structured JSON with status: PASS | WARN | FAIL
-
-xprotect_version="unknown"
-if [ -f "/System/Library/CoreServices/XProtect.bundle/Contents/Info.plist" ]; then
-  xprotect_version=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" \
-    "/System/Library/CoreServices/XProtect.bundle/Contents/Info.plist" 2>/dev/null || echo "present")
-fi
-
-gatekeeper_status=$(spctl --status 2>/dev/null || echo "unknown")
-
-# Check for potentially suspicious/unsigned scripts or binaries in ~/Downloads
-suspicious_downloads=()
-if [ -d "$HOME/Downloads" ]; then
-  while IFS= read -r -d '' file; do
-    suspicious_downloads+=("$file")
-  done < <(find "$HOME/Downloads" -maxdepth 2 -type f \( -name "*.command" -o -name "*.pkg" -o -name "*.dmg" -o -name "*.sh" \) -print0 2>/dev/null)
-fi
-
-status="PASS"
-summary="XProtect (${xprotect_version}) active; Gatekeeper (${gatekeeper_status})."
-
-if [[ "$gatekeeper_status" != *"enabled"* ]]; then
-  status="FAIL"
-  summary="Gatekeeper is not enabled (${gatekeeper_status})."
-elif [ "${#suspicious_downloads[@]}" -gt 0 ]; then
-  status="WARN"
-  summary="Found ${#suspicious_downloads[@]} installer/script item(s) in ~/Downloads to review."
-fi
-
-cat <<EOF
-{
-  "layer": 18,
-  "name": "Malware protection status",
-  "status": "${status}",
-  "xprotect_version": "${xprotect_version}",
-  "gatekeeper": "${gatekeeper_status}",
-  "downloads_flagged_count": ${#suspicious_downloads[@]},
-  "summary": "${summary}"
-}
-EOF
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Green Gables Apple Towerwall</title>
+<style>
+body{font:16px system-ui;background:#10251d;color:#f2f5ef;max-width:760px;margin:40px auto;padding:20px}
+main,li{background:#1b382c;padding:16px;border-radius:10px;margin:12px 0}
+.pass{color:#9be6a8}.fail{color:#ff9a8c}.unknown{color:#ffd778}
+</style>
+<h1>Green Gables Apple Towerwall</h1>
+<p>Choose a report produced by the read-only audit script. No results are shown until you load one.</p>
+<input id="file" type="file" accept=".json,application/json">
+<main id="results">No report loaded.</main>
+<script>
+document.querySelector("#file").onchange = async e => {
+  const box = document.querySelector("#results");
+  try {
+    const data = JSON.parse(await e.target.files[0].text());
+    if (!Array.isArray(data.checks)) throw Error("Invalid report format");
+    box.replaceChildren();
+    for (const c of data.checks) {
+      const item = document.createElement("li");
+      item.className = c.status;
+      item.textContent = `${c.name}: ${c.status.toUpperCase()} — ${c.detail}`;
+      box.append(item);
+    }
+  } catch {
+    box.textContent = "Could not read a valid Towerwall report.";
+  }
+};
+</script>
+</html>
