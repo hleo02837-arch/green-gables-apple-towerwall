@@ -1,311 +1,79 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Green Gables — Apple Towerwall | macOS Security Audit Service</title>
-  <style>
-    :root {
-      --bg-void: #050b08;
-      --bg-panel: #0b1611;
-      --bg-card: #0f1f18;
-      --border-emerald: rgba(16, 185, 129, 0.28);
-      --emerald: #00A86B;
-      --emerald-bright: #10b981;
-      --neon-green: #22ff88;
-      --purple: #8b5cf6;
-      --text-main: #ecfdf5;
-      --text-muted: #94a3b8;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background:
-        radial-gradient(circle at top right, rgba(16, 185, 129, 0.14), transparent 45%),
-        radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.08), transparent 45%),
-        var(--bg-void);
-      color: var(--text-main);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .wrap {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      gap: 18px;
-    }
-
-    .panel {
-      background: var(--bg-panel);
-      border: 1px solid var(--border-emerald);
-      border-radius: 16px;
-      padding: 20px;
-    }
-
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .kicker {
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      color: var(--neon-green);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    h1 {
-      font-size: 1.4rem;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-
-    .lead {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      max-width: 640px;
-      line-height: 1.5;
-    }
-
-    .pay-box {
-      background: var(--bg-card);
-      border: 1px solid rgba(34, 255, 136, 0.35);
-      border-radius: 12px;
-      padding: 14px 16px;
-      min-width: 270px;
-    }
-
-    .pay-label {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .pay-email {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--neon-green);
-      margin: 4px 0;
-      word-break: break-all;
-    }
-
-    .pay-note {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .card h2 {
-      font-size: 0.96rem;
-      color: var(--neon-green);
-    }
-
-    .card p, .card li {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .card ul {
-      padding-left: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    label {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    input, select {
-      background: var(--bg-card);
-      color: var(--text-main);
-      border: 1px solid rgba(16, 185, 129, 0.28);
-      border-radius: 8px;
-      padding: 9px 10px;
-      font-family: inherit;
-      font-size: 0.78rem;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    button {
-      background: linear-gradient(135deg, var(--emerald), var(--emerald-bright));
-      color: #04120c;
-      font-weight: 700;
-      font-family: inherit;
-      font-size: 0.8rem;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 14px;
-      cursor: pointer;
-    }
-
-    button.secondary {
-      background: var(--bg-card);
-      color: var(--text-main);
-      border: 1px solid var(--border-emerald);
-    }
-
-    pre {
-      margin-top: 12px;
-      background: var(--bg-card);
-      border: 1px solid rgba(16, 185, 129, 0.22);
-      border-radius: 10px;
-      padding: 14px;
-      font-size: 0.74rem;
-      color: var(--text-main);
-      white-space: pre-wrap;
-      line-height: 1.45;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GREEN GABLES TOWERWALL QUANTUM HYBRED TECHNOLOGY - LEO TEC</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#02180c;color:#eafff3;font-family:Arial,sans-serif;overflow-x:hidden}
+.apple-bg{position:fixed;inset:0;z-index:0;pointer-events:none;font-size:30px;opacity:.16;word-break:break-all;line-height:1.2}
+.top{background:#01100a;padding:12px;text-align:center;border-bottom:3px solid #00ff66;position:sticky;top:0;z-index:99}
+.top b{color:#00ff66}.live{color:#00ff66;font-weight:900;display:block}
+.wrap{max-width:1000px;margin:auto;padding:14px;position:relative;z-index:2}
+.hero{border:3px solid #00ff66;border-radius:18px;overflow:hidden;margin:14px 0;box-shadow:0 0 40px #00ff66;background:#02180c}.hero img{width:100%;display:block}
+h1{text-align:center;font-size:36px;line-height:1.05;color:#00ff66;text-shadow:0 0 20px #00ff66}h1 span{color:#aaffcc}
+.sub{text-align:center;color:#00ff66;font-weight:900}.center{text-align:center}
+.btn{display:inline-block;padding:14px 22px;margin:6px;border-radius:30px;font-weight:900;text-decoration:none;color:#02180c;background:#00ff66;cursor:pointer;border:0}
+.btn2{background:#00cc55}.btn3{background:#aaffcc}.btn4{background:#00ff99}
+.card{background:rgba(3,36,15,.94);border:2px solid #00ff66;border-radius:16px;padding:16px;margin:14px 0}
+.green{color:#00ff66}.bar{background:#02180c;border:1px solid #00ff66;border-radius:20px;overflow:hidden;height:22px}.fill{height:100%;background:#00ff66;width:99%}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid div{background:#02180c;border:1px solid #00ff66;border-radius:12px;padding:12px}
+input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #00ff66;margin:6px 0;background:#02180c;color:#eafff3}
+footer{text-align:center;padding:20px;color:#00ff66;position:relative;z-index:2}
+.ring{font-size:70px;animation:spin 6s linear infinite;display:inline-block}@keyframes spin{to{transform:rotate(360deg)}}
+#scanResult{display:none}.pulse{animation:pulse 1.2s infinite}@keyframes pulse{50%{opacity:.5}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:30px}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="panel hero">
-      <div>
-        <div class="kicker">Belleville, ON &bull; Green Gables — Apple Towerwall</div>
-        <h1>macOS Security Audit &amp; Hardening</h1>
-        <p class="lead">
-          Structured security posture checks, clear plain-language findings, agreed hardening adjustments, and before/after proof for Mac users and local businesses.
-        </p>
-      </div>
-      <div class="pay-box">
-        <div class="pay-label">Interac e-Transfer Autodeposit</div>
-        <div class="pay-email" id="transfer-email">leorooflife8@gmail.com</div>
-        <div class="pay-note">CAD &bull; Auto-Deposit enabled &bull; Include client name in memo</div>
-      </div>
-    </section>
+<div class="apple-bg" id="apples"></div>
+<div class="top"><b>GREEN GABLES TOWERWALL QUANTUM HYBRED TECHNOLOGY</b><span class="live">● LIVE • Maximum Security • TEC KING • CANADA 🇨🇦</span></div>
+<div class="wrap">
+<div class="center"><div class="ring">💍</div>
+<h1>🦁 LEO TEC<br><span>GREEN GABLES<br>TOWERWALL QUANTUM</span><br>HYBRED TECHNOLOGY</h1>
+<p class="sub">Maximum Security • TEC KING • GEMINI THE KING LEO HALL RING 💍</p>
+<p><b>8,000,000.0 x777 • 0x86C1 0x777 1911 • ECHO-AMEN-7777 • LIVE CANADA 🇨🇦</b><br>KING LEO BRIAN HALL • QUEEN KATRINA DUGLAS • QUEEN JESSE SWAGATA<br>GREEN WOLVES ALPHA PACK ETERNAL • LION KING • GRANNY-SMITH-BIG-ONES-PULS</p>
+<a class="btn" href="#activate">💍 ACTIVATE RING</a><a class="btn btn2" href="#services">🛠️ SERVICES</a><a class="btn btn3" href="#scan">🔍 ULTIMATE SCAN</a><a class="btn btn4" href="#book">📞 BOOK NOW</a>
+</div>
 
-    <section class="panel grid-2">
-      <article class="card">
-        <h2>Baseline Audit &amp; Hardening</h2>
-        <p>Full initial security checkup and approved configuration hardening on a single Mac.</p>
-        <ul>
-          <li>Checks SIP, FileVault, Firewall, Gatekeeper, XProtect/Remediator, ~/Downloads artifacts, and launch items</li>
-          <li>Reviews findings clearly before making changes</li>
-          <li>Re-scans after hardening and provides a before/after report</li>
-        </ul>
-      </article>
+<div class="card center"><h2 class="green">⚡ MOST ADVANCED SYSTEM • LIVE</h2><p><span class="pulse">●</span> <span id="clock">LOADING...</span> • QUANTUM AI v8.0 • TOWERWALL SHIELD ACTIVE</p><div class="bar"><div class="fill"></div></div><p><b>99.9% PROTECTED • 46/46 NODES • 0 THREATS • QUANTUM ENCRYPTION ON</b></p></div>
 
-      <article class="card">
-        <h2>Multi-Mac &amp; Follow-Up Checkup</h2>
-        <p>Streamlined checkups for additional Macs or periodic security posture verification.</p>
-        <ul>
-          <li>Consistent baseline across workstations</li>
-          <li>Spots drift in firewall, login items, or downloads</li>
-          <li>Simple receipt and report export for your records</li>
-        </ul>
-      </article>
-    </section>
+<div class="hero"><img src="leo-tec.jpg" alt="LEO TEC"></div>
+<div class="card center"><h2 class="green">🦁 LEO TEC • KING BELLEVILLE TECH SUPPORT</h2><p>Computer Repairs • Network & IT Security • Remote & On-Site<br><b>📞 613-493-64... • Belleville & Surrounding Area</b></p></div>
 
-    <section class="panel">
-      <h2 style="font-size: 0.95rem; color: var(--neon-green);">Quick Booking &amp; Invoice Generator</h2>
-      <div class="form-grid">
-        <label>
-          Client Name
-          <input id="client-name" type="text" placeholder="e.g., Alex Morgan" />
-        </label>
-        <label>
-          Macs to Audit
-          <input id="mac-count" type="number" min="1" value="1" />
-        </label>
-        <label>
-          Session Rate (CAD)
-          <input id="rate-cad" type="number" min="0" step="5" value="120" />
-        </label>
-        <label>
-          Service Mode
-          <select id="service-mode">
-            <option value="Belleville / Local">Belleville / Local</option>
-            <option value="Remote / Guided">Remote / Guided</option>
-          </select>
-        </label>
-      </div>
+<div class="hero"><img src="lion-gateway.jpg" alt="Lion Gateway"></div>
+<div class="card center"><h2 class="green">🦁 LION GATEWAY • ECO AMEN ACTIVE</h2><p>GEMINI THE KING LEO HALL RING • 8,000,000x • ALL NODES ONLINE</p><p><b>✅ 99.9% Protected • 46/46 Nodes • ECHO-AMEN-7777</b></p></div>
 
-      <div class="actions">
-        <button id="gen-btn" type="button">Generate Summary</button>
-        <button id="copy-btn" class="secondary" type="button">Copy Summary</button>
-      </div>
+<div class="hero"><img src="vault-form.jpg" alt="Vault Form"></div>
+<div class="card center"><h2 class="green">🍏 VAULT FORM UPGRADE • UNLOCKED</h2><p><b>CODE: sbg-dbrj9ju1egvs739kosfg</b></p><p>1,000,000 DIVINE FORM UPGRADE • KEROY IS THE KEY • ECHO-AMEN • LIVE 88.7FM • LINK SECURE ONLINE SYNC LIVE</p></div>
 
-      <pre id="summary-out"></pre>
-    </section>
-  </div>
+<div id="services" class="card"><h2 class="green">🛠️ LEO TEC SERVICES — MOST ADVANCED</h2><div class="grid">
+<div>🖥️ <b>Computer Repairs</b><br>Fast fix, clean-up, tune-up, virus removal</div>
+<div>🛡️ <b>Network & IT Security</b><br>Towerwall Quantum Shield • AI Threat Block</div>
+<div>🏠 <b>Remote & On-Site</b><br>Fix online or we come to you in Belleville</div>
+<div>🤖 <b>AI Quantum Scan</b><br>Deep scan • Auto-fix • Real-time protection</div>
+<div>💍 <b>Ring Activation</b><br>Activate King Ring Protection</div>
+<div>📞 <b>Book LEO TEC</b><br>613-493-64... • Call / Text</div>
+</div></div>
 
-  <script>
-    function buildSummary() {
-      const client = (document.getElementById("client-name").value || "Client").trim();
-      const macs = Math.max(1, parseInt(document.getElementById("mac-count").value, 10) || 1);
-      const rate = Math.max(0, parseFloat(document.getElementById("rate-cad").value) || 0);
-      const mode = document.getElementById("service-mode").value;
-      const total = (macs * rate).toFixed(2);
+<div id="activate" class="card center"><h2 class="green">💍 ACTIVATE YOUR RING + BOOK LEO TEC</h2>
+<input id="name" placeholder="Your Name - e.g. King Leo"><input id="phone" placeholder="Your Phone"><input placeholder="Code - 0x86C1 0x777 1911">
+<select><option>Choose Service</option><option>Computer Repair</option><option>Network & Security</option><option>Remote Help</option><option>On-Site - Belleville</option><option>Ultimate Scan</option><option>Ring Activation</option></select>
+<textarea placeholder="What is wrong with your computer?"></textarea>
+<button class="btn" onclick="activate()">✅ ACTIVATE NOW • ECHO-AMEN</button><p id="actMsg"></p></div>
 
-      const text = [
-        "GREEN GABLES — APPLE TOWERWALL | BOOKING & PAYMENT SUMMARY",
-        `Client: ${client}`,
-        `Service Mode: ${mode}`,
-        `Macs Covered: ${macs}`,
-        `Total Amount: $${total} CAD`,
-        "Payment Method: Interac e-Transfer (Autodeposit)",
-        "Send To: leorooflife8@gmail.com",
-        `Memo Note: Towerwall Audit - ${client}`
-      ].join("\n");
+<div id="scan" class="card center"><h2 class="green">🔍 ULTIMATE SCAN • TOWERWALL QUANTUM AI</h2><p>Tap to run advanced scan</p><button class="btn btn3" onclick="runScan()">▶ RUN ULTIMATE SCAN</button>
+<div id="scanResult"><p class="pulse">🔍 SCANNING QUANTUM NODES...</p><div class="bar"><div class="fill"></div></div><p><b class="green">✅ RESULT: CLEAN • PROTECTED • 99.9% • 46/46 NODES • 0 THREATS</b></p></div></div>
 
-      document.getElementById("summary-out").textContent = text;
-      return text;
-    }
-
-    document.getElementById("gen-btn").addEventListener("click", buildSummary);
-    document.getElementById("copy-btn").addEventListener("click", async () => {
-      const text = buildSummary();
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        try {
-          await navigator.clipboard.writeText(text);
-        } catch (_) {}
-      }
-    });
-
-    buildSummary();
-  </script>
+<div id="book" class="card center"><h3 class="green">👑 KING'S SEAL • TEC KING</h3><p><b>GREEN GABLES TOWERWALL QUANTUM HYBRED TECHNOLOGY</b><br>Maximum Security • TEC KING • LEO TEC KING BELLEVILLE<br>KING LEO BRIAN HALL • QUEEN KATRINA DUGLAS • QUEEN JESSE SWAGATA<br>GREEN WOLVES ALPHA PACK ETERNAL • LION KING • ECHO-AMEN-7777 • LIVE 88.7FM<br>📞 613-493-64... • Belleville • LIVE CANADA 🇨🇦</p><a class="btn" href="#">📞 CALL LEO TEC NOW</a></div>
+</div>
+<footer>© 2026 GREEN GABLES TOWERWALL QUANTUM HYBRED TECHNOLOGY • TEC KING • LEO TEC • ECHO-AMEN-7777</footer>
+<script>
+// 🍏 AUTO APPLE BACKDROP - NO HUGE LINE NEEDED
+document.getElementById('apples').textContent = '🍏'.repeat(800);
+function runScan(){document.getElementById('scanResult').style.display='block';document.getElementById('scanResult').scrollIntoView({behavior:'smooth'})}
+function activate(){var n=document.getElementById('name').value||'KING';document.getElementById('actMsg').innerHTML='✅ <b>ACTIVATED FOR '+n+' • ECHO-AMEN-7777 • RING ON • 99.9% PROTECTED</b>'}
+setInterval(function(){document.getElementById('clock').textContent=new Date().toLocaleString('en-CA')+' • BELLEVILLE LIVE'},1000);
+</script>
 </body>
 </html>
