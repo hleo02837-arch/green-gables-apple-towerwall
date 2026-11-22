@@ -1,13 +1,207 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+<title>
+GREEN GABLES V12.5
+LEO BRIAN HALL
+</title>
+<style>
+body{
+background:#020a02;
+color:#00FF88;
+font-family:Arial;
+text-align:center;
+margin:0;
+padding:0;
+}
+.wrap{
+max-width:360px;
+width:100%;
+margin:auto;
+background:#020a02;
+padding:8px;
+box-sizing:border-box;
+}
+.top{
+background:#0a2e0a;
+padding:20px;
+border:2px solid #00FF88;
+border-radius:15px;
+}
+h1{
+color:#00FF88;
+font-size:24px;
+}
+h2{
+color:#00FF88;
+font-size:19px;
+}
+p{
+color:#00FF88;
+font-size:15px;
+}
+.box{
+background:#0a3a0a;
+margin:12px 0;
+padding:16px;
+border:2px solid #00FF88;
+border-radius:15px;
+}
+button{
+background:#00FF88;
+color:#021207;
+padding:14px;
+width:100%;
+border:none;
+border-radius:50px;
+font-weight:bold;
+margin:5px 0;
+font-size:15px;
+}
+input,textarea,select{
+width:100%;
+padding:12px;
+margin:6px 0;
+border-radius:10px;
+border:1px solid #00FF88;
+background:#021002;
+color:#00FF88;
+box-sizing:border-box;
+font-size:14px;
+}
+.out{
+background:#021002;
+border:1px solid #00FF88;
+padding:10px;
+border-radius:10px;
+color:#00FF88;
+font-size:13px;
+word-break:break-word;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+<div>🏰🍏</div>
+<h1>GREEN GABLES<br>TOWERWALL V12.5</h1>
+<p>🍏 ALL GREEN 🍏</p>
+<p>HIGH KING</p>
+<p>LEO BRIAN HALL</p>
+<p>LEROY BRIAN LAUZON</p>
+<p>LEO TEC • TEC KING</p>
+<p>QUEEN JESSE SWAGATA</p>
+<p>I SAY GRACE</p>
+<p>iPHONE 5 + NEWER</p>
+</div>
+
+<div class="box">
+<h2>🍏 V12.5 LIVE 🍏</h2>
+<p>NODE-0X86C1</p>
+<p>KERNEL V12.5</p>
+<p>DIRECTOR:</p>
+<p>LEO BRIAN HALL</p>
+<p>KING SEAL:</p>
+<p>ECHO-AMEN-7777</p>
+<p>QUEEN KEY:</p>
+<p>ECO-QUEEN-JESSE-7777</p>
+</div>
+
+<div class="box">
+<h2>🍏 ROYAL FAMILY 🍏</h2>
+<p>KING: LEO BRIAN HALL</p>
+<p>QUEEN: JESSE SWAGATA</p>
+<p>One Kingdom • One Love</p>
+<p>One Grace</p>
+</div>
+
+<div class="box">
+<h2>🍏 LINK GENERATOR 🍏</h2>
+<p>ICON: 13357.jpg</p>
+<input id="linkVal"
+value="ECHO-AMEN-7777">
+<button onclick="makeLink()">
+MAKE LINK 🍏
+</button>
+<input id="myLink" readonly>
+<button onclick="copyLink()">
+COPY LINK 🍏
+</button>
+<div class="out" id="linkOut">
+Link ready 🍏
+</div>
+</div>
+
+<div class="box">
+<h2>🍏 TERMINAL 1 🍏</h2>
+<h2>GET SPECIAL KEY</h2>
+<p>Members only</p>
+<label>Your Alias</label>
+<input id="alias"
+placeholder="e.g. Member-01">
+<label>Pick Tier</label>
+<select id="tier">
+<option>TIER-1-AUDIT</option>
+<option>TIER-2-HARDEN</option>
+<option>TIER-3-WATCH</option>
+</select>
+<button onclick="getKey()">
+GET MY KEY 🍏
+</button>
+<label>Your Special Key:</label>
+<input id="myKey" readonly
+value="ECHO-AMEN-7777">
+<button onclick="copyMyKey()">
+COPY MY KEY 🍏
+</button>
+<div class="out" id="keyOut">
+Your key will show here
+</div>
+</div>
+
+<div class="box">
+<h2>🍏 TERMINAL 2 🍏</h2>
+<h2>PRIVATE MESSAGE</h2>
+<p>Locked with keys</p>
+<label>Enter YOUR Key</label>
+<input id="yourKey"
+placeholder="Your key here">
+<label>Enter THEIR Key</label>
+<input id="theirKey"
+placeholder="Their key here">
+<label>Your Message</label>
+<textarea id="msg"
+placeholder="Type private msg">
+</textarea>
+<button onclick="lockMsg()">
+LOCK + SEND 🍏
+</button>
+<div class="out" id="msgOut">
+No message locked yet
+</div>
+<div class="out" id="inbox">
+INBOX: Empty
+</div>
+</div>
+
+<div class="box">
+<h2>🍏 QUEEN TERMINAL 🍏</h2>
+<p>QUEEN JESSE SWAGATA</p>
+<p>KEY: ECO-QUEEN-JESSE-7777</p>
+<button onclick="useQueenKey()">
+USE QUEEN KEY 🍏
+</button>
+</div>
+
 <div class="box">
 <h2>🍏 31-LAYER LOCK 🍏</h2>
-<p>MADE FOR iPHONE 5</p>
-<p>320px • 375px • 414px</p>
-<p>ALL PHONES WORK</p>
-<p>PASS: 0</p>
-<p>WARN: 0</p>
-<p>FAIL: 0</p>
-<p>UNKNOWN: 31</p>
+<p>PASS: 0 | WARN: 0</p>
+<p>FAIL: 0 | UNKNOWN: 31</p>
 <button onclick="alert('LOCK ENGAGED')">
 LATTICE LOCK: ENGAGED 🍏
 </button>
@@ -17,31 +211,129 @@ WIPE MEMORY 🍏
 </div>
 
 <div class="box">
-<h2>🍏 SOCKETS 🍏</h2>
-<p>NO SOCKETS YET</p>
-<input placeholder="127.0.0.1:8443">
-<button>ADD SOCKET 🍏</button>
+<h2>🍏 VAULT 🍏</h2>
+<input id="vaultNote"
+placeholder="Vault note">
+<button onclick="saveNote()">
+SEAL IN VAULT 🍏
+</button>
+<div class="out" id="vaultOut">
+Vault empty
+</div>
 </div>
 
 <div class="box">
-<h2>🍏 PHONE TARGET 🍏</h2>
-<input placeholder="+1 Phone Number">
-<input placeholder="Where to Listen">
-<button>ADD PHONE TARGET 🍏</button>
+<h2>🍏 SERVICES 🍏</h2>
+<p>Website - $299</p>
+<p>Security V12 - $199</p>
+<p>AI - $149</p>
+<p>Studio - $99</p>
 </div>
 
-<div class="box">
-<h2>🍏 ECO-AMEN 🍏</h2>
-<p>MODE: ECO-AMEN-7777</p>
-<input value="ECHO-AMEN-7777">
-<button>GENERATE KEY 🍏</button>
-<button>COPY KEY 🍏</button>
+<p>© 2026 GREEN GABLES</p>
+<p>HIGH KING LEO BRIAN HALL</p>
+<p>& QUEEN JESSE SWAGATA</p>
+<p>I SAY GRACE 🙏🍏</p>
 </div>
 
-<div class="box">
-<h2>🍏 CAM + MIC 🍏</h2>
-<p>iPHONE 5 SAFE</p>
-<button>START CAM + MIC 🍏</button>
-<button>RECORD 🍏</button>
-<button>STOP 🍏</button>
-</div>
+<script>
+function makeLink(){
+var v=document.getElementById
+("linkVal").value;
+var link="https://hleo02837-arch."
++"github.io/green-gables-"
++"apple-towerwall/?target="+v;
+document.getElementById
+("myLink").value=link;
+document.getElementById
+("linkOut").innerText=
+"Link ready: "+link;
+}
+function copyLink(){
+var l=document.getElementById
+("myLink");
+l.select();
+document.execCommand("copy");
+document.getElementById
+("linkOut").innerText=
+"Copied! "+l.value;
+}
+function getKey(){
+var a=document.getElementById
+("alias").value;
+if(!a){a="Member";}
+var t=document.getElementById
+("tier").value;
+var chars="ABCDEFGHJKLMNP"
++"QRSTUVWXYZ23456789";
+var code="";
+for(var i=0;i<4;i++){
+code+=chars[Math.floor
+(Math.random()*chars.length)];
+}
+var key="ECO-"+code+"-7777";
+document.getElementById
+("myKey").value=key;
+document.getElementById
+("yourKey").value=key;
+document.getElementById
+("keyOut").innerText=
+"Hello "+a+" 🍏 Your key: "
++key+" | "+t;
+}
+function copyMyKey(){
+var k=document.getElementById
+("myKey");
+k.select();
+document.execCommand("copy");
+document.getElementById
+("keyOut").innerText=
+"Copied key: "+k.value;
+}
+function useQueenKey(){
+document.getElementById
+("yourKey").value=
+"ECO-QUEEN-JESSE-7777";
+document.getElementById
+("msgOut").innerText=
+"Queen Key Loaded 🍏 "
++"ECO-QUEEN-JESSE-7777";
+}
+function lockMsg(){
+var y=document.getElementById
+("yourKey").value;
+var t=document.getElementById
+("theirKey").value;
+var m=document.getElementById
+("msg").value;
+if(!y||!t||!m){
+document.getElementById
+("msgOut").innerText=
+"Fill ALL 3: Your Key + "
++"Their Key + Message";
+return;
+}
+var locked="LOCKED 🍏 FROM: "
++y+" TO: "+t+" MSG: "+m;
+document.getElementById
+("msgOut").innerText=locked;
+document.getElementById
+("inbox").innerText=
+"NEW PRIVATE MSG 🍏\n"+locked;
+document.getElementById
+("msg").value="";
+}
+function saveNote(){
+var n=document.getElementById
+("vaultNote").value;
+if(!n){return;}
+document.getElementById
+("vaultOut").innerText=
+"Sealed: "+n+" 🍏";
+document.getElementById
+("vaultNote").value="";
+}
+makeLink();
+</script>
+</body>
+</html>
