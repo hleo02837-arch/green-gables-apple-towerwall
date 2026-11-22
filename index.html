@@ -1,156 +1,886 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width,
-initial-scale=1.0">
-<title>
-GREEN GABLES V12
-</title>
-<style>
-body{
-background:#020a02;
-color:white;
-font-family:Arial;
-text-align:center;
-margin:0;
-}
-.wrap{
-max-width:520px;
-margin:auto;
-}
-.top{
-background:#0a2e0a;
-padding:25px;
-border-bottom:3px solid #00FF88;
-}
-h1{
-color:#00FF88;
-font-size:28px;
-}
-.box{
-background:#0a3a0a;
-margin:12px;
-padding:22px;
-border:2px solid #00FF88;
-border-radius:15px;
-}
-.box h2{
-color:#00FF88;
-font-size:21px;
-}
-.card{
-background:#071a07;
-margin:12px;
-padding:18px;
-border:2px solid #00FF88;
-border-radius:15px;
-text-align:left;
-}
-button{
-background:#00FF88;
-color:black;
-padding:14px;
-width:100%;
-border:none;
-border-radius:50px;
-font-weight:bold;
-}
-a{
-display:block;
-background:#00FF88;
-color:black;
-padding:14px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-text-align:center;
-}
-input,textarea{
-width:100%;
-padding:12px;
-margin:6px 0;
-border-radius:10px;
-border:1px solid #00FF88;
-background:#021002;
-color:white;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>GREEN GABLES — APPLE TOWERWALL (ALL-GREEN SUITE)</title>
+  <style>
+    :root {
+      --bg-void: #020804;
+      --bg-panel: #051409;
+      --bg-card: #081f0e;
+      --bg-card-alt: #0b2913;
+      --green-bright: #00ff88;
+      --green-neon: #39ff14;
+      --green-mid: #00c86b;
+      --green-dim: #58b882;
+      --green-muted: #2a6e47;
+      --border-green: #145c32;
+      --border-glow: #00ff88;
+      --ink-on-green: #021207;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: env(safe-area-inset-top, 10px) env(safe-area-inset-right, 10px) env(safe-area-inset-bottom, 16px) env(safe-area-inset-left, 10px);
+      background-color: var(--bg-void);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(0, 255, 136, 0.12), transparent 55%),
+        linear-gradient(180deg, #020804 0%, #041107 100%);
+      color: var(--green-bright);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--green-neon);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--green-neon);
+      outline-offset: 2px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 8px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 0 28px rgba(0, 255, 136, 0.08);
+    }
+
+    .top {
+      background: linear-gradient(180deg, #092611 0%, #05160a 100%);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .top-glyph {
+      font-size: clamp(1rem, 4vw, 1.8rem);
+      line-height: 1.2;
+      color: var(--green-neon);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .top h1 {
+      margin: 0;
+      font-size: clamp(1.05rem, 4.4vw, 1.85rem);
+      line-height: 1.25;
+      color: var(--green-bright);
+      letter-spacing: 0.03em;
+      word-break: break-word;
+    }
+
+    .top-sub {
+      margin: 6px 0 0;
+      font-size: clamp(0.72rem, 2.7vw, 0.9rem);
+      color: var(--green-dim);
+    }
+
+    .section-title {
+      font-size: clamp(0.84rem, 3.1vw, 1.05rem);
+      color: var(--green-neon);
+      border-bottom: 1px solid var(--border-green);
+      padding-bottom: 6px;
+      margin: 16px 0 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .grid-boxes,
+    .grid-cards,
+    .grid-tiers {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .box,
+    .card,
+    .tier {
+      background: var(--bg-card);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    .box-badge {
+      display: inline-block;
+      font-size: clamp(0.95rem, 3.6vw, 1.35rem);
+      color: var(--green-neon);
+      margin-bottom: 4px;
+    }
+
+    .box h2,
+    .card h2,
+    .card h3,
+    .tier h3 {
+      margin: 0 0 6px;
+      font-size: clamp(0.9rem, 3.3vw, 1.12rem);
+      color: var(--green-bright);
+      word-break: break-word;
+    }
+
+    .box p,
+    .card p,
+    .tier p {
+      margin: 0 0 8px;
+      font-size: clamp(0.74rem, 2.7vw, 0.88rem);
+      color: var(--green-dim);
+    }
+
+    .price-tag {
+      font-size: clamp(0.9rem, 3.4vw, 1.12rem);
+      font-weight: 700;
+      color: var(--green-neon);
+      margin-bottom: 6px;
+    }
+
+    .clean-list,
+    .telemetry-list {
+      list-style: none;
+      margin: 6px 0 10px;
+      padding: 0;
+      font-size: clamp(0.73rem, 2.6vw, 0.85rem);
+      color: var(--green-bright);
+    }
+
+    .clean-list li {
+      padding: 3px 0;
+      color: var(--green-dim);
+    }
+
+    .clean-list li::before {
+      content: "+ ";
+      color: var(--green-neon);
+      font-weight: 700;
+    }
+
+    .telemetry-list li {
+      padding: 4px 0;
+      border-top: 1px dashed rgba(0, 255, 136, 0.2);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: clamp(0.74rem, 2.7vw, 0.85rem);
+      color: var(--green-bright);
+      margin: 8px 0 4px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px;
+      background: var(--bg-void);
+      color: var(--green-bright);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: clamp(0.8rem, 3vw, 0.92rem);
+    }
+
+    textarea {
+      min-height: 82px;
+      resize: vertical;
+    }
+
+    button,
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 10px 12px;
+      background: var(--green-bright);
+      color: var(--ink-on-green);
+      border: 1px solid var(--green-neon);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: clamp(0.74rem, 2.7vw, 0.86rem);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    button.secondary {
+      background: var(--bg-card-alt);
+      color: var(--green-bright);
+      border-color: var(--green-mid);
+    }
+
+    button:hover,
+    .action-link:hover {
+      background: var(--green-neon);
+      color: var(--ink-on-green);
+    }
+
+    button.secondary:hover {
+      background: #103b1c;
+      color: var(--green-neon);
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .stat-box {
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      text-align: center;
+    }
+
+    .stat-num {
+      display: block;
+      font-size: clamp(0.95rem, 3.8vw, 1.3rem);
+      font-weight: 700;
+      color: var(--green-neon);
+      word-break: break-word;
+    }
+
+    .stat-label {
+      font-size: clamp(0.66rem, 2.3vw, 0.76rem);
+      color: var(--green-dim);
+    }
+
+    .layers-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .layer-row {
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .layer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .layer-id-name {
+      font-size: clamp(0.76rem, 2.8vw, 0.88rem);
+      font-weight: 700;
+      color: var(--green-bright);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-PASS {
+      background: var(--green-bright);
+      color: var(--ink-on-green);
+      border: 1px solid var(--green-neon);
+    }
+
+    .badge-WARN {
+      background: #0d3b1e;
+      color: #8affba;
+      border: 1px dashed var(--green-bright);
+    }
+
+    .badge-FAIL {
+      background: #051a0c;
+      color: #b8ffd6;
+      border: 2px solid var(--green-neon);
+    }
+
+    .badge-UNKNOWN {
+      background: #041007;
+      color: var(--green-dim);
+      border: 1px dotted var(--green-muted);
+    }
+
+    .layer-detail {
+      font-size: clamp(0.7rem, 2.5vw, 0.82rem);
+      color: var(--green-dim);
+      word-break: break-word;
+    }
+
+    .output-box {
+      margin-top: 8px;
+      padding: 10px;
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      font-size: clamp(0.72rem, 2.6vw, 0.84rem);
+      color: var(--green-neon);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    footer {
+      margin-top: 14px;
+      padding: 12px;
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-md);
+      font-size: clamp(0.7rem, 2.5vw, 0.82rem);
+      color: var(--green-dim);
+    }
+
+    @media (min-width: 540px) {
+      .wrap {
+        padding: 14px;
+      }
+      .grid-boxes {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .summary-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .grid-boxes,
+      .grid-tiers {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .layers-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-<div class="top">
-<div>🏰🍏</div>
-<h1>GREEN GABLES<br>TOWERWALL</h1>
-<p>LEO TEC • I SAY GRACE</p>
-<p>V12 SOVEREIGN KERNEL LIVE</p>
-</div>
+  <div class="wrap">
+    <header class="top">
+      <div class="top-glyph" aria-hidden="true">[ :: GREEN GABLES :: TOWERWALL :: ]</div>
+      <h1>GREEN GABLES — APPLE TOWERWALL</h1>
+      <p class="top-sub">31-LAYER VERIFICATION ENGINE · ALL-GREEN MATRIX · COMMERCIAL &amp; AUDIT SUITE</p>
+    </header>
 
-<div class="box">
-<h2>CYBERWARFARE V12</h2>
-<p>SOVEREIGN AUTHORITY ACTIVE</p>
-<p>NODE-0X86C1 // KERNEL V12.4</p>
-<p>DIRECTOR: HIGH KING LEO</p>
-<p>OMEGA GREEN SEAL</p>
-</div>
+    <section aria-labelledby="pillars-heading">
+      <h2 id="pillars-heading" class="section-title">CORE SECTORS</h2>
+      <div class="grid-boxes">
+        <article class="box">
+          <div class="box-badge" aria-hidden="true">[SEAL]</div>
+          <h2>SOVEREIGN SEAL</h2>
+          <p>Auditable baseline &amp; zero unverified claims.</p>
+        </article>
+        <article class="box">
+          <div class="box-badge" aria-hidden="true">[V11/V12]</div>
+          <h2>CYBERWARFARE V11 / V12</h2>
+          <p>Host sweep integration &amp; JSON telemetry intake.</p>
+        </article>
+        <article class="box">
+          <div class="box-badge" aria-hidden="true">[COSMOS]</div>
+          <h2>COSMOS ETERNAL</h2>
+          <p>31-layer posture tracking across all 7 domains.</p>
+        </article>
+        <article class="box">
+          <div class="box-badge" aria-hidden="true">[APPLE]</div>
+          <h2>QUANTUM APPLE</h2>
+          <p>FileVault, SIP, Gatekeeper &amp; hardware checks.</p>
+        </article>
+        <article class="box">
+          <div class="box-badge" aria-hidden="true">[GATEWAY]</div>
+          <h2>LION GATEWAY</h2>
+          <p>Application firewall, stealth mode &amp; interfaces.</p>
+        </article>
+        <article class="box">
+          <div class="box-badge" aria-hidden="true">[CROWN]</div>
+          <h2>KING LEO &amp; QUEEN</h2>
+          <p>Inspect-before-touch rules &amp; recovery readiness.</p>
+        </article>
+      </div>
+    </section>
 
-<div class="box">
-<h2>SOVEREIGN SEAL</h2>
-<p>Protected By God</p>
-<p>Sealed By The King</p>
-</div>
+    <section aria-labelledby="business-heading">
+      <h2 id="business-heading" class="section-title">SERVICE TIERS &amp; MARGIN ESTIMATOR</h2>
+      <div class="grid-tiers">
+        <article class="tier">
+          <h3>TIER 1 · LATTICE AUDIT</h3>
+          <div class="price-tag">Editable Rate</div>
+          <p>Read-only 31-layer posture snapshot &amp; JSON report.</p>
+          <ul class="clean-list">
+            <li>31-layer verification structure</li>
+            <li>Honest status classification</li>
+            <li>Actionable fix list</li>
+          </ul>
+          <button type="button" onclick="selectPackage('Lattice Audit', 450)">SELECT TIER 1</button>
+        </article>
 
-<div class="box">
-<h2>👑👸</h2>
-<h2>KING LEO &<br>QUEEN JESSE SWAGATA</h2>
-<p>One Kingdom • One Love</p>
-<p>One Grace</p>
-</div>
+        <article class="tier">
+          <h3>TIER 2 · HARDENING RUN</h3>
+          <div class="price-tag">Editable Rate</div>
+          <p>Guided baseline hardening with before/after verification.</p>
+          <ul class="clean-list">
+            <li>Inspect-before-touch log</li>
+            <li>Post-change verification</li>
+            <li>Recovery &amp; backup check</li>
+          </ul>
+          <button type="button" onclick="selectPackage('Hardening Run', 1450)">SELECT TIER 2</button>
+        </article>
 
-<div class="card">
-<h2>ROYAL FAMILY</h2>
-<p>King Leo - TEC KING</p>
-<p>Queen Jesse Swagata</p>
-</div>
+        <article class="tier">
+          <h3>TIER 3 · MONTHLY WATCH</h3>
+          <div class="price-tag">Editable Retainer</div>
+          <p>Recurring report reviews &amp; drift tracking.</p>
+          <ul class="clean-list">
+            <li>Scheduled JSON report intake</li>
+            <li>Configuration drift alerts</li>
+            <li>Ongoing operator support</li>
+          </ul>
+          <button type="button" onclick="selectPackage('Monthly Watch', 850)">SELECT TIER 3</button>
+        </article>
+      </div>
 
-<div class="card">
-<h2>V12 SYSTEM LIVE</h2>
-<p>V12.4 Active</p>
-<p>Firewall ON</p>
-<p>Vault Locked</p>
-</div>
+      <div class="card" style="margin-top: 10px;">
+        <h3>PIPELINE &amp; GROSS MARGIN ESTIMATOR (PLANNING ESTIMATE ONLY)</h3>
+        <div class="grid-cards">
+          <div>
+            <label for="biz-package">Package Name</label>
+            <input id="biz-package" type="text" value="Lattice Audit">
+          </div>
+          <div>
+            <label for="biz-clients">Clients / Month</label>
+            <input id="biz-clients" type="number" min="0" step="1" value="6" oninput="recalcBusiness()">
+          </div>
+          <div>
+            <label for="biz-rate">Rate per Client ($)</label>
+            <input id="biz-rate" type="number" min="0" step="25" value="450" oninput="recalcBusiness()">
+          </div>
+          <div>
+            <label for="biz-cost">Cost per Client ($)</label>
+            <input id="biz-cost" type="number" min="0" step="25" value="120" oninput="recalcBusiness()">
+          </div>
+        </div>
 
-<div class="card">
-<h2>KING'S TERMINAL</h2>
-<input placeholder="Your Name">
-<input placeholder="Your Message">
-<button>SEND TO KING LEO</button>
-</div>
+        <div class="summary-strip" style="margin-top: 10px;">
+          <div class="stat-box"><span id="est-gross" class="stat-num">$2,700</span><span class="stat-label">EST. GROSS</span></div>
+          <div class="stat-box"><span id="est-cost" class="stat-num">$720</span><span class="stat-label">EST. COST</span></div>
+          <div class="stat-box"><span id="est-profit" class="stat-num">$1,980</span><span class="stat-label">EST. PROFIT</span></div>
+          <div class="stat-box"><span id="est-margin" class="stat-num">73.3%</span><span class="stat-label">EST. MARGIN</span></div>
+        </div>
 
-<div class="card">
-<h2>SERVICES</h2>
-<p>Website - $299</p>
-<p>Security V12 - $199</p>
-<p>AI - $149</p>
-<p>Studio - $99</p>
-<a href="mailto:leo@greengables.com">
-EMAIL LEO
-</a>
-</div>
+        <div class="controls-bar">
+          <button type="button" onclick="addEngagementRecord()">LOG QUOTE</button>
+          <button type="button" class="secondary" onclick="exportBusinessJson()">EXPORT QUOTE JSON</button>
+        </div>
+        <div id="biz-out" class="output-box" aria-live="polite">Planning estimates only—not guaranteed earnings.</div>
+      </div>
+    </section>
 
-<div class="card">
-<h2>VAULT FORM</h2>
-<input placeholder="Full Name">
-<input placeholder="Email">
-<textarea placeholder="What to protect?">
-</textarea>
-<button>SEAL IN VAULT</button>
-</div>
+    <section aria-labelledby="lattice-heading">
+      <h2 id="lattice-heading" class="section-title">31-LAYER TOWERWALL LATTICE</h2>
+      <div class="card">
+        <p>
+          Browser views cannot execute local OS commands directly. Paste JSON from your local audit runner to populate results; unverified layers remain <code>UNKNOWN</code>.
+        </p>
 
-<p>© 2026 GREEN GABLES</p>
-<p>KING LEO & QUEEN JESSE SWAGATA</p>
-<p>I SAY GRACE 🙏</p>
-</div>
+        <div class="summary-strip" aria-label="Status summary">
+          <div class="stat-box"><span id="count-PASS" class="stat-num">0</span><span class="stat-label">PASS</span></div>
+          <div class="stat-box"><span id="count-WARN" class="stat-num">0</span><span class="stat-label">WARN</span></div>
+          <div class="stat-box"><span id="count-FAIL" class="stat-num">0</span><span class="stat-label">FAIL</span></div>
+          <div class="stat-box"><span id="count-UNKNOWN" class="stat-num">31</span><span class="stat-label">UNKNOWN</span></div>
+        </div>
+
+        <div class="controls-bar">
+          <button type="button" onclick="setFilter('ALL')">ALL (31)</button>
+          <button type="button" class="secondary" onclick="setFilter('PASS')">PASS</button>
+          <button type="button" class="secondary" onclick="setFilter('WARN')">WARN</button>
+          <button type="button" class="secondary" onclick="setFilter('FAIL')">FAIL</button>
+          <button type="button" class="secondary" onclick="setFilter('UNKNOWN')">UNKNOWN</button>
+          <button type="button" class="secondary" onclick="resetToUnverified()">RESET UNKNOWN</button>
+        </div>
+
+        <div id="layers-container" class="layers-list" role="region" aria-label="31 security layers"></div>
+
+        <label for="json-import-input">Audit JSON Payload</label>
+        <textarea id="json-import-input" placeholder='{"layers":[{"layer":"06","status":"PASS","detail":"FileVault is On"}]}'></textarea>
+        <div class="controls-bar" style="margin-top: 8px;">
+          <button type="button" onclick="importJsonReport()">LOAD JSON</button>
+          <button type="button" class="secondary" onclick="exportCurrentJson()">EXPORT JSON</button>
+        </div>
+        <div id="import-feedback" class="output-box" aria-live="polite">Ready for JSON import or filter selection.</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="ops-heading">
+      <h2 id="ops-heading" class="section-title">SYSTEM CARDS, TERMINAL &amp; VAULT</h2>
+      <div class="grid-cards">
+        <article class="card">
+          <h2>ROYAL FAMILY</h2>
+          <p>Governance &amp; verification standards.</p>
+          <ul class="telemetry-list">
+            <li><span>Lead</span><span>King Leo</span></li>
+            <li><span>Co-Lead</span><span>Queen</span></li>
+            <li><span>Pages URL</span><span><a href="https://hleo02837-arch.github.io/green-gables-apple-towerwall/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></span></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>SYSTEM LIVE</h2>
+          <p>Current browser viewport &amp; platform.</p>
+          <ul class="telemetry-list">
+            <li><span>Viewport</span><span id="live-viewport">Checking...</span></li>
+            <li><span>Platform</span><span id="live-platform">Checking...</span></li>
+            <li><span>Host Probe</span><span>CLI / Helper Required</span></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>KING'S TERMINAL</h2>
+          <p>Commands: <code>help</code>, <code>summary</code>, <code>pipeline</code>, <code>rules</code>.</p>
+          <label for="terminal-cmd">Command</label>
+          <input id="terminal-cmd" type="text" value="summary" autocomplete="off">
+          <div class="controls-bar" style="margin-top: 8px;">
+            <button type="button" onclick="runTerminalCmd()">RUN</button>
+          </div>
+          <div id="terminal-out" class="output-box" aria-live="polite">Ready. Type "help" for commands.</div>
+        </article>
+
+        <article class="card">
+          <h2>VAULT NOTES</h2>
+          <p>Session log only (do not enter plaintext passwords or secrets).</p>
+          <label for="vault-note">Note</label>
+          <input id="vault-note" type="text" placeholder="Enter audit or client note">
+          <label for="vault-domain">Track</label>
+          <select id="vault-domain">
+            <option value="Identity (01-05)">Identity (01-05)</option>
+            <option value="Device integrity (06-10)">Device integrity (06-10)</option>
+            <option value="Network defense (11-15)">Network defense (11-15)</option>
+            <option value="Software defense (16-20)">Software defense (16-20)</option>
+            <option value="Privacy defense (21-25)">Privacy defense (21-25)</option>
+            <option value="Persistence defense (26-28)">Persistence defense (26-28)</option>
+            <option value="Survival & recovery (29-31)">Survival &amp; recovery (29-31)</option>
+            <option value="Business Ops">Business Ops</option>
+          </select>
+          <div class="controls-bar" style="margin-top: 8px;">
+            <button type="button" onclick="saveVaultNote()">SAVE NOTE</button>
+          </div>
+          <div id="vault-out" class="output-box" aria-live="polite">No notes recorded in this session.</div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      2026 GREEN GABLES TOWERWALL · ALL-GREEN MATRIX · 31 LAYERS
+    </footer>
+  </div>
+
+  <script>
+    const VALID_STATUSES = new Set(["PASS", "WARN", "FAIL", "UNKNOWN"]);
+
+    const DEFAULT_LAYERS = [
+      ["01", "Identity", "Account protection"],
+      ["02", "Identity", "Multi-factor authentication (MFA)"],
+      ["03", "Identity", "Credential & password posture"],
+      ["04", "Identity", "Login security configuration"],
+      ["05", "Identity", "Account recovery protection"],
+      ["06", "Device integrity", "FileVault disk encryption"],
+      ["07", "Device integrity", "Secure Boot / hardware integrity"],
+      ["08", "Device integrity", "System Integrity Protection (SIP)"],
+      ["09", "Device integrity", "Recovery environment readiness"],
+      ["10", "Device integrity", "OS update status"],
+      ["11", "Network defense", "Application firewall"],
+      ["12", "Network defense", "Firewall stealth mode"],
+      ["13", "Network defense", "Remote services & sharing review"],
+      ["14", "Network defense", "Network visibility & interfaces"],
+      ["15", "Network defense", "Trusted connections & DNS posture"],
+      ["16", "Software defense", "Gatekeeper enforcement"],
+      ["17", "Software defense", "Trusted applications & code signing"],
+      ["18", "Software defense", "Malware protection status"],
+      ["19", "Software defense", "Patch & package verification"],
+      ["20", "Software defense", "Least privilege & admin posture"],
+      ["21", "Privacy defense", "TCC & application permissions"],
+      ["22", "Privacy defense", "Camera privacy"],
+      ["23", "Privacy defense", "Microphone privacy"],
+      ["24", "Privacy defense", "Accessibility & input permissions"],
+      ["25", "Privacy defense", "Data exposure & backup privacy"],
+      ["26", "Persistence defense", "Login items & user launch agents"],
+      ["27", "Persistence defense", "System launch daemons & agents"],
+      ["28", "Persistence defense", "Persistence & integrity baseline"],
+      ["29", "Survival & recovery", "Backup configuration & recency"],
+      ["30", "Survival & recovery", "Recovery destination & snapshots"],
+      ["31", "Survival & recovery", "Independent final verification"]
+    ].map(([layer, domain, name]) => ({
+      layer,
+      domain,
+      name,
+      status: "UNKNOWN",
+      detail: "Unverified in browser; import audit JSON to populate result"
+    }));
+
+    let layersState = DEFAULT_LAYERS.map((x) => ({ ...x }));
+    let activeFilter = "ALL";
+    const vaultNotes = [];
+    const quoteLog = [];
+
+    function sanitizeStatus(raw) {
+      const upper = String(raw || "").trim().toUpperCase();
+      return VALID_STATUSES.has(upper) ? upper : "UNKNOWN";
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function updateViewportInfo() {
+      const vp = document.getElementById("live-viewport");
+      const pf = document.getElementById("live-platform");
+      if (vp) vp.textContent = `${window.innerWidth} x ${window.innerHeight} px`;
+      if (pf) pf.textContent = navigator.platform || "Unknown";
+    }
+
+    function selectPackage(name, defaultRate) {
+      document.getElementById("biz-package").value = name;
+      document.getElementById("biz-rate").value = defaultRate;
+      recalcBusiness();
+      document.getElementById("biz-package").scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function recalcBusiness() {
+      const clients = Math.max(0, Number(document.getElementById("biz-clients").value) || 0);
+      const rate = Math.max(0, Number(document.getElementById("biz-rate").value) || 0);
+      const costPer = Math.max(0, Number(document.getElementById("biz-cost").value) || 0);
+
+      const gross = clients * rate;
+      const totalCost = clients * costPer;
+      const profit = gross - totalCost;
+      const margin = gross > 0 ? ((profit / gross) * 100).toFixed(1) : "0.0";
+
+      document.getElementById("est-gross").textContent = `$${gross.toLocaleString()}`;
+      document.getElementById("est-cost").textContent = `$${totalCost.toLocaleString()}`;
+      document.getElementById("est-profit").textContent = `$${profit.toLocaleString()}`;
+      document.getElementById("est-margin").textContent = `${margin}%`;
+
+      return { clients, rate, costPer, gross, totalCost, profit, margin };
+    }
+
+    function addEngagementRecord() {
+      const pkg = document.getElementById("biz-package").value.trim() || "Custom Tier";
+      const calc = recalcBusiness();
+      quoteLog.unshift({ ts_utc: new Date().toISOString(), package: pkg, ...calc });
+      document.getElementById("biz-out").textContent =
+        `Logged "${pkg}": ${calc.clients} x $${calc.rate} = $${calc.gross.toLocaleString()} est. gross | Est. profit $${calc.profit.toLocaleString()} (${calc.margin}%). Planning estimate only.`;
+    }
+
+    function exportBusinessJson() {
+      const payload = {
+        project: "GREEN-GABLES-APPLE-TOWERWALL",
+        disclaimer: "Planning estimates only; not guaranteed earnings.",
+        current_model: {
+          package: document.getElementById("biz-package").value.trim() || "Custom Tier",
+          ...recalcBusiness()
+        },
+        logged_quotes: quoteLog
+      };
+      document.getElementById("json-import-input").value = JSON.stringify(payload, null, 2);
+      document.getElementById("biz-out").textContent = "Exported business estimate JSON into the payload box.";
+    }
+
+    function renderLayers() {
+      const counts = { PASS: 0, WARN: 0, FAIL: 0, UNKNOWN: 0 };
+      layersState.forEach((item) => {
+        const st = sanitizeStatus(item.status);
+        item.status = st;
+        counts[st] += 1;
+      });
+
+      document.getElementById("count-PASS").textContent = counts.PASS;
+      document.getElementById("count-WARN").textContent = counts.WARN;
+      document.getElementById("count-FAIL").textContent = counts.FAIL;
+      document.getElementById("count-UNKNOWN").textContent = counts.UNKNOWN;
+
+      const container = document.getElementById("layers-container");
+      const filtered = activeFilter === "ALL"
+        ? layersState
+        : layersState.filter((item) => item.status === activeFilter);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="layer-row"><span class="layer-detail">No layers match filter: ${escapeHtml(activeFilter)}</span></div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map((item) => {
+        const st = sanitizeStatus(item.status);
+        return `
+          <div class="layer-row">
+            <div class="layer-head">
+              <span class="layer-id-name">L${escapeHtml(item.layer)} · ${escapeHtml(item.name)}</span>
+              <span class="badge badge-${st}">${st}</span>
+            </div>
+            <div class="layer-detail">${escapeHtml(item.domain)} — ${escapeHtml(item.detail)}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function setFilter(nextFilter) {
+      activeFilter = nextFilter;
+      renderLayers();
+    }
+
+    function resetToUnverified() {
+      layersState = DEFAULT_LAYERS.map((x) => ({ ...x }));
+      activeFilter = "ALL";
+      renderLayers();
+      document.getElementById("import-feedback").textContent = "Reset all 31 layers to UNKNOWN.";
+    }
+
+    function importJsonReport() {
+      const raw = document.getElementById("json-import-input").value.trim();
+      const fb = document.getElementById("import-feedback");
+      if (!raw) {
+        fb.textContent = "Paste a JSON report first. Unverified layers remain UNKNOWN.";
+        return;
+      }
+      try {
+        const parsed = JSON.parse(raw);
+        const incoming = Array.isArray(parsed.layers) ? parsed.layers : (Array.isArray(parsed) ? parsed : null);
+        if (!incoming) {
+          fb.textContent = "JSON must include a 'layers' array or be an array of layer objects.";
+          return;
+        }
+        const byId = new Map(incoming.map((entry) => [String(entry.layer || "").padStart(2, "0"), entry]));
+        let matched = 0;
+        layersState = DEFAULT_LAYERS.map((base) => {
+          const hit = byId.get(base.layer);
+          if (!hit) return { ...base };
+          matched += 1;
+          return {
+            layer: base.layer,
+            domain: hit.domain || base.domain,
+            name: hit.name || base.name,
+            status: sanitizeStatus(hit.status),
+            detail: hit.detail ? String(hit.detail) : "Imported from JSON report"
+          };
+        });
+        renderLayers();
+        fb.textContent = `Loaded ${matched} layer(s) from JSON. Unmatched or invalid statuses stay UNKNOWN.`;
+      } catch (err) {
+        fb.textContent = `Invalid JSON: ${err.message}`;
+      }
+    }
+
+    function exportCurrentJson() {
+      const payload = {
+        project: "GREEN-GABLES-APPLE-TOWERWALL",
+        exported_at_utc: new Date().toISOString(),
+        layers: layersState
+      };
+      document.getElementById("json-import-input").value = JSON.stringify(payload, null, 2);
+      document.getElementById("import-feedback").textContent = "Exported 31-layer JSON into the payload box.";
+    }
+
+    function runTerminalCmd() {
+      const input = document.getElementById("terminal-cmd");
+      const out = document.getElementById("terminal-out");
+      const cmd = input.value.trim().toLowerCase();
+      if (cmd === "help") {
+        out.textContent = "Commands: help | summary | pipeline | rules";
+      } else if (cmd === "rules") {
+        out.textContent = [
+          "1. Inspect before touching",
+          "2. Verify after every change",
+          "3. Fail closed / UNKNOWN is never green",
+          "4. Keep a recovery path",
+          "5. Independent testing"
+        ].join("\n");
+      } else if (cmd === "pipeline") {
+        const c = recalcBusiness();
+        out.textContent = `Est. Gross $${c.gross.toLocaleString()} | Est. Profit $${c.profit.toLocaleString()} (${c.margin}%)`;
+      } else if (cmd === "summary") {
+        const c = { PASS: 0, WARN: 0, FAIL: 0, UNKNOWN: 0 };
+        layersState.forEach((l) => { c[sanitizeStatus(l.status)] += 1; });
+        out.textContent = `PASS=${c.PASS} | WARN=${c.WARN} | FAIL=${c.FAIL} | UNKNOWN=${c.UNKNOWN} (Total=31)`;
+      } else {
+        out.textContent = `Unknown command "${input.value.trim()}". Type "help".`;
+      }
+    }
+
+    function saveVaultNote() {
+      const note = document.getElementById("vault-note").value.trim();
+      const domain = document.getElementById("vault-domain").value;
+      const out = document.getElementById("vault-out");
+      if (!note) {
+        out.textContent = "Enter a short note first.";
+        return;
+      }
+      vaultNotes.unshift(`[${new Date().toLocaleTimeString()}] [${domain}] ${note}`);
+      out.textContent = vaultNotes.join("\n");
+      document.getElementById("vault-note").value = "";
+    }
+
+    updateViewportInfo();
+    recalcBusiness();
+    renderLayers();
+    window.addEventListener("resize", updateViewportInfo);
+  </script>
 </body>
 </html>
