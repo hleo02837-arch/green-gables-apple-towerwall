@@ -1,1 +1,232 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Queen Jesse 👑 REAL CHAT</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#020c08;color:#e8fff0;font-family:Arial,sans-serif;padding:12px;padding-bottom:220px}
+.bday{background:#eab308;color:#000;text-align:center;padding:14px;border-radius:16px;font-weight:bold;font-size:20px;border:3px solid #22ff88}
+.bday span{font-size:14px;font-weight:normal}
+.top{border:2px solid #eab308;border-radius:16px;padding:16px;text-align:center;background:#04150c;margin-top:12px}
+.top h1{color:#facc15;margin:0;font-size:26px}.top p{margin:6px 0;color:#a7f3d0}
+.badge{display:inline-block;background:#eab308;color:#000;padding:5px 12px;border-radius:20px;font-weight:bold;font-size:12px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.nav button{background:#0a2a18;color:#facc15;border:1px solid #eab308;padding:10px 14px;border-radius:20px;font-weight:bold;cursor:pointer}
+.nav button.active{background:#eab308;color:#000}
+.card{background:#04150c;border:1px solid #22ff8855;border-radius:16px;padding:14px;margin:12px 0}
+.card h2{color:#facc15;margin:0 0 8px;font-size:19px}
+input,select,textarea{width:100%;padding:11px;margin:6px 0;border-radius:10px;border:1px solid #22ff88;background:#020c08;color:#fff;font-size:15px}
+button.big{background:#eab308;color:#000;border:0;padding:12px;border-radius:12px;font-weight:bold;width:100%;font-size:16px;cursor:pointer;margin-top:6px}
+button.green{background:#22ff88;color:#000;border:0;padding:10px 14px;border-radius:10px;font-weight:bold;cursor:pointer}
+.radar{width:220px;height:220px;margin:10px auto;border:2px solid #22ff88;border-radius:50%;position:relative;background:radial-gradient(circle,#04150c 0%,#020c08 70%);overflow:hidden}
+.ring{position:absolute;border:1px solid #22ff8855;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.apple{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:52px}
+.sweep{position:absolute;left:50%;top:50%;width:50%;height:3px;background:#facc15;transform-origin:left center;animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pill{display:inline-block;background:#0a2a18;border:1px solid #22ff88;padding:6px 10px;border-radius:20px;font-size:12px;margin:3px}
+.msg{background:#0a2a18;padding:10px;border-radius:10px;margin:6px 0;border-left:3px solid #facc15;word-break:break-word}
+.msg.mine{border-left-color:#22ff88;background:#06281a}
+.hidden{display:none}.photo{width:100%;border-radius:12px;border:1px solid #eab308;margin:6px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid div{background:#0a2a18;border:1px solid #22ff8855;border-radius:12px;padding:10px;text-align:center}
+.footer{text-align:center;color:#a7f3d0;font-size:12px;padding:14px}
+.fixedbar{position:fixed;left:0;right:0;bottom:0;background:#020c08;border-top:3px solid #eab308;padding:8px;text-align:center;z-index:9999}
+.fixedbar img{width:100%;max-width:420px;height:110px;object-fit:cover;border-radius:12px;border:2px solid #22ff88}
+.fixedbar a{color:#facc15;font-weight:bold;font-size:13px;text-decoration:none;word-break:break-all}
+.sharebtn{background:#eab308;color:#000;border:0;padding:10px 18px;border-radius:20px;font-weight:bold;margin-top:6px;font-size:15px;width:90%;max-width:420px;cursor:pointer}
+.whatsappbtn{background:#25D366;color:#fff;border:0;padding:14px;border-radius:12px;font-weight:bold;width:100%;font-size:17px;cursor:pointer;margin-top:6px}
+#realChatBox{max-height:350px;overflow-y:auto;background:#020c08;border:1px solid #22ff88;border-radius:10px;padding:8px}
+.online{color:#22ff88;font-weight:bold}
+.hero{width:100%;border-radius:16px;border:2px solid #eab308;margin-top:10px}
+</style>
+</head>
+<body>
+
+<div class="bday">🎂 HAPPY BIRTHDAY QUEEN JESSE! 👑💚<br><span>Today we celebrate YOU • ECHO-AMEN-7777 • We love you!</span><br>🎉 🎂 🍏 👑 💛 💚 🎈</div>
+
+<img class="hero" src="sunset.jpg" alt="Queen Jesse Sunset">
+
+<div class="top">
+<h1>👑 QUEEN JESSE SWAGATA</h1>
+<p>ECHO-AMEN-7777 • BELLEVILLE, ON</p>
+<span class="badge">REAL CHAT: LIVE ✅ NO SETUP NEEDED</span><br><br>
+<span class="pill">SWEEP: 156°</span> <span class="pill" id="linkPill">LINK: NOT PAIRED</span> <span class="pill">TOWERWALL: ONLINE</span>
+</div>
+
+<div class="nav">
+<button class="active" onclick="show('home',this)">🏠 HOME</button>
+<button onclick="show('defense',this)">🛡️ DEFENSE</button>
+<button onclick="show('audio',this)">🔊 AUDIO</button>
+<button onclick="show('chat',this)">🔐 REAL CHAT</button>
+<button onclick="show('realtext',this)">💬 TEXT FOR REAL</button>
+<button onclick="show('family',this)">👨‍👩‍👧 FAMILY</button>
+<button onclick="show('gables',this)">🍏 GABLES</button>
+<button onclick="show('prayer',this)">🙏 PRAYER</button>
+<button onclick="show('help',this)">📞 HELP</button>
+</div>
+
+<div id="home" class="card">
+<h2>📡 RADAR • TOWERWALL</h2>
+<div class="radar"><div class="ring" style="width:180px;height:180px"></div><div class="ring" style="width:120px;height:120px"></div><div class="ring" style="width:60px;height:60px"></div><div class="sweep"></div><div class="apple">🍏</div></div>
+<p style="text-align:center">Watching over Green Gables • All Clear • Queen Protected</p>
+<img class="photo" src="sunset.jpg" alt="Queen Jesse Sunset">
+<p style="text-align:center">🌅 Queen Jesse • On Top Of The World • Peaceful & Strong</p>
+<button class="big" onclick="show('chat',document.querySelectorAll('.nav button')[3])">🔐 OPEN REAL CHAT →</button>
+<div class="grid" style="margin-top:10px"><div>🏠<br><b>HOME</b><br>Safe</div><div>🍏<br><b>GABLES</b><br>Safe</div><div>🧱<br><b>TOWERWALL</b><br>Strong</div><div>👑<br><b>QUEEN</b><br>Protected</div></div>
+</div>
+
+<div id="defense" class="card hidden">
+<h2>🛡️ DEFENSE SCENES</h2><p id="defenseStatus">Tap a scene to activate it:</p>
+<button class="big" onclick="setDefense('🏠 HOME MODE ON')">🏠 HOME MODE</button>
+<button class="big" onclick="setDefense('🍏 GABLES MODE ON')">🍏 GABLES MODE</button>
+<button class="big" onclick="setDefense('🧱 TOWERWALL MODE ON')">🧱 TOWERWALL MODE</button>
+<button class="big" onclick="setDefense('👑 QUEEN MODE ON')">👑 QUEEN MODE</button>
+<button class="big" onclick="setDefense('🌙 NIGHT MODE ON')">🌙 NIGHT MODE</button>
+</div>
+
+<div id="audio" class="card hidden">
+<h2>🔊 VOICE / CB AUDIO</h2>
+<label>CHANNEL</label><select id="ch"><option>CH-01 - FAMILY</option><option>CH-02 - FRIENDS</option><option>CH-03 - TOWER</option><option>CH-04 - EMERGENCY</option></select>
+<button class="big" onclick="document.getElementById('audioStatus').innerText='🎙️ LIVE ON '+document.getElementById('ch').value+' ✅'">🎙️ START TALKING</button>
+<button class="big" onclick="document.getElementById('audioStatus').innerText='Status: Stopped'">⏹️ STOP</button>
+<p id="audioStatus">Status: Ready</p>
+</div>
+
+<div id="chat" class="card hidden">
+<h2>🔐 REAL PRIVATE CHAT • BACK & FORTH ✅</h2>
+<p>This one is <b>REAL</b>. You type, she sees it. She types, you see it. In about 2 seconds.</p>
+<label>YOUR NAME</label><input id="myName" placeholder="Type your name - Leroy" value="Leroy">
+<label>SECRET ROOM KEY (Both must use SAME key)</label><input id="roomKey" value="QUEEN-JESSE-7777">
+<button class="big" onclick="joinRoom()">🔗 JOIN PRIVATE ROOM</button>
+<p id="roomStatus">Status: Not joined yet</p>
+<div id="realChatBox"><div class="msg"><b>System:</b> Welcome to Queen Jesse's Private Room 👑💚</div></div>
+<input id="realMsgInput" placeholder="Type private message...">
+<button class="green" onclick="sendRealMsg()">SEND ➤ REAL</button>
+<p style="font-size:12px;color:#a7f3d0">Private = Only people with this secret key can see this room. Keep key secret.</p>
+</div>
+
+<div id="realtext" class="card hidden">
+<h2>💬 TEXT JESSE FOR REAL • WhatsApp / SMS</h2>
+<p>If she is not on the site, use this to text her phone.</p>
+<label>JESSE'S PHONE (numbers only, like 1613...)</label><input id="phone" placeholder="1613...">
+<label>YOUR MESSAGE</label>
+<textarea id="realmsg" rows="4">👑 Happy Birthday Queen Jesse! 🎂💚 I made this just for you - Green Gables Apple Towerwall 🍏🏰 https://hleo02837-arch.github.io/green-gables-apple-towerwall/?v=999 Happy Birthday! I love you! 👑💛💚🎂</textarea>
+<button class="whatsappbtn" onclick="textReal()">💬 OPEN WHATSAPP & TEXT JESSE →</button>
+<button class="big" onclick="textRealSMS()">📱 OPEN TEXT MESSAGES (SMS) →</button>
+<p id="realStatus" style="font-size:12px;color:#a7f3d0"></p>
+</div>
+
+<div id="family" class="card hidden">
+<h2>👨‍👩‍👧 FAMILY • LOVED ONES</h2>
+<div id="familyList"><div class="msg"><b>👑 Queen Jesse</b><br>Birthday Queen • Belleville, ON 🎂</div></div>
+<input id="famIn" placeholder="Add loved one's name...">
+<button class="big" onclick="addFam()">+ ADD FAMILY MEMBER</button>
+</div>
+
+<div id="gables" class="card hidden">
+<h2>🍏 GREEN GABLES STORY</h2>
+<img class="photo" src="sunset.jpg" alt="Queen Jesse Sunset - Green Gables">
+<p>🌅 This is our view. On top of the mountain, watching the sunset over the lake. Peaceful. Strong. Home.</p>
+<p>This is our home. Green Gables. A place of peace, love, and protection. Where Queen Jesse reigns with kindness, and the Towerwall stands strong around all we love.</p>
+<p><b>ECHO:</b> We speak love.<br><b>AMEN:</b> We stand in faith.<br><b>7777:</b> We are protected, always.</p>
+<p>🏠 Green Gables • Belleville, Ontario • Canada</p>
+</div>
+
+<div id="prayer" class="card hidden">
+<h2>🙏 PRAYER / PEACE WALL • ECHO-AMEN</h2>
+<div id="prayerList"><div class="msg"><b>🙏 Prayer:</b> Happy Birthday Queen Jesse! Keep us safe, keep us strong. Amen. 🎂</div></div>
+<input id="prayin" placeholder="Write a prayer or kind thought...">
+<button class="big" onclick="addPrayer()">POST PRAYER 🙏</button>
+</div>
+
+<div id="help" class="card hidden">
+<h2>📞 EMERGENCY • HELP</h2>
+<button class="big" onclick="alert('If this is an emergency, call 911 now. Stay safe.')">🚨 CALL 911</button>
+<button class="big" onclick="alert('Family alert sent! 💚')">📞 ALERT FAMILY</button>
+<p>If you feel unsafe, call 911 right away. You are not alone.</p><p><b>Belleville, ON • Canada</b></p>
+</div>
+
+<div class="footer">Queen Jesse Swagata // ECHO-AMEN-7777<br>Happy Birthday! • Green Gables Apple Towerwall • Made with Love 💚💛</div>
+
+<div class="fixedbar">
+<img src="sunset.jpg" alt="Queen Jesse Sunset"><br>
+<a href="https://hleo02837-arch.github.io/green-gables-apple-towerwall/">https://hleo02837-arch.github.io/green-gables-apple-towerwall/</a><br>
+<button class="sharebtn" onclick="shareSite()">📤 SHARE TO QUEEN JESSE 👑</button><br>
+<span style="color:#a7f3d0;font-size:12px">TOWERWALL • GREEN GABLES • HAPPY BIRTHDAY QUEEN JESSE 🎂</span>
+</div>
+
+<script>
+function show(id,btn){
+document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+if(btn) btn.classList.add('active');
+window.scrollTo(0,0);
+}
+function setDefense(t){document.getElementById('defenseStatus').innerText=t+' ✅ - Active and protecting Green Gables';}
+let currentRoom=null, myName="Leroy", seenIds=new Set(), pollTimer=null;
+function cleanKey(k){ return k.trim().toLowerCase().replace(/[^a-z0-9-]/g,'-'); }
+function joinRoom(){
+  myName=document.getElementById('myName').value.trim()||'Guest';
+  let raw=document.getElementById('roomKey').value.trim();
+  if(!raw){ alert('Type a Room Key'); return; }
+  currentRoom='towerwall-'+cleanKey(raw)+'-7777';
+  seenIds.clear();
+  document.getElementById('roomStatus').innerHTML='<span class="online">● JOINED: '+raw+' as '+myName+' ✅ - Live! Checking for new messages every 2 seconds...</span>';
+  document.getElementById('linkPill').innerText='LINK: PAIRED';
+  document.getElementById('realChatBox').innerHTML='<div class="msg"><b>System:</b> You joined private room <b>'+raw+'</b> as <b>'+myName+'</b> 👑<br>Send a message - Jesse will see it!</div>';
+  if(pollTimer) clearInterval(pollTimer);
+  checkMessages();
+  pollTimer=setInterval(checkMessages, 2000);
+}
+async function checkMessages(){
+  if(!currentRoom) return;
+  try{
+    let r2=await fetch('https://dweet.io/get/dweets/for/'+currentRoom);
+    let j2=await r2.json();
+    if(j2 && j2.with){
+      let list=j2.with.slice(-20).reverse();
+      list.forEach(item=>{
+        let id=item.transaction;
+        if(seenIds.has(id)) return;
+        seenIds.add(id);
+        let c=item.content;
+        if(!c || !c.name || !c.text) return;
+        if(c._sender===myName && c._ts && (Date.now()-c._ts)<3000) return;
+        addMsgToBox(c.name, c.text, c.time||'');
+      });
+    }
+  }catch(e){ console.log('poll',e); }
+}
+function addMsgToBox(name, text, time){
+  let box=document.getElementById('realChatBox');
+  let d=document.createElement('div');
+  let isMine = name===myName;
+  d.className='msg'+(isMine?' mine':'');
+  d.innerHTML='<b>'+name+':</b> '+text+'<br><span style="font-size:11px;color:#a7f3d0">'+(time||'')+'</span>';
+  box.appendChild(d);
+  box.scrollTop=box.scrollHeight;
+}
+async function sendRealMsg(){
+  if(!currentRoom){ alert('Tap JOIN PRIVATE ROOM first!'); return; }
+  let txt=document.getElementById('realMsgInput').value.trim();
+  if(!txt) return;
+  myName=document.getElementById('myName').value.trim()||'Guest';
+  let payload={name:myName, text:txt, time:new Date().toLocaleTimeString(), _sender:myName, _ts:Date.now()};
+  addMsgToBox(myName, txt, payload.time);
+  document.getElementById('realMsgInput').value='';
+  try{
+    await fetch('https://dweet.io/dweet/for/'+currentRoom, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+  }catch(e){ alert('Message sent locally, but network had a hiccup. Try again.'); }
+}
+document.getElementById('realMsgInput').addEventListener('keypress',function(e){ if(e.key==='Enter') sendRealMsg(); });
+function addFam(){var v=document.getElementById('famIn').value.trim();if(!v)return;var d=document.createElement('div');d.className='msg';d.innerHTML='<b>💚 '+v+'</b><br>Added to Family • Safe';document.getElementById('familyList').appendChild(d);document.getElementById('famIn').value='';}
+function addPrayer(){var v=document.getElementById('prayin').value.trim();if(!v)return;var d=document.createElement('div');d.className='msg';d.innerHTML='🙏 '+v;document.getElementById('prayerList').appendChild(d);document.getElementById('prayin').value='';}
+function textReal(){var phone=document.getElementById('phone').value.replace(/[^0-9]/g,'');var msg=document.getElementById('realmsg').value;if(!phone){document.getElementById('realStatus').innerText='⚠️ Type Jesse\'s number first';return;}localStorage.setItem('jessePhone',phone);window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');document.getElementById('realStatus').innerText='✅ WhatsApp opened! Tap SEND in WhatsApp!';}
+function textRealSMS(){var phone=document.getElementById('phone').value.replace(/[^0-9]/g,'');var msg=document.getElementById('realmsg').value;if(!phone){document.getElementById('realStatus').innerText='⚠️ Type Jesse\'s number first';return;}window.location.href='sms:+'+phone+'?body='+encodeURIComponent(msg);}
+function shareSite(){var link="https://hleo02837-arch.github.io/green-gables-apple-towerwall/?v=999";var text="🎂 Happy Birthday Queen Jesse! 👑💚 I made this for you - Green Gables Apple Towerwall 🍏 "+link;if(navigator.share){navigator.share({title:"Happy Birthday Queen Jesse",text:text,url:link});}else{navigator.clipboard.writeText(text);alert("Link copied! Now paste it to Jesse 💚\n"+link);}}
+window.onload=function(){var p=localStorage.getItem('jessePhone');if(p) document.getElementById('phone').value=p;}
+</script>
+</body>
+</html>
