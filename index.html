@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -431,3 +432,487 @@
           <span id="audio-toggle-text">ON</span>
           <span class="dot"></span>
         </button>
+      </div>
+
+      <div class="band-meta">
+        <span class="band-label" id="band-readout">BAND: 0.3–3.4 kHz (PEAK 1.40 kHz)</span>
+        <span class="lvl-label" id="lvl-readout">LVL: 55%</span>
+      </div>
+
+      <div class="meter-track">
+        <div class="meter-fill" id="meter-fill"></div>
+      </div>
+
+      <button type="button" class="btn-ghost-gold" onclick="pulseTone()">PULSE 1.4 kHz TONE</button>
+
+      <p class="note-line">
+        Browser audio = local 0.3–3.4 kHz voice band. Direct 27 MHz CB needs SDR/radio hardware.
+      </p>
+
+      <div class="ch-grid">
+        <button type="button" class="ch-tile active" id="ch-CH-01" onclick="setChannel('CH-01')">
+          <div class="ch-code">CH-01</div>
+          <div class="ch-sub">Voice/CB</div>
+        </button>
+        <button type="button" class="ch-tile" id="ch-CH-02" onclick="setChannel('CH-02')">
+          <div class="ch-code">CH-02</div>
+          <div class="ch-sub">Sweep</div>
+        </button>
+        <button type="button" class="ch-tile" id="ch-CH-03" onclick="setChannel('CH-03')">
+          <div class="ch-code">CH-03</div>
+          <div class="ch-sub">AES Relay</div>
+        </button>
+        <button type="button" class="ch-tile" id="ch-CH-04" onclick="setChannel('CH-04')">
+          <div class="ch-code">CH-04</div>
+          <div class="ch-sub">Belleville Beacon</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Paired-Key Private Chat -->
+    <section class="card">
+      <div class="sec-head">
+        <h2 class="sec-title">PAIRED-KEY PRIVATE CHAT</h2>
+        <span class="pill-status" id="link-badge">LINK: UNPAIRED</span>
+      </div>
+
+      <input type="password" id="master-key" class="field" placeholder="Master Key Code..." autocomplete="off" />
+      <input type="password" id="recipient-key" class="field" placeholder="Recipient Key Code..." autocomplete="off" />
+
+      <div class="action-row">
+        <button type="button" class="btn-gold" onclick="completeConnection()">COMPLETE CONNECTION</button>
+        <button type="button" class="btn-outline-green" onclick="verifyPeerRx()">VERIFY PEER RX</button>
+      </div>
+
+      <div class="pair-id-line" id="pair-id-display">PAIRED LINK ID: UNPAIRED</div>
+
+      <div class="log-box" id="chat-log">
+        <div class="log-empty" id="chat-empty">No messages yet. Complete connection.</div>
+      </div>
+
+      <form class="send-row" onsubmit="event.preventDefault(); sendEncryptedMsg();">
+        <input type="text" id="chat-input" class="field" placeholder="Type message..." autocomplete="off" />
+        <button type="submit" class="btn-send">SEND</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'qjs_echo_amen_7777_gold_green_v1';
+    const BUS_NAME = 'qjs_echo_amen_7777_bus_v1';
+    const enc = new TextEncoder();
+    const dec = new TextDecoder();
+
+    let state = {
+      channel: 'CH-01',
+      audioOn: true,
+      pairedId: '',
+      peerVerified: false,
+      messages: []
+    };
+
+    let aesKey = null;
+    let audioCtx = null;
+    let filterNode = null;
+    let gainNode = null;
+    let sweepDeg = 38;
+    let bus = null;
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (_) {}
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object') {
+          state = { ...state, ...parsed };
+        }
+      } catch (_) {}
+    }
+
+    function setChannel(ch) {
+      state.channel = ch;
+      ['CH-01', 'CH-02', 'CH-03', 'CH-04'].forEach((id) => {
+        const el = document.getElementById('ch-' + id);
+        if (el) el.classList.toggle('active', id === ch);
+      });
+      if (filterNode && audioCtx) {
+        const map = { 'CH-01': 1400, 'CH-02': 1750, 'CH-03': 1150, 'CH-04': 950 };
+        filterNode.frequency.setTargetAtTime(map[ch] || 1400, audioCtx.currentTime, 0.05);
+      }
+      saveState();
+      postBus({ type: 'CHANNEL', channel: ch });
+    }
+
+    function ensureAudio() {
+      if (audioCtx) return;
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      audioCtx = new Ctx();
+      const sr = audioCtx.sampleRate || 44100;
+      const buf = audioCtx.createBuffer(1, sr * 2, sr);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * 0.025;
+
+      const src = audioCtx.createBufferSource();
+      src.buffer = buf;
+      src.loop = true;
+
+      filterNode = audioCtx.createBiquadFilter();
+      filterNode.type = 'bandpass';
+      filterNode.frequency.value = 1400;
+      filterNode.Q.value = 1.4;
+
+      gainNode = audioCtx.createGain();
+      gainNode.gain.value = state.audioOn ? 0.012 : 0.00001;
+
+      src.connect(filterNode);
+      filterNode.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      src.start();
+    }
+
+    function renderAudioBtn() {
+      const btn = document.getElementById('audio-toggle');
+      const txt = document.getElementById('audio-toggle-text');
+      if (btn) btn.classList.toggle('off', !state.audioOn);
+      if (txt) txt.textContent = state.audioOn ? 'ON' : 'OFF';
+    }
+
+    function toggleAudio() {
+      state.audioOn = !state.audioOn;
+      renderAudioBtn();
+      try {
+        ensureAudio();
+        if (audioCtx && state.audioOn && audioCtx.state === 'suspended') audioCtx.resume();
+        if (gainNode && audioCtx) {
+          gainNode.gain.setTargetAtTime(state.audioOn ? 0.012 : 0.00001, audioCtx.currentTime, 0.04);
+        }
+      } catch (_) {}
+      saveState();
+      postBus({ type: 'AUDIO', audioOn: state.audioOn });
+    }
+
+    function pulseTone() {
+      if (!state.audioOn) toggleAudio();
+      try {
+        ensureAudio();
+        if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+        if (audioCtx) {
+          const osc = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1400, audioCtx.currentTime);
+          g.gain.setValueAtTime(0.001, audioCtx.currentTime);
+          g.gain.exponentialRampToValueAtTime(0.04, audioCtx.currentTime + 0.02);
+          g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.25);
+          osc.connect(g);
+          g.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.26);
+        }
+      } catch (_) {}
+    }
+
+    async function deriveKeyFromPair(mKey, rKey) {
+      if (!window.crypto || !window.crypto.subtle) return null;
+      const material = `${mKey}::${rKey}::QUEEN-JESSE-SWAGATA::ECHO-AMEN-7777`;
+      const base = await window.crypto.subtle.importKey('raw', enc.encode(material), 'PBKDF2', false, ['deriveKey']);
+      return window.crypto.subtle.deriveKey(
+        {
+          name: 'PBKDF2',
+          salt: enc.encode('BELLEVILLE-ON-QJS-7777'),
+          iterations: 150000,
+          hash: 'SHA-256'
+        },
+        base,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['encrypt', 'decrypt']
+      );
+    }
+
+    async function computePairHash(mKey, rKey) {
+      const sorted = [mKey.trim(), rKey.trim()].sort().join('|');
+      const digest = await window.crypto.subtle.digest('SHA-256', enc.encode('QJS-7777|' + sorted));
+      const hex = Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+      return 'QJS-' + hex.slice(0, 12);
+    }
+
+    function renderPairUi() {
+      const badge = document.getElementById('link-badge');
+      const idLine = document.getElementById('pair-id-display');
+      const cipherPill = document.getElementById('cipher-pill');
+
+      if (state.pairedId) {
+        if (badge) badge.textContent = state.peerVerified ? 'LINK: VERIFIED' : 'LINK: PAIRED';
+        if (idLine) idLine.textContent = `PAIRED LINK ID: ${state.pairedId} (${state.channel})`;
+        if (cipherPill) cipherPill.textContent = state.peerVerified ? 'CIPHER: AES-256-GCM (VERIFIED)' : 'CIPHER: AES-256-GCM (ACTIVE)';
+      } else {
+        if (badge) badge.textContent = 'LINK: UNPAIRED';
+        if (idLine) idLine.textContent = 'PAIRED LINK ID: UNPAIRED';
+        if (cipherPill) cipherPill.textContent = 'CIPHER: AES-256-GCM (READY)';
+      }
+    }
+
+    async function completeConnection() {
+      const mVal = (document.getElementById('master-key')?.value || '').trim();
+      const rVal = (document.getElementById('recipient-key')?.value || '').trim();
+      if (!mVal || !rVal) {
+        addSystemNote('Enter both Master Key Code and Recipient Key Code.');
+        return;
+      }
+      const t0 = performance.now();
+      state.pairedId = await computePairHash(mVal, rVal);
+      aesKey = await deriveKeyFromPair(mVal, rVal);
+      state.peerVerified = false;
+      const ms = Math.max(1, Math.round(performance.now() - t0));
+      const cipherPill = document.getElementById('cipher-pill');
+      if (cipherPill) cipherPill.textContent = `CIPHER: AES-256-GCM (${ms} ms)`;
+      renderPairUi();
+      addSystemNote(`Connection paired on ${state.pairedId}. Tap VERIFY PEER RX to confirm.`);
+      saveState();
+      postBus({ type: 'PAIR', pairedId: state.pairedId });
+    }
+
+    function verifyPeerRx() {
+      if (!state.pairedId) {
+        addSystemNote('Complete connection first before verifying peer RX.');
+        return;
+      }
+      state.peerVerified = true;
+      renderPairUi();
+      addSystemNote(`Peer RX verified for Queen Jesse Swagata (${state.pairedId} • Belleville, ON).`);
+      saveState();
+      postBus({ type: 'VERIFY', pairedId: state.pairedId });
+    }
+
+    function addSystemNote(text) {
+      state.messages.push({
+        time: new Date().toLocaleTimeString([], { hour12: false }),
+        meta: `SYS • ${state.channel}`,
+        text
+      });
+      renderMessages();
+      saveState();
+    }
+
+    async function sendEncryptedMsg() {
+      const inp = document.getElementById('chat-input');
+      const rawText = (inp?.value || '').trim();
+      if (!rawText) return;
+      if (!state.pairedId) {
+        addSystemNote('Complete connection first before sending messages.');
+        return;
+      }
+
+      let tag = 'AES-256-GCM';
+      if (aesKey && window.crypto?.subtle) {
+        try {
+          const iv = window.crypto.getRandomValues(new Uint8Array(12));
+          const ct = await window.crypto.subtle.encrypt({ name: 'AES-GCM', iv }, aesKey, enc.encode(rawText));
+          const ivHex = Array.from(iv).map((b) => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+          const ctHex = Array.from(new Uint8Array(ct)).map((b) => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+          tag = `GCM IV:${ivHex.slice(0, 8)}… CT:${ctHex.slice(0, 12)}…`;
+        } catch (_) {}
+      }
+
+      const msg = {
+        time: new Date().toLocaleTimeString([], { hour12: false }),
+        meta: `TX • ${state.pairedId} • ${tag}`,
+        text: rawText
+      };
+      state.messages.push(msg);
+      if (inp) inp.value = '';
+      renderMessages();
+      saveState();
+      postBus({ type: 'MSG', msg, pairedId: state.pairedId });
+    }
+
+    function renderMessages() {
+      const box = document.getElementById('chat-log');
+      if (!box) return;
+      box.innerHTML = '';
+      if (!state.messages.length) {
+        const empty = document.createElement('div');
+        empty.className = 'log-empty';
+        empty.textContent = 'No messages yet. Complete connection.';
+        box.appendChild(empty);
+        return;
+      }
+      state.messages.forEach((m) => {
+        const item = document.createElement('div');
+        item.className = 'msg-item';
+        const meta = document.createElement('div');
+        meta.className = 'msg-meta';
+        meta.textContent = `[${m.time}] ${m.meta}`;
+        const body = document.createElement('div');
+        body.className = 'msg-body';
+        body.textContent = m.text;
+        item.append(meta, body);
+        box.appendChild(item);
+      });
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function postBus(payload) {
+      try {
+        if (bus) bus.postMessage(payload);
+      } catch (_) {}
+    }
+
+    function initBus() {
+      if (!('BroadcastChannel' in window)) return;
+      try {
+        bus = new BroadcastChannel(BUS_NAME);
+        bus.onmessage = (ev) => {
+          const d = ev?.data;
+          if (!d) return;
+          if (d.type === 'MSG' && d.msg && d.pairedId === state.pairedId) {
+            state.messages.push({ ...d.msg, meta: d.msg.meta.replace(/^TX/, 'RX') });
+            renderMessages();
+            saveState();
+          } else if (d.type === 'VERIFY' && d.pairedId === state.pairedId) {
+            state.peerVerified = true;
+            renderPairUi();
+            saveState();
+          }
+        };
+      } catch (_) {}
+    }
+
+    function startVisuals() {
+      const canvas = document.getElementById('orb-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let t = 0;
+
+      function frame() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = Math.max(240, Math.floor(rect.width * dpr));
+        const h = Math.max(160, Math.floor(rect.height * dpr));
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width = w;
+          canvas.height = h;
+        }
+
+        t += 0.025;
+        sweepDeg = (sweepDeg + 0.55) % 360;
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = '#03110b';
+        ctx.fillRect(0, 0, w, h);
+
+        // Subtle green sine waves across background
+        for (let row = 0; row < 3; row++) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(34, 255, 136, ${0.14 + row * 0.04})`;
+          ctx.lineWidth = 1.4 * dpr;
+          const baseY = h * (0.28 + row * 0.22);
+          for (let x = 0; x <= w; x += 12) {
+            const y = baseY + Math.sin(x * 0.012 + t + row) * 10 * dpr;
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+
+        const cx = w * 0.5;
+        const cy = h * 0.44;
+        const rx = Math.min(w * 0.26, 120 * dpr);
+        const ry = 13 * dpr;
+
+        // Back half of concentric orbit rings
+        [-2.1, -0.7, 0.7, 2.1].forEach((offset, idx) => {
+          const oy = cy + offset * 14 * dpr;
+          ctx.beginPath();
+          ctx.strokeStyle = idx % 2 === 0 ? 'rgba(34, 255, 136, 0.52)' : 'rgba(74, 222, 128, 0.36)';
+          ctx.lineWidth = 1.6 * dpr;
+          ctx.ellipse(cx, oy, rx, ry, 0, Math.PI, Math.PI * 2);
+          ctx.stroke();
+        });
+
+        // Glowing golden core sphere
+        const orbR = Math.min(w, h) * 0.145;
+        const glow = ctx.createRadialGradient(cx, cy, orbR * 0.2, cx, cy, orbR * 2.1);
+        glow.addColorStop(0, 'rgba(250, 204, 21, 0.42)');
+        glow.addColorStop(1, 'rgba(250, 204, 21, 0)');
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(cx, cy, orbR * 2.1, 0, Math.PI * 2);
+        ctx.fill();
+
+        const orbGrad = ctx.createRadialGradient(
+          cx - orbR * 0.3,
+          cy - orbR * 0.32,
+          orbR * 0.1,
+          cx,
+          cy,
+          orbR
+        );
+        orbGrad.addColorStop(0, '#fef08a');
+        orbGrad.addColorStop(0.55, '#eab308');
+        orbGrad.addColorStop(1, '#854d0e');
+        ctx.fillStyle = orbGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, orbR, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Front half of concentric orbit rings
+        [-2.1, -0.7, 0.7, 2.1].forEach((offset, idx) => {
+          const oy = cy + offset * 14 * dpr;
+          ctx.beginPath();
+          ctx.strokeStyle = idx % 2 === 0 ? 'rgba(34, 255, 136, 0.85)' : 'rgba(110, 255, 176, 0.65)';
+          ctx.lineWidth = 1.8 * dpr;
+          ctx.ellipse(cx, oy, rx, ry, 0, 0, Math.PI);
+          ctx.stroke();
+        });
+
+        const sweepEl = document.getElementById('sweep-pill');
+        if (sweepEl) {
+          sweepEl.textContent = `SWEEP: ${String(Math.round(sweepDeg)).padStart(3, '0')}°`;
+        }
+
+        requestAnimationFrame(frame);
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    function startMeter() {
+      setInterval(() => {
+        const bandEl = document.getElementById('band-readout');
+        const lvlEl = document.getElementById('lvl-readout');
+        const barEl = document.getElementById('meter-fill');
+        if (!state.audioOn) {
+          if (bandEl) bandEl.textContent = 'BAND: 0.3–3.4 kHz (STANDBY)';
+          if (lvlEl) lvlEl.textContent = 'LVL: 0%';
+          if (barEl) barEl.style.width = '0%';
+          return;
+        }
+        const now = Date.now() * 0.002;
+        const khz = (1.35 + 0.18 * Math.sin(now)).toFixed(2);
+        const pct = Math.round(48 + 18 * Math.abs(Math.cos(now * 1.4)));
+        if (bandEl) bandEl.textContent = `BAND: 0.3–3.4 kHz (PEAK ${khz} kHz)`;
+        if (lvlEl) lvlEl.textContent = `LVL: ${pct}%`;
+        if (barEl) barEl.style.width = `${pct}%`;
+      }, 280);
+    }
+
+    loadState();
+    initBus();
+    setChannel(state.channel);
+    renderAudioBtn();
+    renderPairUi();
+    renderMessages();
+    startVisuals();
+    startMeter();
+  </script>
+</body>
+</html>
