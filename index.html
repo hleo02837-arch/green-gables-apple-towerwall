@@ -1,4 +1,4 @@
-
+7
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,4 +164,23 @@ document.getElementById('prayin').value='';
 }
 </script>
 </body>
-</html>
+</html><!-- TOWERWALL ALWAYS + SHAREABLE -->
+<div style="position:fixed;left:0;right:0;bottom:0;background:#020c08;border-top:3px solid #eab308;padding:8px;text-align:center;z-index:9999">
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800" style="width:100%;max-width:420px;height:110px;object-fit:cover;border-radius:12px;border:2px solid #22ff88">
+<br>
+<a href="https://hleo02837-arch.github.io/green-gables-apple-towerwall/" style="color:#facc15;font-weight:bold;font-size:13px;text-decoration:none">https://hleo02837-arch.github.io/green-gables-apple-towerwall/</a>
+<br>
+<button onclick="shareSite()" style="background:#eab308;color:#000;border:0;padding:10px 18px;border-radius:20px;font-weight:bold;margin-top:6px;font-size:15px;width:90%;max-width:420px">📤 SHARE TO QUEEN JESSE 👑</button>
+<br>
+<span style="color:#a7f3d0;font-size:12px">TOWERWALL • GREEN GABLES • HAPPY BIRTHDAY 🎂</span>
+</div>
+<div style="height:210px"></div>
+<script>
+function shareSite(){
+  var link = "https://hleo02837-arch.github.io/green-gables-apple-towerwall/";
+  var text = "🎂 Happy Birthday Queen Jesse! 👑💚 I made this for you - Green Gables Apple Towerwall 🍏 " + link;
+  if(navigator.share){ navigator.share({title:"Happy Birthday Queen Jesse", text:text, url:link}); }
+  else { navigator.clipboard.writeText(text); alert("Link copied! Now paste it to Jesse 💚\n" + link); }
+}
+</script>
+</body>
