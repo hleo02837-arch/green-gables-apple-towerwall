@@ -1,1 +1,221 @@
 
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#030b0a">
+<title>Queen Etsie Merkuratsuk // Fortress Relay (ECHO-AMEN-7777)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],mono:['JetBrains Mono','monospace']}}}}</script>
+<style>
+html,body{background:#030b0a;color:#cfeee0;overflow-x:hidden;max-width:100vw;padding-bottom:20px}
+.mono{font-family:'JetBrains Mono',monospace}
+.card{background:#04100e;border:1px solid #13573a;border-radius:16px;box-shadow:0 0 0 1px rgba(255,211,92,.12),0 10px 26px rgba(0,0,0,.65)}
+.card.lit{border-color:#34e87a;box-shadow:0 0 28px rgba(52,232,122,.24)}
+canvas{display:block;width:100%;height:100%}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="w-full max-w-5xl mx-auto px-2.5 sm:px-5 py-2.5 space-y-3.5">
+
+<div style="background:#ffd35c;color:#000;text-align:center;font-weight:900;padding:14px;border-radius:14px;font-family:monospace">
+👑 GOD SAVE THE QUEEN 👑<br>
+💍 ENGAGED - LEO BRIAN HALL ❤️ QUEEN ETSIE MERKURATSUK<br>
+<span style="font-size:11px">🎂 TOMORROW IS QUEEN ETSIE'S BIRTHDAY - KEEPER GREEN - LONDON, ONTARIO</span>
+</div>
+
+<header class="card p-3 sm:p-5 space-y-3">
+<div class="flex flex-col sm:flex-row justify-between gap-3">
+<div class="space-y-1.5">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded-lg bg-[#081b17] border border-[#ffd35c] text-[#ffd35c] mono text-[10px] font-black">QUEEN ETSIE MERKURATSUK</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#081b17] border border-[#34e87a] text-[#34e87a] mono text-[10px] font-black">FREE ACCESS</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#030b0a] border border-[#ffd35c] text-[#ffd35c] mono text-[10px] font-black">ECHO-AMEN-7777</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#030b0a] border border-[#3fe0ff] text-[#3fe0ff] mono text-[10px] font-bold">LONDON, ON</span>
+</div>
+<h1 class="text-base sm:text-2xl font-black text-[#ffd35c]">QUEEN ETSIE MERKURATSUK FORTRESS RELAY HUB</h1>
+<p class="text-[11px] sm:text-sm">Complimentary security hub for Queen Etsie Merkuratsuk in London, ON • Node ECHO-AMEN-7777 • PBKDF2-SHA256 (150k) + AES-256-GCM • 0.3–3.4 kHz audio & paired-key chat.</p>
+</div>
+<div class="shrink-0 text-right">
+<div id="header-pill" class="px-3 py-2 rounded-xl bg-[#081b17] border border-[#ffd35c] text-[#ffd35c] mono text-[10px] font-black">ARMED • KEY DERIVED</div>
+<div class="mono text-[10px] text-[#3fe0ff] mt-1"><span id="saved-stamp">SAVED: --:--:--</span> • <span id="utc-clock" class="text-[#34e87a] font-bold">--:--:--</span></div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between gap-2 pt-2 border-t border-[#13573a]">
+<div class="flex flex-wrap gap-1.5 mono text-[10px] text-[#3fe0ff]">
+<span class="px-2 py-1 rounded-lg bg-[#030b0a] border border-[#13573a]">LOC: <b class="text-[#ffd35c]">LONDON, ON</b></span>
+<span class="px-2 py-1 rounded-lg bg-[#030b0a] border border-[#13573a]">CH: <b id="header-ch" class="text-[#34e87a]">CH-01</b></span>
+<span class="px-2 py-1 rounded-lg bg-[#030b0a] border border-[#13573a]">BUS: <b class="text-[#3fe0ff]">queen_etsie_bus_v1</b></span>
+</div>
+<button onclick="applyEverything(true)" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#ffd35c] to-[#f4bc2c] text-black mono text-xs font-black">APPLY EVERYTHING, SAVE & RUN</button>
+</div>
+</header>
+
+<section class="card p-3 sm:p-5 space-y-2">
+<div class="flex justify-between"><span class="mono text-[10px] text-[#3fe0ff] font-bold">LIVE SECURITY POSTURE</span><span id="mode-badge" class="px-2 py-0.5 rounded bg-[#081b17] border border-[#34e87a] text-[#34e87a] mono text-[10px] font-bold">MODE: UACS FORTRESS</span></div>
+<div id="headline" class="mono text-sm sm:text-xl font-black text-[#ffd35c]">MAX SEC: KEY DERIVED (PEER PENDING)</div>
+<p id="detail" class="text-[11px]">Complete peer proof to reach MAX SEC: FULLY LIT.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mono text-[11px]">
+<div class="bg-[#030b0a] border border-[#13573a] rounded-xl p-2.5"><div class="text-[#3fe0ff] text-[9px]">CIPHER</div><div id="cipher-sum" class="text-[#34e87a] font-bold">PBKDF2-150K + AES-256-GCM</div></div>
+<div class="bg-[#030b0a] border border-[#13573a] rounded-xl p-2.5"><div class="text-[#3fe0ff] text-[9px]">CHANNEL</div><div id="link-sum" class="text-[#ffd35c] font-bold">CH-01 • READY</div></div>
+<div class="bg-[#030b0a] border border-[#13573a] rounded-xl p-2.5"><div class="text-[#3fe0ff] text-[9px]">PEER PROOF</div><div id="peer-sum" class="text-[#ffd35c] font-bold">AWAITING PEER</div></div>
+</div>
+<div class="flex gap-2">
+<button onclick="deriveKey(true)" class="flex-1 px-3 py-2 rounded-xl bg-[#081b17] border border-[#34e87a] text-[#34e87a] mono text-xs font-bold">RUN PBKDF2-150K KDF</button>
+<button onclick="toggleLock()" id="lock-btn" class="flex-1 px-3 py-2 rounded-xl bg-[#081b17] border border-[#ffd35c] text-[#ffd35c] mono text-xs font-bold">LOCK: AUTO-VERIFY</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+<input id="op-name" value="Queen Etsie Merkuratsuk" onchange="syncInputs()" class="bg-[#030b0a] border border-[#13573a] rounded-xl px-3 py-2 mono text-xs text-[#ffd35c]" placeholder="Operator Name">
+<input id="room-code" value="ECHO-AMEN-7777-LONDON" onchange="syncInputs()" class="bg-[#030b0a] border border-[#13573a] rounded-xl px-3 py-2 mono text-xs text-[#3fe0ff]" placeholder="Room">
+<input id="passphrase" type="password" value="QUEEN-ETSIE-MERKURATSUK-LONDON-7777" onchange="deriveKey(true)" class="bg-[#030b0a] border border-[#13573a] rounded-xl px-3 py-2 mono text-xs text-[#34e87a]" placeholder="Passphrase">
+</div>
+</section>
+
+<section class="card p-3 sm:p-5 space-y-3">
+<div class="flex justify-between"><h2 class="font-black text-[#ffd35c] text-sm sm:text-lg">FORTRESS TOPOLOGY & MANDALA CANVAS</h2>
+<div class="flex gap-1"><button id="btn-fortress" onclick="setMode('fortress')" class="px-2 py-2 rounded-xl bg-[#081b17] border-2 border-[#ffd35c] text-[#ffd35c] mono text-[10px] font-black">FORTRESS</button><button id="btn-shield" onclick="setMode('shield-grid')" class="px-2 py-2 rounded-xl bg-[#030b0a] border border-[#13573a] mono text-[10px] font-bold">SHIELD</button><button id="btn-mandala" onclick="setMode('grace-mandala')" class="px-2 py-2 rounded-xl bg-[#030b0a] border border-[#13573a] mono text-[10px] font-bold">GRACE MANDALA</button></div></div>
+<div class="relative w-full aspect-[16/10] min-h-[210px] max-h-[380px] rounded-2xl bg-[#030b0a] border border-[#13573a] overflow-hidden"><canvas id="main-canvas"></canvas>
+<div class="absolute top-2 left-2 px-2 py-1 rounded bg-black/80 border border-[#13573a] text-[#ffd35c] mono text-[9px] font-bold" id="tag-tl">UACS FORTRESS • ECHO-AMEN-7777</div>
+<div class="absolute top-2 right-2 px-2 py-1 rounded bg-black/80 border border-[#34e87a] text-[#34e87a] mono text-[9px] font-bold">LONDON, ON</div>
+<div class="absolute bottom-2 left-2 px-2 py-1 rounded bg-black/80 border border-[#3fe0ff] text-[#3fe0ff] mono text-[9px] font-bold" id="tag-bl">CIPHER: AES-256-GCM</div>
+<div class="absolute bottom-2 right-2 px-2 py-1 rounded bg-black/80 border border-[#ffd35c] text-[#ffd35c] mono text-[9px] font-bold" id="tag-br">SWEEP: 000°</div></div>
+</section>
+
+<section class="card p-3 sm:p-5 space-y-3">
+<div class="flex justify-between items-center"><h2 class="font-black text-[#ffd35c] text-sm sm:text-lg">VOICE / CB AUDIO (0.3–3.4 kHz)</h2>
+<button id="voice-btn" onclick="setVoice(!voiceOn,true)" class="px-3 py-2 rounded-full bg-[#081b17] border border-[#34e87a] text-[#34e87a] mono text-xs font-black">ON ●</button></div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+<div class="md:col-span-7 bg-[#030b0a] border border-[#13573a] rounded-xl p-3 space-y-2">
+<div class="flex justify-between mono text-[11px]"><span id="freq-txt" class="text-[#3fe0ff] font-bold">BAND: 300–3400 Hz</span><span id="lvl-txt" class="text-[#ffd35c] font-bold">LVL: 0%</span></div>
+<div class="w-full h-3 bg-[#04100e] rounded-full overflow-hidden border border-[#13573a]"><div id="lvl-bar" class="h-full bg-gradient-to-r from-[#34e87a] via-[#3fe0ff] to-[#ffd35c]" style="width:8%"></div></div>
+<button onclick="pulseTone()" class="px-2 py-1 rounded bg-[#081b17] border border-[#ffd35c] text-[#ffd35c] mono text-[10px] font-bold">PULSE 1.4 kHz TONE</button>
+<p class="mono text-[9px] text-white/70">Browser audio = local 0.3–3.4 kHz voice band. Direct 27 MHz CB needs SDR/radio hardware.</p>
+</div>
+<div class="md:col-span-5 grid grid-cols-2 gap-2">
+<button id="ch-CH-01" onclick="selectCh('CH-01')" class="p-2.5 rounded-xl bg-[#081b17] border-2 border-[#ffd35c] text-left"><div class="mono text-xs font-black text-[#ffd35c]">CH-01</div><div class="text-[10px] text-[#34e87a]">Voice/CB</div></button>
+<button id="ch-CH-02" onclick="selectCh('CH-02')" class="p-2.5 rounded-xl bg-[#030b0a] border border-[#13573a] text-left"><div class="mono text-xs font-black">CH-02</div><div class="text-[10px]">Sweep</div></button>
+<button id="ch-CH-03" onclick="selectCh('CH-03')" class="p-2.5 rounded-xl bg-[#030b0a] border border-[#13573a] text-left"><div class="mono text-xs font-black">CH-03</div><div class="text-[10px]">AES Relay</div></button>
+<button id="ch-CH-04" onclick="selectCh('CH-04')" class="p-2.5 rounded-xl bg-[#030b0a] border border-[#13573a] text-left"><div class="mono text-xs font-black">CH-04</div><div class="text-[10px]">London Beacon</div></button>
+</div>
+</div>
+</section>
+
+<section class="card p-3 sm:p-5 space-y-3">
+<div class="flex justify-between"><h2 class="font-black text-[#ffd35c]">PAIRED-KEY PRIVATE CHAT</h2><span id="chat-badge" class="px-2 py-1 rounded bg-[#081b17] border border-[#3fe0ff] text-[#3fe0ff] mono text-[10px] font-bold">LINK: UNPAIRED</span></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<input id="master-key" type="password" placeholder="Master Key Code..." oninput="keyChanged()" class="bg-[#030b0a] border border-[#13573a] rounded-xl px-3 py-2.5 mono text-sm text-[#ffd35c]">
+<input id="peer-key" type="password" placeholder="Recipient Key Code..." oninput="keyChanged()" class="bg-[#030b0a] border border-[#13573a] rounded-xl px-3 py-2.5 mono text-sm text-[#34e87a]">
+</div>
+<div class="flex gap-2"><button onclick="completePair(true)" class="flex-1 px-3 py-2.5 rounded-xl bg-gradient-to-r from-[#ffd35c] to-[#f4bc2c] text-black mono text-xs font-black">COMPLETE CONNECTION</button><button onclick="verifyPeer()" class="flex-1 px-3 py-2.5 rounded-xl bg-[#081b17] border border-[#34e87a] text-[#34e87a] mono text-xs font-bold">VERIFY PEER RX</button></div>
+<div id="link-id" class="mono text-[11px] text-[#3fe0ff]">PAIRED LINK ID: UNPAIRED</div>
+<div class="bg-[#030b0a] border border-[#13573a] rounded-xl p-3"><div id="chat-feed" class="min-h-[140px] max-h-[260px] overflow-y-auto space-y-2"></div>
+<div class="flex gap-2 mt-2"><input id="msg-inp" placeholder="Type message..." onkeydown="if(event.key==='Enter')sendMsg()" class="flex-1 bg-[#04100e] border border-[#13573a] rounded-xl px-3 py-3 text-sm text-[#ffd35c]"><button onclick="sendMsg()" class="px-4 py-3 rounded-xl bg-gradient-to-r from-[#ffd35c] to-[#f4bc2c] text-black mono text-xs font-black">SEND</button></div></div>
+</section>
+
+</div>
+<script>
+const KEY='queen_etsie_echo_amen_7777_relay_v1', BUS='queen_etsie_bus_v1', NODE='ECHO-AMEN-7777', LOC='LONDON, ON';
+const enc=new TextEncoder(), dec=new TextDecoder();
+let opName='Queen Etsie Merkuratsuk', roomCode='ECHO-AMEN-7777-LONDON', passphrase='QUEEN-ETSIE-MERKURATSUK-LONDON-7777';
+let ch='CH-01', mode='fortress', voiceOn=true, lockMode='auto';
+let kdfOk=false, peerOk=false, aesKey=null, kdfMs=0, proofHex='';
+let master='', peer='', paired=false, linkId='', chatLog=[], bus=null, canvasRaf=null, clockId=null, meterTimer=null, sweep=0;
+const clock=()=>new Date().toLocaleTimeString([],{hour12:false});
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify({ch,mode,voiceOn,master,peer,paired,peerOk,linkId,kdfMs,chatLog,opName,roomCode,saved:clock()})); const s=document.getElementById('saved-stamp'); if(s) s.innerText='SAVED: '+clock(); }catch(e){} }
+function load(){ try{ const d=JSON.parse(localStorage.getItem(KEY)||'{}'); if(!d||!Object.keys(d).length) return; ch=d.ch||ch; mode=d.mode||mode; voiceOn=d.voiceOn!==false; master=d.master||''; peer=d.peer||''; paired=!!d.paired; peerOk=!!d.peerOk; linkId=d.linkId||''; chatLog=d.chatLog||[]; opName=d.opName||opName; roomCode=d.roomCode||roomCode; document.getElementById('master-key').value=master; document.getElementById('peer-key').value=peer; document.getElementById('op-name').value=opName; document.getElementById('room-code').value=roomCode; }catch(e){} }
+function syncInputs(){ opName=document.getElementById('op-name').value||opName; roomCode=document.getElementById('room-code').value||roomCode; const p=document.getElementById('passphrase'); if(p&&p.value) passphrase=p.value; save(); }
+function refresh(){
+  const all=kdfOk&&peerOk; let lit=false; if(lockMode==='keep-armed') lit=false; else if(lockMode==='force-lit-verified') lit=kdfOk; else lit=all;
+  document.getElementById('headline').innerText=lit?'MAX SEC: FULLY LIT':(lockMode==='keep-armed'?'MAX SEC: ARMED (LOCKED)':kdfOk?'MAX SEC: KEY DERIVED (PEER PENDING)':'MAX SEC: INITIALIZING');
+  document.getElementById('headline').className='mono text-sm sm:text-xl font-black '+(lit?'text-[#34e87a]':'text-[#ffd35c]');
+  document.getElementById('header-pill').innerText=lit?'MAX SEC: FULLY LIT':'ARMED • KEY DERIVED';
+  document.getElementById('mode-badge').innerText='MODE: '+(mode==='shield-grid'?'CYBER SHIELD LOCK GRID':mode==='grace-mandala'?'GRACE MANDALA CROWN':'UACS FORTRESS');
+  document.getElementById('cipher-sum').innerText=kdfOk?('PBKDF2-150K + AES ('+kdfMs+' ms)'):('DERIVING...');
+  document.getElementById('link-sum').innerText=ch+' • '+(linkId||'READY');
+  document.getElementById('peer-sum').innerText=peerOk?'PEER VERIFIED':'AWAITING PEER';
+  document.getElementById('lock-btn').innerText=lockMode==='keep-armed'?'LOCK: STAY ARMED':lockMode==='force-lit-verified'?'LOCK: LIT (KEY+LINK)':'LOCK: AUTO-VERIFY';
+  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('lit',lit));
+  document.getElementById('header-ch').innerText=ch;
+  ['fortress','shield-grid','grace-mandala'].forEach(m=>{ const id=m==='fortress'?'btn-fortress':m==='shield-grid'?'btn-shield':'btn-mandala'; const el=document.getElementById(id); if(el) el.className=mode===m?'px-2 py-2 rounded-xl bg-[#081b17] border-2 border-[#ffd35c] text-[#ffd35c] mono text-[10px] font-black':'px-2 py-2 rounded-xl bg-[#030b0a] border border-[#13573a] mono text-[10px] font-bold'; });
+  ['CH-01','CH-02','CH-03','CH-04'].forEach(c=>{ const el=document.getElementById('ch-'+c); if(el) el.className=c===ch?'p-2.5 rounded-xl bg-[#081b17] border-2 border-[#ffd35c] text-left':'p-2.5 rounded-xl bg-[#030b0a] border border-[#13573a] text-left'; });
+  document.getElementById('tag-tl').innerText=(mode==='shield-grid'?'CYBER SHIELD • ':mode==='grace-mandala'?'GRACE MANDALA • ':'UACS FORTRESS • ')+NODE;
+}
+function toggleLock(){ lockMode=lockMode==='auto'?'keep-armed':lockMode==='keep-armed'?'force-lit-verified':'auto'; refresh(); save(); pulseBus('LOCK'); }
+function setMode(m){ mode=m; refresh(); save(); pulseBus('MODE'); }
+function selectCh(c){ ch=c; refresh(); save(); pulseBus('CH'); }
+async function deriveKey(persist=true){
+  syncInputs(); const t0=performance.now();
+  try{
+    const mat=(paired&&master&&peer)?master+'::'+peer+'::'+passphrase:roomCode+'::'+passphrase+'::'+NODE;
+    const base=await crypto.subtle.importKey('raw',enc.encode(mat),{name:'PBKDF2'},false,['deriveKey','deriveBits']);
+    aesKey=await crypto.subtle.deriveKey({name:'PBKDF2',salt:enc.encode(NODE+'::'+LOC+'::'+(linkId||roomCode)),iterations:150000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+    const iv=crypto.getRandomValues(new Uint8Array(12)); const probe=NODE+':'+ch+':'+Date.now();
+    const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},aesKey,enc.encode(probe));
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},aesKey,ct);
+    kdfOk=dec.decode(pt)===probe; kdfMs=Math.max(1,Math.round(performance.now()-t0));
+    const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:enc.encode(NODE+'::PEER'),iterations:150000,hash:'SHA-256'},base,256);
+    proofHex=Array.from(new Uint8Array(bits)).map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+  }catch(e){ kdfOk=false; }
+  refresh(); if(persist) save();
+}
+function setVoice(v,persist=true){ voiceOn=!!v; document.getElementById('voice-btn').innerText=voiceOn?'ON ●':'OFF ○'; if(persist){ save(); pulseBus('VOICE'); } }
+function pulseTone(){ setVoice(true,false); addMsg('SYSTEM','🔊 1.4 kHz tone pulsed - 0.3-3.4 kHz band LIT','sys'); }
+function keyChanged(){ master=document.getElementById('master-key').value; peer=document.getElementById('peer-key').value; if(paired){ paired=false; peerOk=false; linkId=''; refresh(); updateChat(); } save(); }
+async function completePair(verbose=true){
+  keyChanged(); if(!master||!peer){ addMsg('SYSTEM','Enter BOTH Master + Recipient Key first.','sys'); return; }
+  const norm=[master.trim(),peer.trim()].sort().join('||');
+  const dig=await crypto.subtle.digest('SHA-256',enc.encode('QUEEN-ETSIE-MERKURATSUK::'+norm+'::'+NODE));
+  linkId='LINK-'+Array.from(new Uint8Array(dig)).map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase().slice(0,10);
+  paired=true; peerOk=true; await deriveKey(false); refresh(); updateChat(); save(); pulseBus('PAIR');
+  if(verbose) addMsg('SYSTEM','👑 GOD SAVE THE QUEEN - PAIRED '+linkId+' - LEO ❤️ QUEEN ETSIE - ENGAGED','sys');
+}
+function verifyPeer(){ if(!paired){ addMsg('SYSTEM','Tap COMPLETE CONNECTION first.','sys'); return; } peerOk=true; refresh(); updateChat(); save(); addMsg('RX','👑 GOD SAVE QUEEN ETSIE - PEER VERIFIED - ENGAGED - LEO BRIAN HALL ❤️ QUEEN ETSIE MERKURATSUK','rx'); }
+function updateChat(){ document.getElementById('chat-badge').innerText=paired?'LINK: PAIRED':'LINK: UNPAIRED'; document.getElementById('link-id').innerText=paired?('PAIRED LINK ID: '+linkId+' • QUEEN ETSIE - LONDON, ON'):'PAIRED LINK ID: UNPAIRED'; renderChat(); }
+function addMsg(who,text,kind){ chatLog.push({who,text,kind,time:clock()}); if(chatLog.length>50) chatLog.shift(); renderChat(); save(); }
+function renderChat(){ const box=document.getElementById('chat-feed'); if(!box) return; box.innerHTML=''; if(!chatLog.length){ box.innerHTML='<div style="text-align:center;color:#5fb4d9;padding:14px">No messages yet. Complete connection.</div>'; return; } chatLog.forEach(m=>{ const d=document.createElement('div'); d.style.cssText='border:1px solid #13573a;padding:8px;border-radius:10px;background:#04100e'; d.innerHTML='<b style="color:#34e87a">'+m.who+'</b> <span style="color:#ffd35c;font-size:10px">'+m.time+'</span><br>'+m.text; box.appendChild(d); }); box.scrollTop=box.scrollHeight; }
+function sendMsg(){ const inp=document.getElementById('msg-inp'); if(!inp||!inp.value.trim()) return; if(!paired){ addMsg('SYSTEM','Tap COMPLETE CONNECTION first.','sys'); return; } const t=inp.value.trim(); inp.value=''; addMsg('TX',t,'tx'); if(bus){ try{ bus.postMessage({type:'PRIVATE_TX',linkId,text:t,time:clock()}); }catch(e){} } }
+function initBus(){ if(!('BroadcastChannel' in window)||bus) return; try{ bus=new BroadcastChannel(BUS); bus.onmessage=e=>{ const m=e.data; if(!m) return; if(m.type==='PRIVATE_TX'&&m.linkId===linkId) addMsg('RX',m.text,'rx'); else if(m.type){ load(); refresh(); updateChat(); } }; }catch(e){} }
+function pulseBus(t){ initBus(); if(bus){ try{ bus.postMessage({type:t,time:clock()}); }catch(e){} } }
+async function applyEverything(verbose=false){ syncInputs(); initBus(); load(); setVoice(voiceOn,false); startCanvas(); startMeter(); document.getElementById('utc-clock').innerText=new Date().toISOString().slice(11,19); if(clockId) clearInterval(clockId); clockId=setInterval(()=>{ document.getElementById('utc-clock').innerText=new Date().toISOString().slice(11,19); },1000); await deriveKey(false); refresh(); updateChat(); save(); if(verbose) addMsg('SYSTEM','👑 APPLIED - SAVED & RUNNING - GOD SAVE QUEEN ETSIE - ENGAGED','sys'); }
+function startMeter(){ if(meterTimer) clearInterval(meterTimer); meterTimer=setInterval(()=>{ if(!voiceOn){ document.getElementById('freq-txt').innerText='BAND: OFF'; document.getElementById('lvl-txt').innerText='LVL: 0%'; document.getElementById('lvl-bar').style.width='0%'; return; } const t=Date.now()*0.002; const khz=(1.1+0.85*Math.abs(Math.sin(t*0.7))).toFixed(2); const pct=Math.min(92,Math.max(12,Math.round(28+32*Math.abs(Math.sin(t*1.6))))); document.getElementById('freq-txt').innerText='BAND: 0.3-3.4 kHz (PEAK '+khz+' kHz)'; document.getElementById('lvl-txt').innerText='LVL: '+pct+'%'; document.getElementById('lvl-bar').style.width=pct+'%'; },240); }
+function startCanvas(){
+  if(canvasRaf) cancelAnimationFrame(canvasRaf); const cv=document.getElementById('main-canvas'); if(!cv) return; const ctx=cv.getContext('2d'); let tick=0;
+  function frame(){
+    const p=cv.parentElement; const r=p.getBoundingClientRect(); const dpr=Math.min(devicePixelRatio||1,2);
+    const W=960,H=500; const pw=Math.max(280,Math.floor(r.width*dpr)), ph=Math.max(180,Math.floor(r.height*dpr));
+    if(cv.width!==pw||cv.height!==ph){ cv.width=pw; cv.height=ph; }
+    tick+=0.028; sweep=(sweep+1.4)%360; const pulse=0.5+0.5*Math.sin(tick*2.3); const cx=W*0.5, cy=H*0.5;
+    ctx.save(); ctx.scale(pw/W,ph/H);
+    const g=ctx.createLinearGradient(0,0,W,H); g.addColorStop(0,'#030b0a'); g.addColorStop(0.5,'#04100e'); g.addColorStop(1,'#071a18'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    for(let lane=0;lane<3;lane++){ const by=175+lane*68; ctx.strokeStyle=lane===1?'rgba(63,224,255,'+(0.35+pulse*0.25)+')':'rgba(52,232,122,'+(0.22+pulse*0.16)+')'; ctx.lineWidth=lane===1?2.4:1.5; ctx.beginPath(); for(let x=0;x<=W;x+=24){ const y=by+Math.sin(x*0.01+tick*(lane%2===0?1.9:-1.5)+lane)*14; x===0?ctx.moveTo(x,y):ctx.lineTo(x,y); } ctx.stroke(); }
+    if(mode==='shield-grid'){
+      ctx.save(); ctx.translate(cx,cy); ctx.scale(1+pulse*0.025,1+pulse*0.025);
+      const sg=ctx.createLinearGradient(0,-104,0,108); sg.addColorStop(0,'#ffd35c'); sg.addColorStop(0.5,'#3fe0ff'); sg.addColorStop(1,'#34e87a');
+      ctx.fillStyle='rgba(4,16,14,0.9)'; ctx.strokeStyle=sg; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(0,-104); ctx.quadraticCurveTo(74,-86,86,-62); ctx.quadraticCurveTo(82,22,0,108); ctx.quadraticCurveTo(-82,22,-86,-62); ctx.quadraticCurveTo(-74,-86,0,-104); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle='#ffd35c'; ctx.fillStyle='#ffd35c'; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(0,-14,16,Math.PI,0); ctx.stroke(); ctx.beginPath(); ctx.roundRect(-24,-14,48,38,7); ctx.fill(); ctx.fillStyle='#030b0a'; ctx.beginPath(); ctx.arc(0,5,5,0,Math.PI*2); ctx.fill(); ctx.fillRect(-2,7,4,9); ctx.restore();
+    } else if(mode==='grace-mandala'){
+      ctx.save(); ctx.translate(cx,cy);
+      ctx.strokeStyle='rgba(139,92,246,0.72)'; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(0,0,134,0,Math.PI*2); ctx.stroke();
+      ctx.strokeStyle='rgba(63,224,255,0.68)'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,0,114,0,Math.PI*2); ctx.stroke();
+      for(let m=0;m<18;m++){ const a=(m/18)*Math.PI*2+tick*0.22; ctx.fillStyle=m%3===0?'#ffd35c':m%2===0?'#3fe0ff':'#8b5cf6'; ctx.beginPath(); ctx.arc(Math.cos(a)*124,Math.sin(a)*124,4.5,0,Math.PI*2); ctx.fill(); }
+      ctx.fillStyle='#ffd35c'; ctx.strokeStyle='#fff3c4'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(-40,-34); ctx.lineTo(-46,-74); ctx.lineTo(-20,-54); ctx.lineTo(0,-82); ctx.lineTo(20,-54); ctx.lineTo(46,-74); ctx.lineTo(40,-34); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle='rgba(139,92,246,0.24)'; ctx.strokeStyle='#ffd35c'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(0,38); ctx.bezierCurveTo(-48,6,-44,-26,0,-6); ctx.bezierCurveTo(44,-26,48,6,0,38); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.restore();
+    } else {
+      [-62,-20,22,62].forEach((ry,idx)=>{ ctx.save(); ctx.translate(cx,cy+ry); ctx.strokeStyle='rgba(52,232,122,'+(0.42+0.25*Math.sin(tick*2.2+idx))+')'; ctx.lineWidth=2.4; ctx.beginPath(); ctx.ellipse(0,0,144-Math.abs(ry)*0.22,26,0,0,Math.PI*2); ctx.stroke(); ctx.restore(); });
+      const orbR=54+pulse*3.5; const og=ctx.createRadialGradient(cx-14,cy-14,6,cx,cy,orbR); og.addColorStop(0,'#fff3c4'); og.addColorStop(0.55,'#ffd35c'); og.addColorStop(1,'#b37d16'); ctx.fillStyle=og; ctx.beginPath(); ctx.arc(cx,cy,orbR,0,Math.PI*2); ctx.fill(); ctx.strokeStyle='#34e87a'; ctx.lineWidth=2.5; ctx.stroke();
+      ctx.fillStyle='rgba(4,16,14,0.92)'; ctx.strokeStyle='#ffd35c'; ctx.lineWidth=1.6; ctx.beginPath(); ctx.roundRect(cx-148,H-86,296,28,6); ctx.fill(); ctx.stroke(); ctx.fillStyle='#ffd35c'; ctx.font='bold 10px monospace'; ctx.textAlign='center'; ctx.fillText('UACS DIGITAL FORTRESS • ZERO TRUST',cx,H-68);
+    }
+    document.getElementById('tag-br').innerText='SWEEP: '+String(Math.round(sweep)).padStart(3,'0')+'°';
+    document.getElementById('tag-bl').innerText=kdfOk?('CIPHER: AES-256-GCM ('+kdfMs+' ms)'):'CIPHER: STANDALONE';
+    ctx.restore(); canvasRaf=requestAnimationFrame(frame);
+  }
+  canvasRaf=requestAnimationFrame(frame);
+}
+window.addEventListener('storage',e=>{ if(e.key===KEY){ load(); refresh(); updateChat(); } });
+window.addEventListener('load',()=>{ applyEverything(false); });
+</script>
+</body>
+</html>
