@@ -221,7 +221,52 @@ async function sendRealMsg(){
   }catch(e){ alert('Message sent locally, but network had a hiccup. Try again.'); }
 }
 document.getElementById('realMsgInput').addEventListener('keypress',function(e){ if(e.key==='Enter') sendRealMsg(); });
-function addFam(){var v=document.getElementById('famIn').value.trim();if(!v)return;var d=document.createElement('div');d.className='msg';d.innerHTML='<b>💚 '+v+'</b><br>Added to Family • Safe';document.getElementById('familyList').appendChild(d);document.getElementById('famIn').value='';}
+function addFam(){var v=document.getElementById('famIn').va<!-- ADD THIS ONLY - KEEP EVERYTHING ELSE ORIGINAL -->
+<!-- REAL TEXT + TALK - LEO x JESSE -->
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "PASTE-YOUR-API-KEY",
+  authDomain: "PASTE-YOUR-PROJECT.firebaseapp.com",
+  databaseURL: "https://PASTE-YOUR-PROJECT-default-rtdb.firebaseio.com",
+  projectId: "PASTE-YOUR-PROJECT",
+  storageBucket: "PASTE-YOUR-PROJECT.appspot.com",
+  messagingSenderId: "PASTE-YOUR-SENDER-ID",
+  appId: "PASTE-YOUR-APP-ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const chatRef = ref(db, "leo-jesse-real-chat");
+
+// This hooks into YOUR ORIGINAL chat box - no new design
+const msgBox = document.querySelector("#chat-messages, #messages, .chat-messages");
+const inputBox = document.querySelector("#chat-input, #message-input, input[type='text']");
+const sendBtn = document.querySelector("#send-btn, #send, button");
+
+onChildAdded(chatRef, (snap) => {
+  const m = snap.val();
+  if(msgBox){
+    const div = document.createElement("div");
+    div.textContent = m.name + ": " + m.text;
+    msgBox.appendChild(div);
+    msgBox.scrollTop = msgBox.scrollHeight;
+  }
+});
+
+function sendReal(){
+  const text = inputBox ? inputBox.value.trim() : "";
+  if(!text) return;
+  push(chatRef, { name: "King Leo", text: text, time: Date.now() });
+  if(inputBox) inputBox.value = "";
+}
+
+if(sendBtn) sendBtn.addEventListener("click", sendReal);
+if(inputBox) inputBox.addEventListener("keydown", e => { if(e.key === "Enter") sendReal(); });
+</script>lue.trim();if(!v)return;var d=document.createElement('div');d.className='msg';d.innerHTML='<b>💚 '+v+'</b><br>Added to Family • Safe';document.getElementById('familyList').appendChild(d);document.getElementById('famIn').value='';}
 function addPrayer(){var v=document.getElementById('prayin').value.trim();if(!v)return;var d=document.createElement('div');d.className='msg';d.innerHTML='🙏 '+v;document.getElementById('prayerList').appendChild(d);document.getElementById('prayin').value='';}
 function textReal(){var phone=document.getElementById('phone').value.replace(/[^0-9]/g,'');var msg=document.getElementById('realmsg').value;if(!phone){document.getElementById('realStatus').innerText='⚠️ Type Jesse\'s number first';return;}localStorage.setItem('jessePhone',phone);window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');document.getElementById('realStatus').innerText='✅ WhatsApp opened! Tap SEND in WhatsApp!';}
 function textRealSMS(){var phone=document.getElementById('phone').value.replace(/[^0-9]/g,'');var msg=document.getElementById('realmsg').value;if(!phone){document.getElementById('realStatus').innerText='⚠️ Type Jesse\'s number first';return;}window.location.href='sms:+'+phone+'?body='+encodeURIComponent(msg);}
