@@ -404,7 +404,6 @@
 </head>
 <body>
   <main class="wrap">
-    <!-- Top Visual Stage -->
     <section class="card">
       <div class="topbar">
         <span class="tag-green" id="top-title">QUEEN JESSE SWAGATA • ECHO-AMEN-7777</span>
@@ -424,7 +423,6 @@
       </div>
     </section>
 
-    <!-- Voice / CB Audio & 4 Channels -->
     <section class="card">
       <div class="sec-head">
         <h2 class="sec-title">VOICE / CB AUDIO (0.3–3.4 kHz)</h2>
@@ -469,7 +467,6 @@
       </div>
     </section>
 
-    <!-- Paired-Key Private Chat -->
     <section class="card">
       <div class="sec-head">
         <h2 class="sec-title">PAIRED-KEY PRIVATE CHAT</h2>
@@ -501,7 +498,6 @@
     const STORAGE_KEY = 'qjs_echo_amen_7777_gold_green_v1';
     const BUS_NAME = 'qjs_echo_amen_7777_bus_v1';
     const enc = new TextEncoder();
-    const dec = new TextDecoder();
 
     let state = {
       channel: 'CH-01',
@@ -809,7 +805,6 @@
         ctx.fillStyle = '#03110b';
         ctx.fillRect(0, 0, w, h);
 
-        // Subtle green sine waves across background
         for (let row = 0; row < 3; row++) {
           ctx.beginPath();
           ctx.strokeStyle = `rgba(34, 255, 136, ${0.14 + row * 0.04})`;
@@ -828,7 +823,6 @@
         const rx = Math.min(w * 0.26, 120 * dpr);
         const ry = 13 * dpr;
 
-        // Back half of concentric orbit rings
         [-2.1, -0.7, 0.7, 2.1].forEach((offset, idx) => {
           const oy = cy + offset * 14 * dpr;
           ctx.beginPath();
@@ -838,7 +832,6 @@
           ctx.stroke();
         });
 
-        // Glowing golden core sphere
         const orbR = Math.min(w, h) * 0.145;
         const glow = ctx.createRadialGradient(cx, cy, orbR * 0.2, cx, cy, orbR * 2.1);
         glow.addColorStop(0, 'rgba(250, 204, 21, 0.42)');
@@ -848,14 +841,7 @@
         ctx.arc(cx, cy, orbR * 2.1, 0, Math.PI * 2);
         ctx.fill();
 
-        const orbGrad = ctx.createRadialGradient(
-          cx - orbR * 0.3,
-          cy - orbR * 0.32,
-          orbR * 0.1,
-          cx,
-          cy,
-          orbR
-        );
+        const orbGrad = ctx.createRadialGradient(cx - orbR * 0.3, cy - orbR * 0.32, orbR * 0.1, cx, cy, orbR);
         orbGrad.addColorStop(0, '#fef08a');
         orbGrad.addColorStop(0.55, '#eab308');
         orbGrad.addColorStop(1, '#854d0e');
@@ -864,7 +850,6 @@
         ctx.arc(cx, cy, orbR, 0, Math.PI * 2);
         ctx.fill();
 
-        // Front half of concentric orbit rings
         [-2.1, -0.7, 0.7, 2.1].forEach((offset, idx) => {
           const oy = cy + offset * 14 * dpr;
           ctx.beginPath();
