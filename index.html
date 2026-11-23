@@ -25,3 +25,68 @@ input{width:100%;padding:13px;border-radius:12px;border:2px solid #00ff66;backgr
 .dot{position:absolute;width:14px;height:14px;border-radius:50%;background:#ff3333;box-shadow:0 0 12px red}
 .dot.g{background:#00ff66;box-shadow:0 0 12px #00ff66}
 #chatBox{background:#02150a;border:1px solid #00ff66;border
+.msg{margin:6px 0;padding:9px;background:#063d1c;border-radius:10px;border-left:4px solid #00ff66}
+.shield{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;margin-top:10px}
+.shield div{background:#02150a;border:1px solid #00ff66;border-radius:10px;padding:10px;font-size:13px}
+.shield div.on{background:#00ff66;color:#02150a;font-weight:900}
+.footer{text-align:center;padding:14px;opacity:.9}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="badge">● LIVE • GREEN FORTRESS</div>
+<h1>👑 QUEEN JESSE<br>SWAGATA 👑</h1>
+<p><b>ALL NEW GREEN CODE</b><br>Green Fortress Relay • Towerwall Secure<br>Your home is safe 💚</p>
+<button onclick="speakAll()">🔊 SPEAK: FORTRESS SECURE</button>
+</div>
+<div class="card">
+<h2>🛡️ 1. DEFENSE SCENES</h2>
+<button onclick="showScene('home')">🏠 HOME DEFENSE</button>
+<button onclick="showScene('gables')">🌳 GREEN GABLES TOWER</button>
+<button onclick="showScene('relay')">📡 TOWERWALL RELAY</button>
+<button onclick="showScene('queen')">👑 QUEEN'S FORTRESS</button>
+<div id="home" class="scene on"><b>🏠 HOME DEFENSE ON</b><br>Doors locked. Lights on. Family safe.</div>
+<div id="gables" class="scene"><b>🌳 GREEN GABLES TOWER ON</b><br>Apple Tower online. Signal 100%.</div>
+<div id="relay" class="scene"><b>📡 TOWERWALL RELAY ON</b><br>Relay linked to Queen Jesse.</div>
+<div id="queen" class="scene"><b>👑 QUEEN'S FORTRESS ON</b><br>FULL FORTRESS MODE. All shields UP.</div>
+<div class="shield"><div id="sh1" class="on">🔒 DOORS<br>LOCKED</div><div id="sh2" class="on">💡 LIGHTS<br>ON</div><div id="sh3" class="on">📡 SIGNAL<br>STRONG</div></div>
+<button onclick="allShields()">💚 TURN ALL SHIELDS ON</button>
+</div>
+<div class="card">
+<h2>📡 2. LIVE RADAR</h2>
+<div id="radar"><div id="sweep"></div><div class="dot g" style="left:30%;top:28%"></div><div class="dot" style="left:62%;top:55%"></div><div class="dot g" style="left:42%;top:68%"></div></div>
+<p id="radarText" style="text-align:center">Scanning... 3 signals - 2 friendly</p>
+<button onclick="scanRadar()">🔄 RESCAN RADAR</button>
+<button onclick="alertRadar()">🚨 RADAR ALERT SOUND</button>
+</div>
+<div class="card">
+<h2>🔊 3. AUDIO CENTER</h2>
+<button onclick="playTone(880)">▶️ PLAY HIGH ALERT</button>
+<button onclick="playTone(440)">▶️ PLAY LOW ALERT</button>
+<button onclick="speakAll()">🔊 SPEAK: YOUR HOME IS SAFE</button>
+<button onclick="playSong()">🎵 PLAY GREEN VICTORY TUNE</button>
+</div>
+<div class="card">
+<h2>🔐 4. PAIRED-KEY CHAT</h2>
+<input id="keyBox" placeholder="Enter Paired Key - e.g. JESSE123">
+<button onclick="unlockChat()">🔓 UNLOCK CHAT</button>
+<div id="chatBox"><div class="msg">💚 Welcome to Green Fortress Chat.</div></div>
+<input id="chatInput" placeholder="Type message...">
+<button onclick="sendChat()">💬 SEND MESSAGE</button>
+</div>
+<div class="footer">👑 Queen Jesse Swagata - Green Fortress Relay 💚<br>Built with love. Protected always.</div>
+<script>
+function showScene(id){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on')}
+function allShields(){alert('💚 ALL SHIELDS ON - FORTRESS SECURE!')}
+function scanRadar(){document.getElementById('radarText').innerText='Scanning...';setTimeout(()=>{document.getElementById('radarText').innerText='Scan complete - All signals friendly - Fortress secure 💚'},1200)}
+function alertRadar(){playTone(880);setTimeout(()=>playTone(880),400)}
+function playTone(f){try{let c=new (window.AudioContext||window.webkitAudioContext)();let o=c.createOscillator();o.frequency.value=f;o.connect(c.destination);o.start();setTimeout(()=>o.stop(),700)}catch(e){alert('Beep!')}}
+function speakText(t){try{speechSynthesis.speak(new SpeechSynthesisUtterance(t))}catch(e){}}
+function speakAll(){speakText('Fortress secure. Queen Jesse Swagata. Your home is safe.')}
+function playSong(){[523,659,784,1046].forEach((f,i)=>setTimeout(()=>playTone(f),i*400))}
+let myKey='';
+function unlockChat(){myKey=document.getElementById('keyBox').value;if(!myKey){alert('Enter your Paired Key first!');return}document.getElementById('chatBox').innerHTML+='<div class="msg">🔓 Chat unlocked with key: '+myKey+'</div>'}
+function sendChat(){let t=document.getElementById('chatInput').value;if(!t)return;if(!myKey){alert('Unlock with your Paired Key first!');return}document.getElementById('chatBox').innerHTML+='<div class="msg"><b>You:</b> '+t+'</div>';document.getElementById('chatInput').value=''}
+</script>
+</body>
+</html>
