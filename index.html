@@ -275,3 +275,43 @@ window.onload=function(){var p=localStorage.getItem('jessePhone');if(p) document
 </script>
 </body>
 </html>
+<style>
+  .towerwall-bottom-dock {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin-top: auto;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: #04140b;
+    border-top: 1px solid #156b38;
+    color: #22ff88;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  .towerwall-bottom-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .towerwall-bottom-dock * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+</style>
+
+<footer class="towerwall-bottom-dock" id="towerwall-bottom">
+  <div class="towerwall-bottom-inner">
+    <span class="font-mono text-xs tracking-wider">ECHO-AMEN-7777 • GREEN GABLES TOWERWALL</span>
+    <div class="flex flex-wrap items-center gap-2">
+      <button type="button" onclick="shareSite()" class="px-3 py-1.5 text-xs rounded border border-[#156b38] bg-[#020c06] text-[#22ff88]">
+        Share Relay
+      </button>
+    </div>
+  </div>
+</footer>
