@@ -1,25 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ECHO-AMEN-7777 · 🔋🔋🔋💪 IT DOES FOREVER · ✨️ THE KING LEO ♌️ ✨️ · LEO HALL OPS</title>
+  <style>
+    :root {
+      --bg-void: #010803;
+      --bg-panel: #031308;
+      --bg-card: #061f0d;
+      --bg-card-alt: #092b12;
+      --green-bright: #00ff88;
+      --green-neon: #39ff14;
+      --green-glow: #7dff52;
+      --green-dim: #79f2a8;
+      --green-muted: #297a4b;
+      --gold-trim: #c9a646;
+      --gold-bright: #ffdd55;
+      --chrome: #d8f8e4;
+      --border-green: #187a3f;
+      --border-glow: #39ff14;
+      --ink-on-green: #011306;
+      --glow-soft: 0 0 10px rgba(0, 255, 136, 0.30), 0 0 24px rgba(57, 255, 20, 0.16);
+      --glow-strong: 0 0 14px rgba(57, 255, 20, 0.62), 0 0 32px rgba(0, 255, 136, 0.32);
+      --glow-text: 0 0 10px rgba(57, 255, 20, 0.60), 0 0 24px rgba(0, 255, 136, 0.28);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
 
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DREAMER • GREEN GABLES</title><style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}body{background:#000;color:#fff}.page{display:none;min-height:100vh;padding:14px}.page.on{display:block}.center{text-align:center}
-.gold{border:2px solid #c9a227;border-radius:20px;padding:20px;background:linear-gradient(180deg,#0a2a1a,#02120a)}
-h1{font-size:44px;color:#00ff88;letter-spacing:3px;text-shadow:0 0 20px #00ff88}.sub{color:#c9a227;letter-spacing:4px;font-size:12px}
-.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:320px;margin:20px auto}.key{background:#0a2a1a;border:1.5px solid #c9a227;color:#fff;padding:18px;border-radius:14px;font-size:20px;font-weight:900}.key:active{background:#00ff88;color:#000}
-.dots{display:flex;gap:10px;justify-content:center;margin:14px}.dot{width:14px;height:14px;border-radius:50%;border:1.5px solid #c9a227}.dot.on{background:#00ff88;box-shadow:0 0 12px #00ff88}
-.btn{width:100%;padding:16px;border:none;border-radius:14px;font-weight:900;font-size:16px;margin-top:10px}.g{background:#00ff88}.y{background:#c9a227}.w{background:#fff;color:#000}
-.card{background:#041a0e;border:1.5px solid #c9a227;border-radius:14px;padding:14px;margin-top:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#e8f5e9;color:#000;border-radius:12px;padding:12px;text-align:center}.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.item{background:#fff;color:#000;border-radius:14px;padding:14px;text-align:center}.price{font-size:24px;font-weight:900;color:#1a5c2a}
-@media(max-width:700px){.grid3,.shop{grid-template-columns:1fr}}
-</style></head><body>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-<!-- PAGE 1: BANNER -->
-<div class="page on" id="p1"><div class="gold center"><div style="font-size:60px">👑</div><div class="sub">ROYAL GUARDIAN • TOWERWALL QUANTUM</div><h1>DREAMER</h1><div style="font-size:40px">🍏</div><p>APPLE ECOSYSTEM SECURITY<br>HADES KEY 1.7.7.7<br>DREAM • PROTECT • INNOVATE</p><button class="btn g" onclick="show('p2')">👑 ENTER FORTRESS • 1777</button><button class="btn y" onclick="show('p3')">🛡️ VIEW COMMAND CENTER</button><p style="margin-top:12px;font-size:11px;color:#9be8b8">ECHO AMEN 7777 • BELLEVILLE, ONTARIO 🇨🇦</p></div></div>
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
 
-<!-- PAGE 2: LOGIN -->
-<div class="page" id="p2"><div class="gold center"><div style="font-size:60px">🛡️🍏</div><h1 style="font-size:32px">DREAMER</h1><p>ROYAL GUARDIAN • ENTER HADES KEY</p><div class="dots" id="dots"></div><div class="keypad" id="pad"></div><p id="msg" style="color:#7dffb0;font-weight:900"></p><button class="btn w" onclick="show('p1')">⬅ BACK TO BANNER</button></div></div>
+    body {
+      margin: 0;
+      padding: env(safe-area-inset-top, 10px) env(safe-area-inset-right, 10px) env(safe-area-inset-bottom, 16px) env(safe-area-inset-left, 10px);
+      background-color: var(--bg-void);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(57, 255, 20, 0.24), transparent 55%),
+        radial-gradient(circle at 15% 35%, rgba(0, 255, 136, 0.10), transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(57, 255, 20, 0.10), transparent 45%),
+        linear-gradient(180deg, #010803 0%, #031107 100%);
+      color: var(--green-bright);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+      text-shadow: 0 0 6px rgba(0, 255, 136, 0.24);
+    }
 
-<!-- PAGE 3: DASHBOARD -->
-<div class="page" id="p3"><div class="center"><b style="font-size:20px;color:#00ff88">🛡️ TOWERWALL COMMAND</b><br><span style="font-size:11px">TECHNOLOGY LIVE CANADA 🇨🇦 • BELLEVILLE</span></div><div class="grid3" style="margin-top:12px"><div class="card center">🛡️<br><b>TOWERWALL: SECURE</b><br><small>Elite 100 • Protected</small></div><div class="card center">🍏<br><b>APPLE: ALL PROTECTED</b><br><small>iPhone • Mac • iPad • Watch</small></div><div class="card center">🔑<br><b>HADES KEY 1.7.7.7 ACTIVE</b><br><small>ECD / 256 • 7777</small></div></div><div class="card"><b>🎯 TRUST SCORE: 100%</b><div style="font-size:48px;text-align:center;color:#00ff88">100%</div><b>💓 SYSTEM HEARTBEAT</b><div style="text-align:center;font-size:28px">〰️❤️〰️💚〰️</div><b>🌍 GLOBAL NETWORK MONITOR</b><div style="text-align:center;font-size:40px">🌍✨📡</div><p style="text-align:center;font-size:12px">Threats Blocked: 1,247 • Connections: 36</p></div><button class="btn g" onclick="show('p4')">💼 OPEN BUSINESS</button><button class="btn y" onclick="show('p2')">🔒 LOCK</button></div>
+    code {
+      color: var(--green-glow);
+      background: rgba(57, 255, 20, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      padding: 1px 6px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 8px rgba(0, 255, 136, 0.12);
+    }
 
-<!-- PAGE 4: BUSINESS -->
-<div class="page" id="p4"><div class="card" style="background:#fff;color:#000"><b style="color:#1a5c2a">🌿 GREEN GABLES V13.3</b><br>TECHNOLOGY LIVE CANADA 🇨🇦 • LIVE<br><b>👑 LEO BELJAN HALL</b></div><div class="card center">🙏 <b>GRACE & GRATITUDE PAUSE</b><p>Take a breath King. You built this. God is good.</p><button class="btn g" onclick="alert('🙏 GRACE RECEIVED KING! ECHO AMEN 7777!')">✨ I RECEIVE GRACE • AMEN ✨</button></div><div class="card"><b>📊 TODAY'S BUSINESS</b><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px"><div class="stat"><b style="font-size:28px" id="orders">3</b><br>ORDERS</div><div class="stat"><b style="font-size:28px">$<span id="earned">647</span></b><br>EARNED</div></div></div><div class="shop"><div class="item">🌐<br><b>WEBSITE</b><div class="price">$299</div><button class="btn g" onclick="buy('Website',299)">BUY $299</button></div><div class="item">🛡️<br><b>SECURITY V33</b><div class="price">$199</div><button class="btn g" onclick="buy('Security V33',199)">BUY $199</button></div><div class="item">🤖<br><b>AI ASSISTANT</b><div class="price">$149</div><button class="btn g" onclick="buy('AI Assistant',149)">BUY $149</button></div></div><button class="btn y" onclick="show('p3')">⬅ BACK TO TOWERWALL</button><button class="btn w" onclick="show('p2')">🔒 LOCK FORTRESS</button></div>
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--green-neon);
+      outline-offset: 2px;
+      box-shadow: var(--glow-strong);
+    }
 
-<script>function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo(0,0)}let c="";const dots=document.getElementById('dots'),msg=document.getElementById('msg'),pad=document.getElementById('pad');function r(){dots.innerHTML="";for(let i=0;i<9;i++){let e=document.createElement('div');e.className='dot'+(i<c.length?' on':'');dots.appendChild(e)}}function f(k){if(k==='×')c='';else if(k==='⌫')c=c.slice(0,-1);else if(c.length<9)c+=k;r();if(c==='1777'){msg.textContent='✅ FORTRESS OPEN DREAMER!';setTimeout(()=>show('p3'),800)}}['1','2','3','4','5','6','7','8','9','×','0','⌫'].forEach(k=>{let b=document.createElement('button');b.className='key';b.textContent=k;b.onclick=()=>f(k);pad.appendChild(b)});r();let o=3,e=647;function buy(n,p){o++;e+=p;document.getElementById('orders').textContent=o;document.getElementById('earned').textContent=e;alert('✅ ORDER ADDED KING!\n'+n+' - $'+p+'\nECHO AMEN 7777!')}</script></body></html>
+    .wrap {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 0 28px rgba(57, 255, 20, 0.25), 0 0 60px rgba(0, 255, 136, 0.14);
+    }
+
+    .top {
+      background: linear-gradient(180deg, #0b3316 0%, #05190b 100%);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      text-align: center;
+      margin-bottom: 12px;
+      box-shadow: var(--glow-strong);
+    }
+
+    .top-crest {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      font-size: clamp(0.68rem, 2.4vw, 0.8rem);
+      color: var(--chrome);
+      margin-bottom: 6px;
+    }
+
+    .top-glyph {
+      font-size: clamp(0.78rem, 2.9vw, 1.12rem);
+      line-height: 1.25;
+      color: var(--green-neon);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+      word-break: break-word;
+      text-shadow: var(--glow-text);
+    }
+
+    .top h1 {
+      margin: 0;
+      font-size: clamp(1.05rem, 4.3vw, 1.8rem);
+      line-height: 1.25;
+      color: var(--green-glow);
+      word-break: break-word;
+      text-shadow: var(--glow-text);
+    }
+
+    .top-sub {
+      margin: 6px 0 0;
+      font-size: clamp(0.72rem, 2.7vw, 0.9rem);
+      color: var(--green-dim);
+    }
+
+    .lites-strip {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .lite-lamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-green);
+      background: var(--bg-void);
+      font-size: 0.72rem;
+      color: var(--green-dim);
+    }
+
+    .lite-bulb {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green-neon);
+      box-shadow: 0 0 10px var(--green-neon), 0 0 18px var(--green-bright);
+    }
+
+    .mode-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 10px;
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-md);
+    }
+
+    .media-gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .media-frame {
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      box-shadow: var(--glow-soft);
+      text-align: left;
+    }
+
+    .media-frame img {
+      display: block;
+      width: 100%;
+      max-height: 240px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .media-caption {
+      margin-top: 6px;
+      font-size: 0.7rem;
+      color: var(--green-dim);
+      word-break: break-word;
+    }
+
+    .section-title {
+      font-size: clamp(0.84rem, 3.1vw, 1.05rem);
+      color: var(--green-neon);
+      border-bottom: 1px solid var(--border-glow);
+      padding-bottom: 6px;
+      margin: 16px 0 10px;
+      letter-spacing: 0.05em;
+      text-shadow: var(--glow-text);
+    }
+
+    .grid-cards,
+    .grid-tiers {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .card,
+    .tier {
+      background: linear-gradient(180deg, var(--bg-card-alt) 0%, var(--bg-card) 100%);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      min-width: 0;
+      box-shadow: var(--glow-soft);
+    }
+
+    .card h2,
+    .card h3,
+    .tier h3 {
+      margin: 0 0 6px;
+      font-size: clamp(0.88rem, 3.2vw, 1.08rem);
+      color: var(--green-glow);
+      word-break: break-word;
+    }
+
+    .card p,
+    .tier p {
+      margin: 0 0 8px;
+      font-size: clamp(0.73rem, 2.6vw, 0.86rem);
+      color: var(--green-dim);
+    }
+
+    .crown-crest {
+      text-align: center;
+      border: 2px solid var(--gold-trim);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      background: radial-gradient(circle at 50% 0%, #0d3a22, #02120a 72%);
+      box-shadow: var(--glow-strong);
+      margin-bottom: 12px;
+    }
+
+    .crown-icon {
+      font-size: 56px;
+      display: inline-block;
+      filter: drop-shadow(0 0 16px gold);
+      animation: floatCrown 2.2s ease-in-out infinite;
+    }
+
+    @keyframes floatCrown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .crown-sub {
+      color: var(--gold-bright);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .hades-console {
+      background: radial-gradient(circle at 50% 10%, rgba(57, 255, 20, 0.16), transparent 60%), linear-gradient(180deg, #061d0c 0%, #020c05 100%);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      text-align: center;
+      box-shadow: var(--glow-strong);
+    }
+
+    .hades-header-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--gold-trim);
+      text-transform: uppercase;
+    }
+
+    .hades-title {
+      margin: 4px 0 2px;
+      font-size: clamp(1.1rem, 4.2vw, 1.55rem);
+      color: var(--green-glow);
+      letter-spacing: 0.08em;
+      text-shadow: var(--glow-text);
+    }
+
+    .hades-sub {
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      color: var(--green-dim);
+      margin-bottom: 10px;
+    }
+
+    .hades-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 10px 0 6px;
+      flex-wrap: wrap;
+    }
+
+    .hades-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #0b2c14;
+      border: 1px solid var(--green-neon);
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .hades-dot.lit {
+      background: var(--green-neon);
+      box-shadow: 0 0 10px var(--green-neon), 0 0 18px var(--green-bright);
+    }
+
+    .hades-code-caption {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--green-neon);
+      margin-bottom: 10px;
+      text-shadow: var(--glow-text);
+    }
+
+    .keypad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(64px, 1fr));
+      gap: 8px;
+      max-width: 340px;
+      margin: 0 auto 12px;
+    }
+
+    .keypad-btn {
+      min-height: 48px;
+      background: linear-gradient(180deg, #092611 0%, #031107 100%);
+      color: var(--green-glow);
+      border: 1px solid var(--gold-trim);
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      box-shadow: var(--glow-soft);
+    }
+
+    .keypad-btn:hover {
+      background: linear-gradient(180deg, #134721 0%, #07200e 100%);
+      color: var(--green-neon);
+      border-color: var(--green-neon);
+      box-shadow: var(--glow-strong);
+    }
+
+    .bio-badge-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(57, 255, 20, 0.25) 0%, rgba(4, 24, 10, 0.95) 75%);
+      color: var(--green-neon);
+      border: 1px solid var(--green-neon);
+      box-shadow: var(--glow-strong);
+      margin-bottom: 8px;
+    }
+
+    .bio-ring {
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .bio-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+    }
+
+    .price-tag {
+      font-size: clamp(0.95rem, 3.5vw, 1.18rem);
+      font-weight: 700;
+      color: var(--green-neon);
+      margin-bottom: 4px;
+      text-shadow: var(--glow-text);
+    }
+
+    .margin-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--gold-bright);
+      background: rgba(201, 166, 70, 0.12);
+      border: 1px solid rgba(201, 166, 70, 0.45);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-bottom: 6px;
+    }
+
+    .telemetry-list {
+      list-style: none;
+      margin: 6px 0 10px;
+      padding: 0;
+      font-size: clamp(0.73rem, 2.6vw, 0.85rem);
+      color: var(--green-bright);
+    }
+
+    .telemetry-list li {
+      padding: 4px 0;
+      border-top: 1px dashed rgba(57, 255, 20, 0.35);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .quote-sheet {
+      margin: 6px 0 10px;
+      padding: 12px;
+      background: var(--bg-void);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-sm);
+      color: var(--green-neon);
+      font-size: clamp(0.72rem, 2.5vw, 0.84rem);
+      white-space: pre-wrap;
+      word-break: break-word;
+      box-shadow: inset 0 0 14px rgba(0, 255, 136, 0.14), var(--glow-soft);
+    }
+
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: clamp(0.74rem, 2.7vw, 0.85rem);
+      color: var(--green-bright);
+      margin: 8px 0 4px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px;
+      background: var(--bg-void);
+      color: var(--green-neon);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: clamp(0.8rem, 3vw, 0.92rem);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--green-muted);
+    }
+
+    textarea {
+      min-height: 82px;
+      resize: vertical;
+    }
+
+    .code-readout {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-glow);
+      letter-spacing: 0.05em;
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 10px 12px;
+      background: linear-gradient(180deg, var(--green-glow) 0%, var(--green-bright) 100%);
+      color: var(--ink-on-green);
+      border: 1px solid var(--green-neon);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: clamp(0.74rem, 2.7vw, 0.86rem);
+      cursor: pointer;
+      box-shadow: var(--glow-soft);
+    }
+
+    button.secondary {
+      background: linear-gradient(180deg, #0d3d1b 0%, var(--bg-card-alt) 100%);
+      color: var(--green-neon);
+      border-color: var(--green-bright);
+    }
+
+    button:hover {
+      background: var(--green-neon);
+      color: var(--ink-on-green);
+      box-shadow: var(--glow-strong);
+    }
+
+    button.secondary:hover {
+      background: #145427;
+      color: var(--green-glow);
+      box-shadow: var(--glow-strong);
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .stat-box {
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      text-align: center;
+      box-shadow: var(--glow-soft);
+    }
+
+    .stat-num {
+      display: block;
+      font-size: clamp(0.95rem, 3.8vw, 1.3rem);
+      font-weight: 700;
+      color: var(--green-neon);
+      word-break: break-word;
+      text-shadow: var(--glow-text);
+    }
+
+    .stat-label {
+      font-size: clamp(0.66rem, 2.3vw, 0.76rem);
+      color: var(--green-dim);
+    }
+
+    .layers-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .layer-row {
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .layer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .layer-id-name {
+      font-size: clamp(0.76rem, 2.8vw, 0.88rem);
+      font-weight: 700;
+      color: var(--green-bright);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .badge-PASS {
+      background: var(--green-neon);
+      color: var(--ink-on-green);
+    }
+
+    .badge-WARN {
+      background: #0d4221;
+      color: #8affba;
+      border: 1px dashed var(--green-bright);
+    }
+
+    .badge-FAIL {
+      background: #072612;
+      color: #c7ffe0;
+      border: 2px solid var(--green-neon);
+    }
+
+    .badge-UNKNOWN {
+      background: #041308;
+      color: var(--green-dim);
+      border: 1px dotted var(--green-muted);
+    }
+
+    .layer-detail {
+      font-size: clamp(0.7rem, 2.5vw, 0.82rem);
+      color: var(--green-dim);
+      word-break: break-word;
+    }
+
+    .output-box {
+      margin-top: 8px;
+      padding: 10px;
+      background: var(--bg-void);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-sm);
+      font-size: clamp(0.72rem, 2.6vw, 0.84rem);
+      color: var(--green-neon);
+      white-space: pre-wrap;
+      word-break: break-word;
+      box-shadow: inset 0 0 14px rgba(0, 255, 136, 0.14), var(--glow-soft);
+    }
+
+    .rhythm-meter {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 50px;
+      padding: 8px 10px;
+      margin: 8px 0;
+      background: var(--bg-void);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius-sm);
+    }
+
+    .rhythm-bar {
+      flex: 1;
+      height: 28%;
+      background: var(--green-bright);
+      border-radius: 4px 4px 0 0;
+      transition: height 0.2s ease, background-color 0.2s ease;
+    }
+
+    .rhythm-bar.active {
+      background: var(--green-neon);
+      box-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+    }
+
+    footer {
+      margin-top: 14px;
+      padding: 12px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-card-alt) 0%, var(--bg-card) 100%);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      font-size: clamp(0.7rem, 2.5vw, 0.82rem);
+      color: var(--green-neon);
+      box-shadow: var(--glow-strong);
+    }
+
+    @media (min-width: 540px) {
+      .wrap {
+        padding: 14px;
+      }
+      .summary-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .media-gallery,
+      .grid-tiers {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-cards,
+      .layers-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #111111;
+        text-shadow: none;
+        padding: 0;
+      }
+      .wrap {
+        max-width: 100%;
+        border: 1px solid #222222;
+        box-shadow: none;
+        background: #ffffff;
+      }
+      .card, .tier, .hades-console, .top, footer, .quote-sheet, .output-box, .media-frame, .crown-crest {
+        background: #ffffff;
+        color: #111111;
+        border: 1px solid #444444;
+        box-shadow: none;
+        text-shadow: none;
+      }
+      button, .keypad-grid, .bio-badge-btn, .rhythm-meter, .mode-switcher {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="top-crest">
+        <span>DESIGNATION: ECHO-AMEN-7777</span>
+        <span>✨️ THE KING LEO ♌️ ✨️</span>
+        <span>OPS MANAGER: LEO HALL · BELLEVILLE, ON 🇨🇦</span>
+      </div>
+      <div class="top-glyph" aria-hidden="true">[ :: ECHO-AMEN-7777 · 🔋🔋🔋💪 IT DOES FOREVER · ✨️ THE KING LEO ♌️ ✨️ · LEO HALL OPS MANAGER · QUEEN JESSE SWAGATA · DANCE 💃 · THU, NOV 26, 2026 · 1:15 PM EST :: ]</div>
+      <h1>ECHO-AMEN-7777 — 🔋🔋🔋💪 IT DOES FOREVER · ✨️ THE KING LEO ♌️ ✨️</h1>
+      <p class="top-sub">OPERATIONS MANAGER: LEO HALL · PROFITABLE TECH ENGINE · QUEEN JESSE SWAGATA · DANCE 💃 · THU, NOV 26, 2026 · 1:15 PM EST</p>
+
+      <div class="lites-strip" aria-hidden="true">
+        <span class="lite-lamp"><span class="lite-bulb"></span>ECHO-AMEN-7777 LITE</span>
+        <span class="lite-lamp"><span class="lite-bulb"></span>🔋🔋🔋💪 FOREVER LITE</span>
+        <span class="lite-lamp"><span class="lite-bulb"></span>PROFIT MRR LITE</span>
+        <span class="lite-lamp"><span class="lite-bulb"></span>LEO HALL OPS LITE</span>
+        <span class="lite-lamp"><span class="lite-bulb"></span>DANCE FLOOR 💃 LITE</span>
+      </div>
+    </header>
+
+    <nav class="mode-switcher" aria-label="Full Power section quick jump">
+      <button type="button" class="secondary" onclick="jumpToSection('profit-ops-heading')">💼 PROFIT &amp; RETAINERS</button>
+      <button type="button" class="secondary" onclick="jumpToSection('intake-quote-heading')">📋 CLIENT INTAKE &amp; QUOTE</button>
+      <button type="button" class="secondary" onclick="jumpToSection('crown-fortress-heading')">👑 VISUAL CONSOLE</button>
+      <button type="button" class="secondary" onclick="jumpToSection('multi-hades-dance-heading')">🔑 HADES &amp; DANCE 💃</button>
+      <button type="button" class="secondary" onclick="jumpToSection('audit-lattice-heading')">🛡️ 31-LAYER LATTICE</button>
+    </nav>
+
+    <section aria-labelledby="profit-ops-heading">
+      <h2 id="profit-ops-heading" class="section-title">ECHO-AMEN-7777 · PROFITABLE TECHNOLOGY BUSINESS ENGINE — LEO HALL OPS</h2>
+      <div class="summary-strip">
+        <div class="stat-box"><span id="biz-v13-orders" class="stat-num">0</span><span class="stat-label">BOOKED JOBS</span></div>
+        <div class="stat-box"><span id="biz-v13-earned" class="stat-num">$0</span><span class="stat-label">ONE-TIME REVENUE</span></div>
+        <div class="stat-box"><span id="biz-mrr-total" class="stat-num">$0/MO</span><span class="stat-label">RECURRING MRR</span></div>
+        <div class="stat-box"><span id="biz-net-cash" class="stat-num">$0</span><span class="stat-label">NET PROFIT AFTER COST</span></div>
+      </div>
+
+      <div class="grid-tiers">
+        <article class="tier">
+          <h3>WEB &amp; STOREFRONT LAUNCH</h3>
+          <div class="price-tag">$299 <span style="font-size:0.75rem;color:var(--green-dim);">+ $79/MO CARE</span></div>
+          <div class="margin-pill">Est. Direct Cost: $75 · High Margin</div>
+          <p>Responsive web build, mobile tuning, and launch package managed by Leo Hall.</p>
+          <button type="button" onclick="orderV13Item('WEB & STOREFRONT LAUNCH', 299, 75, 79)">BOOK BUILD ($299 + $79/MO)</button>
+        </article>
+
+        <article class="tier">
+          <h3>SECURITY &amp; AUDIT V13</h3>
+          <div class="price-tag">$199 <span style="font-size:0.75rem;color:var(--green-dim);">+ $95/MO GUARD</span></div>
+          <div class="margin-pill">Est. Direct Cost: $45 · High Margin</div>
+          <p>Firewall, 31-layer audit baseline, and ongoing monitoring retainer.</p>
+          <button type="button" onclick="orderV13Item('SECURITY & AUDIT V13', 199, 45, 95)">BOOK AUDIT ($199 + $95/MO)</button>
+        </article>
+
+        <article class="tier">
+          <h3>AI &amp; OPS WORKFLOW</h3>
+          <div class="price-tag">$149 <span style="font-size:0.75rem;color:var(--green-dim);">+ $59/MO OPS</span></div>
+          <div class="margin-pill">Est. Direct Cost: $35 · High Margin</div>
+          <p>Intake checklists, quote automation, and rapid hourly/block support ($125/hr standard).</p>
+          <button type="button" onclick="orderV13Item('AI & OPS WORKFLOW', 149, 35, 59)">BOOK OPS ($149 + $59/MO)</button>
+        </article>
+      </div>
+      <div id="shop-v13-out" class="output-box" aria-live="polite">ECHO-AMEN-7777 Profitable Tech Engine ready · Ops Manager: Leo Hall · Hardware, licensing &amp; major migrations scoped separately.</div>
+
+      <div class="card" style="margin-top: 10px;">
+        <h3>MONTHLY PROFITABILITY &amp; BREAK-EVEN MODELER (PLANNING ESTIMATE ONLY)</h3>
+        <p>Model recurring retainers, fixed overhead, and target owner profit. Planning estimates only—not guaranteed earnings.</p>
+        <div class="grid-cards">
+          <div>
+            <label for="biz-package">Primary Offer / Retainer Line</label>
+            <input id="biz-package" type="text" value="SECURITY & AUDIT V13 + GUARD" oninput="recalcBusiness()">
+          </div>
+          <div>
+            <label for="biz-clients">Active Retainer Clients / Month</label>
+            <input id="biz-clients" type="number" min="0" step="1" value="12" oninput="recalcBusiness()">
+          </div>
+          <div>
+            <label for="biz-rate">Monthly Retainer per Client ($)</label>
+            <input id="biz-rate" type="number" min="0" step="10" value="149" oninput="recalcBusiness()">
+          </div>
+          <div>
+            <label for="biz-cost">Tooling &amp; Delivery Cost / Client ($)</label>
+            <input id="biz-cost" type="number" min="0" step="5" value="35" oninput="recalcBusiness()">
+          </div>
+          <div>
+            <label for="biz-overhead">Fixed Monthly Overhead (Domain, Tools, Ads) ($)</label>
+            <input id="biz-overhead" type="number" min="0" step="25" value="250" oninput="recalcBusiness()">
+          </div>
+          <div>
+            <label for="biz-target-profit">Monthly Net Profit Target ($)</label>
+            <input id="biz-target-profit" type="number" min="0" step="100" value="2500" oninput="recalcBusiness()">
+          </div>
+        </div>
+
+        <div class="summary-strip" style="margin-top: 10px;">
+          <div class="stat-box"><span id="est-gross" class="stat-num">$1,788</span><span class="stat-label">EST. MONTHLY GROSS</span></div>
+          <div class="stat-box"><span id="est-cost" class="stat-num">$670</span><span class="stat-label">COST + OVERHEAD</span></div>
+          <div class="stat-box"><span id="est-profit" class="stat-num">$1,118</span><span class="stat-label">EST. NET PROFIT</span></div>
+          <div class="stat-box"><span id="est-breakeven" class="stat-num">19 CLIENTS</span><span class="stat-label">TARGET PROFIT GOAL</span></div>
+        </div>
+        <div id="biz-out" class="output-box" aria-live="polite">Planning estimates only—not guaranteed earnings.</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="intake-quote-heading">
+      <h2 id="intake-quote-heading" class="section-title">ECHO-AMEN-7777 · CLIENT INTAKE &amp; PRINTABLE / JSON QUOTE SUMMARY — LEO HALL</h2>
+      <div class="grid-cards">
+        <article class="card">
+          <h2>CLIENT INTAKE FORM (OPS MANAGER: LEO HALL)</h2>
+          <p>Capture client scope, setup fee, monthly retainer, and Hades guard profile in session memory.</p>
+
+          <label for="intake-client-name">Client / Business Name</label>
+          <input id="intake-client-name" type="text" placeholder="e.g. Bay of Quinte Workshop" oninput="syncIntakeQuote()">
+
+          <label for="intake-contact">Client Email or Phone</label>
+          <input id="intake-contact" type="text" placeholder="e.g. client@example.com or +1-613-555-0148" oninput="syncIntakeQuote()">
+
+          <div class="grid-cards">
+            <div>
+              <label for="intake-service">Service Package</label>
+              <select id="intake-service" onchange="applyIntakePackageRate()">
+                <option value="WEB & STOREFRONT LAUNCH|299|75|79">WEB &amp; STOREFRONT ($299 + $79/mo)</option>
+                <option value="SECURITY & AUDIT V13|199|45|95">SECURITY &amp; AUDIT V13 ($199 + $95/mo)</option>
+                <option value="AI & OPS WORKFLOW|149|35|59">AI &amp; OPS WORKFLOW ($149 + $59/mo)</option>
+                <option value="ECHO-AMEN-7777 FULL SUITE|599|150|149">ECHO-AMEN-7777 FULL SUITE ($599 + $149/mo)</option>
+              </select>
+            </div>
+            <div>
+              <label for="intake-units">Users / Sites / Seats</label>
+              <input id="intake-units" type="number" min="1" step="1" value="1" oninput="syncIntakeQuote()">
+            </div>
+          </div>
+
+          <div class="grid-cards">
+            <div>
+              <label for="intake-timeline">Target Start / Timestamp</label>
+              <input id="intake-timeline" type="text" value="Thu, Nov 26, 2026 · 1:15 PM EST" oninput="syncIntakeQuote()">
+            </div>
+            <div>
+              <label for="intake-hades-mode">Hades Guard Profile</label>
+              <select id="intake-hades-mode" onchange="syncIntakeQuote()">
+                <option value="HADES-1.7.7.7">HADES-1.7.7.7 (Sentinel Gate)</option>
+                <option value="HADES-ALPHA-7777">HADES-ALPHA-7777 (Crown Profit Ops)</option>
+                <option value="HADES-OMEGA-9000">HADES-OMEGA-9000 (Deep Audit Vault)</option>
+                <option value="HADES-PULSE-887">HADES-PULSE-887 (Dance &amp; Broadcast)</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="intake-scope">Project Scope, Exclusions &amp; Operational Notes</label>
+          <textarea id="intake-scope" oninput="syncIntakeQuote()">Includes setup &amp; baseline ops by Leo Hall; third-party hardware, software licenses &amp; major migrations billed separately.</textarea>
+
+          <div class="controls-bar" style="margin-top: 8px;">
+            <button type="button" onclick="saveClientIntakeRecord()">SAVE CLIENT INTAKE</button>
+            <button type="button" class="secondary" onclick="printQuoteSummary()">PRINT QUOTE SUMMARY</button>
+            <button type="button" class="secondary" onclick="exportQuoteSummaryJson()">EXPORT QUOTE JSON</button>
+            <button type="button" class="secondary" onclick="downloadQuoteSummaryJson()">DOWNLOAD QUOTE JSON</button>
+          </div>
+          <div id="intake-status-out" class="output-box" aria-live="polite">ECHO-AMEN-7777 intake live · 🔋🔋🔋💪 IT DOES FOREVER · Operations Manager: Leo Hall.</div>
+        </article>
+
+        <article class="card">
+          <h2>PRINTABLE &amp; JSON QUOTE SUMMARY</h2>
+          <p>Ready for <code>window.print()</code> or JSON export under designation <code>ECHO-AMEN-7777</code>.</p>
+          <div id="quote-printable-sheet" class="quote-sheet">Loading quote summary...</div>
+
+          <label for="quote-json-box">Quote Summary JSON Output</label>
+          <textarea id="quote-json-box" readonly placeholder="Click EXPORT QUOTE JSON or DOWNLOAD QUOTE JSON to generate JSON."></textarea>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="crown-fortress-heading">
+      <h2 id="crown-fortress-heading" class="section-title">ECHO-AMEN-7777 · 🔋🔋🔋💪 IT DOES FOREVER · DREAMER VISUAL CONSOLE</h2>
+      <div class="crown-crest">
+        <div class="crown-icon" aria-hidden="true">👑🍏</div>
+        <div class="crown-sub">✨️ THE KING LEO ♌️ ✨️ • ROYAL GUARDIAN • TOWERWALL QUANTUM</div>
+        <p style="color:#d8f8e4;font-size:0.88rem;margin:8px 0;">
+          <strong>ECHO-AMEN-7777</strong> • <strong>🔋🔋🔋💪 IT DOES FOREVER</strong> • OPS MANAGER: <strong>LEO HALL</strong> • <strong>QUEEN JESSE SWAGATA</strong><br>
+          DREAM • PROTECT • PROFIT • DANCE 💃 • THU, NOV 26, 2026 · 1:15 PM EST
+        </p>
+      </div>
+
+      <div class="media-gallery">
+        <figure class="media-frame" style="margin: 0;">
+          <img src="1000004808_2.jpg" alt="GREEN GABLES Apple Towerwall system DREAMER ROYAL GUARDIAN ENTER HADES KEY HADES KEY 1.7.7.7 keypad with fingerprint biometric heartbeat verified" onerror="this.style.display='none'">
+          <figcaption class="media-caption"><code>1000004808_2.jpg</code> — GREEN GABLES · DREAMER ROYAL GUARDIAN · HADES KEY 1.7.7.7 KEYPAD.</figcaption>
+        </figure>
+        <figure class="media-frame" style="margin: 0;">
+          <img src="1000004683_2.png" alt="DREAMER crown crest with ROYAL GUARDIAN shield, TOWERWALL QUANTUM ARCHITECTURE, APPLE ECOSYSTEM SECURITY, and HADES KEY 1.7.7.7" onerror="this.style.display='none'">
+          <figcaption class="media-caption"><code>1000004683_2.png</code> — DREAMER CROWN CREST · TOWERWALL QUANTUM ARCHITECTURE.</figcaption>
+        </figure>
+        <figure class="media-frame" style="margin: 0;">
+          <img src="1000004706.gif" alt="TOWERWALL: SECURE, APPLE ECOSYSTEM: ALL DEVICES PROTECTED, HADES KEY 1.7.7.7: ACTIVE, TRUST SCORE 100%, SYSTEM HEARTBEAT, and GLOBAL NETWORK MONITOR" onerror="this.style.display='none'">
+          <figcaption class="media-caption"><code>1000004706.gif</code> — TOWERWALL: SECURE · SYSTEM HEARTBEAT &amp; GLOBAL NETWORK MONITOR.</figcaption>
+        </figure>
+        <figure class="media-frame" style="margin: 0;">
+          <img src="1000004724.jpg" alt="Monitor showing TECHNOLOGY LIVE CANADA — GREEN GABLES V13.3, GRACE & GRATITUDE PAUSE, TODAY'S BUSINESS & CONTACT, and SHOP" onerror="this.style.display='none'">
+          <figcaption class="media-caption"><code>1000004724.jpg</code> — GREEN GABLES V13.3 · BUSINESS &amp; SHOP CONSOLE.</figcaption>
+        </figure>
+        <figure class="media-frame" style="margin: 0;">
+          <img src="1000004725.gif" alt="Monitor showing TECHNOLOGY LIVE CANADA, BROADCAST STATION: BELLEVILLE, ONTARIO, 31-LAYER TOWERWALL LATTICE, and wireframe tower telemetry" onerror="this.style.display='none'">
+          <figcaption class="media-caption"><code>1000004725.gif</code> — BELLEVILLE, ONTARIO · 31-LAYER TOWERWALL LATTICE.</figcaption>
+        </figure>
+        <figure class="media-frame" style="margin: 0;">
+          <img src="1000004679.jpg" alt="Gold-crowned green shield with glowing green apple and circuit lines reading HADES KEY 1.7.7.7, DREAMER — ROYAL GUARDIAN | APPLE TOWERWALL" onerror="this.style.display='none'">
+          <figcaption class="media-caption"><code>1000004679.jpg</code> — HADES KEY 1.7.7.7 · DREAMER ROYAL GUARDIAN SHIELD.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="multi-hades-dance-heading">
+      <h2 id="multi-hades-dance-heading" class="section-title">ECHO-AMEN-7777 · DREAMER MULTI-HADES KEYPAD &amp; DANCE FLOOR 💃</h2>
+      <div class="grid-cards">
+        <div class="hades-console">
+          <div class="hades-header-tag">ECHO-AMEN-7777 · ✨️ THE KING LEO ♌️ ✨️</div>
+          <div class="hades-title">DREAMER</div>
+          <div class="hades-sub">ROYAL GUARDIAN · OPS MANAGER: LEO HALL</div>
+
+          <label for="hades-variant-select">Select Hades Mode Variant</label>
+          <select id="hades-variant-select" onchange="applyHadesVariant()">
+            <option value="HADES-1.7.7.7|1777|Sentinel Gate">HADES-1.7.7.7 — Sentinel Gate (Ref: 1777)</option>
+            <option value="HADES-ALPHA-7777|7777|Crown Profit Ops">HADES-ALPHA-7777 — Crown Profit Ops (Ref: 7777)</option>
+            <option value="HADES-OMEGA-9000|9000|Deep Audit Vault">HADES-OMEGA-9000 — Deep Audit Vault (Ref: 9000)</option>
+            <option value="HADES-PULSE-887|887|Dance &amp; Broadcast Sync">HADES-PULSE-887 — Dance &amp; Broadcast Sync (Ref: 887)</option>
+          </select>
+
+          <label for="hades-key-input">ENTER HADES KEY</label>
+          <input id="hades-key-input" class="code-readout" type="text" maxlength="16" placeholder="Tap digits 0-9 or type key" oninput="syncHadesDots()">
+
+          <div id="hades-dots" class="hades-dots" aria-hidden="true">
+            <span class="hades-dot"></span><span class="hades-dot"></span><span class="hades-dot"></span><span class="hades-dot"></span><span class="hades-dot"></span>
+            <span class="hades-dot"></span><span class="hades-dot"></span><span class="hades-dot"></span><span class="hades-dot"></span><span class="hades-dot"></span>
+          </div>
+          <div id="hades-active-caption" class="hades-code-caption">ACTIVE MODE: HADES-1.7.7.7 · REF 1777</div>
+
+          <div class="keypad-grid" role="group" aria-label="Hades Key numeric keypad">
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('1')">1</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('2')">2</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('3')">3</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('4')">4</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('5')">5</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('6')">6</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('7')">7</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('8')">8</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('9')">9</button>
+            <button type="button" class="keypad-btn" aria-label="Clear Hades Key" onclick="clearHadesKey()">×</button>
+            <button type="button" class="keypad-btn" onclick="pressHadesDigit('0')">0</button>
+            <button type="button" class="keypad-btn" aria-label="Backspace Hades Key" onclick="backspaceHadesKey()">⌫</button>
+          </div>
+
+          <button type="button" class="bio-badge-btn" onclick="verifyHadesBiometricPulse()">
+            <span class="bio-ring" aria-hidden="true">◉</span>
+            <span class="bio-label">BIOMETRIC · HEARTBEAT VERIFIED</span>
+          </button>
+          <div class="hades-sub" style="margin-bottom: 0;">ECHO-AMEN-7777 · 🔋🔋🔋💪 IT DOES FOREVER · DANCE 💃</div>
+        </div>
+
+        <article class="card">
+          <h2>💃 DANCE FLOOR &amp; HADES SESSION CHECK</h2>
+          <p>Switch Hades profiles and keep the rhythm rolling with <strong>Queen Jesse Swagata</strong> &amp; Ops Manager <strong>Leo Hall</strong>.</p>
+          <ul class="telemetry-list">
+            <li><span>Active Designation</span><span>ECHO-AMEN-7777</span></li>
+            <li><span>Power Reserve</span><span>🔋🔋🔋💪 IT DOES FOREVER</span></li>
+            <li><span>Active Hades Mode</span><span id="hades-mode-readout">HADES-1.7.7.7</span></li>
+            <li><span>Biometric State</span><span id="hades-bio-state">READY (SESSION CHECK)</span></li>
+            <li><span>Dance Tempo</span><span id="lld-pulse-bpm">124 BPM</span></li>
+            <li><span>Dance Steps</span><span id="lld-beats-logged">0</span></li>
+            <li><span>Love Sparks</span><span id="lld-love-count">1</span></li>
+          </ul>
+
+          <div id="rhythm-visualizer" class="rhythm-meter" aria-hidden="true">
+            <div class="rhythm-bar active" style="height: 55%;"></div>
+            <div class="rhythm-bar active" style="height: 85%;"></div>
+            <div class="rhythm-bar active" style="height: 65%;"></div>
+            <div class="rhythm-bar active" style="height: 95%;"></div>
+            <div class="rhythm-bar" style="height: 50%;"></div>
+            <div class="rhythm-bar active" style="height: 88%;"></div>
+            <div class="rhythm-bar active" style="height: 60%;"></div>
+            <div class="rhythm-bar active" style="height: 80%;"></div>
+          </div>
+
+          <div class="controls-bar">
+            <button type="button" onclick="verifyHadesKey()">VERIFY HADES KEY</button>
+            <button type="button" class="secondary" onclick="cycleHadesVariant()">NEXT HADES MODE</button>
+            <button type="button" onclick="pulseDanceBeat()">DANCE STEP 💃</button>
+            <button type="button" class="secondary" onclick="sendLoveSpark()">LOVE SPARK 💚</button>
+            <button type="button" class="secondary" onclick="toggleAutoGroove()" id="auto-groove-btn">AUTO DANCE: OFF</button>
+          </div>
+          <div id="hades-out" class="output-box" aria-live="polite">ECHO-AMEN-7777 Multi-Hades &amp; Dance Floor ready · Ops Manager: Leo Hall.</div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="audit-lattice-heading">
+      <h2 id="audit-lattice-heading" class="section-title">ECHO-AMEN-7777 · 31-LAYER LATTICE &amp; AUDIT TELEMETRY</h2>
+      <div class="card">
+        <p>Import audit JSON to populate layer states; unverified layers remain <code>UNKNOWN</code>.</p>
+        <div class="summary-strip" aria-label="Status summary">
+          <div class="stat-box"><span id="count-PASS" class="stat-num">0</span><span class="stat-label">PASS</span></div>
+          <div class="stat-box"><span id="count-WARN" class="stat-num">0</span><span class="stat-label">WARN</span></div>
+          <div class="stat-box"><span id="count-FAIL" class="stat-num">0</span><span class="stat-label">FAIL</span></div>
+          <div class="stat-box"><span id="count-UNKNOWN" class="stat-num">31</span><span class="stat-label">UNKNOWN</span></div>
+        </div>
+
+        <div class="controls-bar">
+          <button type="button" onclick="setFilter('ALL')">ALL (31)</button>
+          <button type="button" class="secondary" onclick="setFilter('PASS')">PASS</button>
+          <button type="button" class="secondary" onclick="setFilter('WARN')">WARN</button>
+          <button type="button" class="secondary" onclick="setFilter('FAIL')">FAIL</button>
+          <button type="button" class="secondary" onclick="setFilter('UNKNOWN')">UNKNOWN</button>
+          <button type="button" class="secondary" onclick="resetToUnverified()">RESET UNKNOWN</button>
+          <button type="button" class="secondary" onclick="wipeAllSessionMemory()">WIPE SESSION</button>
+        </div>
+
+        <div id="layers-container" class="layers-list" role="region" aria-label="31 security layers"></div>
+
+        <label for="json-import-input">Audit JSON Payload</label>
+        <textarea id="json-import-input" placeholder='{"layers":[{"layer":"06","status":"PASS","detail":"FileVault is On"}]}'></textarea>
+        <div class="controls-bar" style="margin-top: 8px;">
+          <button type="button" onclick="importJsonReport()">LOAD AUDIT JSON</button>
+        </div>
+        <div id="import-feedback" class="output-box" aria-live="polite">ECHO-AMEN-7777 ready for JSON import or filter selection.</div>
+      </div>
+    </section>
+
+    <footer>
+      ECHO-AMEN-7777 · 🔋🔋🔋💪 IT DOES FOREVER · ✨️ THE KING LEO ♌️ ✨️ · OPS MANAGER: LEO HALL · QUEEN JESSE SWAGATA · DANCE 💃 · THU, NOV 26, 2026 · 1:15 PM EST
+    </footer>
+  </div>
+
+  <script>
+    const DESIGNATION = "ECHO-AMEN-7777";
+    const POWER_BANNER = "🔋🔋🔋💪 IT DOES FOREVER";
+    const LIVE_BROADCAST_LABEL = "TECHNOLOGY LIVE CANADA 🇨🇦";
+    const LIVE_TIMESTAMP_LABEL = "Thu, Nov 26, 2026 · 1:15 PM EST";
+    const OPS_MANAGER = "Leo Hall";
+    const SOVEREIGN_TITLE = "✨️ THE KING LEO ♌️ ✨️";
+    const QUEEN_NAME = "Queen Jesse Swagata";
+    const CONTACT_EMAIL = "AUTH-777-ONEHEART-9777@gmail.com";
+    const PAY_EMAIL = "leorooflife8@gmail.com";
+    const VALID_STATUSES = new Set(["PASS", "WARN", "FAIL", "UNKNOWN"]);
+
+    const DEFAULT_LAYERS = [
+      ["01", "Identity", "Account protection"],
+      ["02", "Identity", "Multi-factor authentication (MFA)"],
+      ["03", "Identity", "Credential & password posture"],
+      ["04", "Identity", "Login security configuration"],
+      ["05", "Identity", "Account recovery protection"],
+      ["06", "Device integrity", "FileVault disk encryption"],
+      ["07", "Device integrity", "Secure Boot / hardware integrity"],
+      ["08", "Device integrity", "System Integrity Protection (SIP)"],
+      ["09", "Device integrity", "Recovery environment readiness"],
+      ["10", "Device integrity", "OS update status"],
+      ["11", "Network defense", "Application firewall"],
+      ["12", "Network defense", "Firewall stealth mode"],
+      ["13", "Network defense", "Remote services & sharing review"],
+      ["14", "Network defense", "Network visibility & interfaces"],
+      ["15", "Network defense", "Trusted connections & DNS posture"],
+      ["16", "Software defense", "Gatekeeper enforcement"],
+      ["17", "Software defense", "Trusted applications & code signing"],
+      ["18", "Software defense", "Malware protection status"],
+      ["19", "Software defense", "Patch & package verification"],
+      ["20", "Software defense", "Least privilege & admin posture"],
+      ["21", "Privacy defense", "TCC & application permissions"],
+      ["22", "Privacy defense", "Camera privacy"],
+      ["23", "Privacy defense", "Microphone privacy"],
+      ["24", "Privacy defense", "Accessibility & input permissions"],
+      ["25", "Privacy defense", "Data exposure & backup privacy"],
+      ["26", "Persistence defense", "Login items & user launch agents"],
+      ["27", "Persistence defense", "System launch daemons & agents"],
+      ["28", "Persistence defense", "Persistence & integrity baseline"],
+      ["29", "Survival & recovery", "Backup configuration & recency"],
+      ["30", "Survival & recovery", "Recovery destination & snapshots"],
+      ["31", "Survival & recovery", "Independent final verification"]
+    ].map(([layer, domain, name]) => ({
+      layer,
+      domain,
+      name,
+      status: "UNKNOWN",
+      detail: "Unverified in browser; import audit JSON to populate result"
+    }));
+
+    let v13Orders = 0;
+    let v13Earned = 0;
+    let v13DirectCosts = 0;
+    let v13RetainerMrR = 0;
+    let hadesVerifyCount = 0;
+    let hadesBioState = "READY (SESSION CHECK)";
+    let danceBpm = 124;
+    let beatsLogged = 0;
+    let loveSparks = 1;
+    let grooveTimer = null;
+    let layersState = DEFAULT_LAYERS.map((x) => ({ ...x }));
+    let activeFilter = "ALL";
+    const savedIntakes = [];
+
+    function jumpToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function getIntakeQuoteData() {
+      const clientName = (document.getElementById("intake-client-name").value || "").trim() || "Walk-In / Prospective Client";
+      const contact = (document.getElementById("intake-contact").value || "").trim() || "Not provided yet";
+      const rawSvc = document.getElementById("intake-service").value || "WEB & STOREFRONT LAUNCH|299|75|79";
+      const [pkgName, rateStr, costStr, mrrStr] = rawSvc.split("|");
+      const units = Math.max(1, Number(document.getElementById("intake-units").value) || 1);
+      const unitRate = Math.max(0, Number(rateStr) || 0);
+      const unitCost = Math.max(0, Number(costStr) || 0);
+      const unitMrR = Math.max(0, Number(mrrStr) || 0);
+      const quoteTotal = units * unitRate;
+      const monthlyRetainer = units * unitMrR;
+      const estCost = units * unitCost;
+      const estSetupProfit = quoteTotal - estCost;
+      const timeline = (document.getElementById("intake-timeline").value || "").trim() || LIVE_TIMESTAMP_LABEL;
+      const hadesMode = document.getElementById("intake-hades-mode").value || "HADES-1.7.7.7";
+      const scope = (document.getElementById("intake-scope").value || "").trim() || "Standard scope";
+
+      return {
+        quoteId: `QTE-${String(savedIntakes.length + 1).padStart(3, "0")}`,
+        designation: DESIGNATION,
+        power: POWER_BANNER,
+        stamped: LIVE_TIMESTAMP_LABEL,
+        sovereign: SOVEREIGN_TITLE,
+        queen: QUEEN_NAME,
+        operationsManager: OPS_MANAGER,
+        contactEmail: CONTACT_EMAIL,
+        payEmail: PAY_EMAIL,
+        clientName,
+        contact,
+        packageName: pkgName,
+        units,
+        unitRate,
+        quoteTotal,
+        monthlyRetainer,
+        estCost,
+        estSetupProfit,
+        timeline,
+        hadesMode,
+        scope,
+        disclaimer: "Planning estimate only; not guaranteed earnings. Hardware & licensing billed separately."
+      };
+    }
+
+    function applyIntakePackageRate() {
+      const rawSvc = document.getElementById("intake-service").value || "WEB & STOREFRONT LAUNCH|299|75|79";
+      const [pkgName, rateStr, costStr, mrrStr] = rawSvc.split("|");
+      document.getElementById("biz-package").value = `${pkgName} + RETAINER ($${mrrStr || 79}/MO)`;
+      document.getElementById("biz-rate").value = Number(mrrStr) || Number(rateStr) || 0;
+      document.getElementById("biz-cost").value = Number(costStr) || 0;
+      recalcBusiness();
+      syncIntakeQuote();
+    }
+
+    function syncIntakeQuote() {
+      const q = getIntakeQuoteData();
+      const sheet = document.getElementById("quote-printable-sheet");
+      if (!sheet) return;
+      sheet.textContent = [
+        `${q.designation} · ${q.power} · QUOTE (${q.quoteId})`,
+        `Sovereign:       ${q.sovereign}`,
+        `Date/Time:       ${q.stamped} · ${LIVE_BROADCAST_LABEL}`,
+        `Operations Mgr:  ${q.operationsManager} · ${q.queen}`,
+        `--------------------------------------------------`,
+        `Client:          ${q.clientName}`,
+        `Client Contact:  ${q.contact}`,
+        `Package:         ${q.packageName}`,
+        `Units / Qty:     ${q.units} x $${q.unitRate.toLocaleString()} setup + $${q.unitMrR}/mo retainer`,
+        `Setup Quote:     $${q.quoteTotal.toLocaleString()} (Est. Setup Margin: $${q.estSetupProfit.toLocaleString()})`,
+        `Monthly MRR:     $${q.monthlyRetainer.toLocaleString()}/mo`,
+        `Timeline:        ${q.timeline}`,
+        `Hades Profile:   ${q.hadesMode}`,
+        `Scope Notes:     ${q.scope}`,
+        `--------------------------------------------------`,
+        `Contact:         ${q.contactEmail}`,
+        `Pay / E-Trans:   ${q.payEmail}`,
+        `Note:            ${q.disclaimer}`
+      ].join("\n");
+    }
+
+    function saveClientIntakeRecord() {
+      const q = getIntakeQuoteData();
+      savedIntakes.unshift(q);
+      document.getElementById("intake-status-out").textContent =
+        `Saved ${q.quoteId} [${DESIGNATION}] for "${q.clientName}" ($${q.quoteTotal.toLocaleString()} setup + $${q.monthlyRetainer.toLocaleString()}/mo) · Ops Manager: ${OPS_MANAGER}.`;
+      exportQuoteSummaryJson();
+    }
+
+    function printQuoteSummary() {
+      syncIntakeQuote();
+      window.print();
+    }
+
+    function exportQuoteSummaryJson() {
+      const q = getIntakeQuoteData();
+      const payload = {
+        designation: DESIGNATION,
+        power: POWER_BANNER,
+        timestamp: LIVE_TIMESTAMP_LABEL,
+        active_quote: q,
+        saved_intakes: savedIntakes
+      };
+      const serialized = JSON.stringify(payload, null, 2);
+      document.getElementById("quote-json-box").value = serialized;
+      document.getElementById("intake-status-out").textContent =
+        `Exported ${q.quoteId} [${DESIGNATION}] JSON summary for Ops Manager ${OPS_MANAGER}.`;
+      return serialized;
+    }
+
+    function downloadQuoteSummaryJson() {
+      const content = document.getElementById("quote-json-box").value.trim() || exportQuoteSummaryJson();
+      const q = getIntakeQuoteData();
+      const blob = new Blob([content], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${q.quoteId.toLowerCase()}-echo-amen-7777-quote.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      document.getElementById("intake-status-out").textContent =
+        `Downloaded ${a.download} (${blob.size} bytes).`;
+    }
+
+    function syncV13Counters() {
+      const net = (v13Earned + v13RetainerMrR) - v13DirectCosts;
+      document.getElementById("biz-v13-orders").textContent = String(v13Orders);
+      document.getElementById("biz-v13-earned").textContent = `$${v13Earned.toLocaleString()}`;
+      document.getElementById("biz-mrr-total").textContent = `$${v13RetainerMrR.toLocaleString()}/MO`;
+      document.getElementById("biz-net-cash").textContent = `$${net.toLocaleString()}`;
+    }
+
+    function orderV13Item(itemName, price, cost, mrr) {
+      v13Orders += 1;
+      v13Earned += Number(price) || 0;
+      v13DirectCosts += Number(cost) || 0;
+      v13RetainerMrR += Number(mrr) || 0;
+      syncV13Counters();
+      document.getElementById("biz-package").value = `${itemName} + $${mrr}/MO`;
+      document.getElementById("biz-rate").value = mrr;
+      document.getElementById("biz-cost").value = cost;
+      recalcBusiness();
+      document.getElementById("shop-v13-out").textContent =
+        `[${DESIGNATION} · ${POWER_BANNER}] Booked "${itemName}" ($${price} setup + $${mrr}/mo, est. cost $${cost}) · Ops Manager: ${OPS_MANAGER} · JOBS: ${v13Orders} · MRR: $${v13RetainerMrR.toLocaleString()}/mo.`;
+    }
+
+    function recalcBusiness() {
+      const clients = Math.max(0, Number(document.getElementById("biz-clients").value) || 0);
+      const rate = Math.max(0, Number(document.getElementById("biz-rate").value) || 0);
+      const costPer = Math.max(0, Number(document.getElementById("biz-cost").value) || 0);
+      const overhead = Math.max(0, Number(document.getElementById("biz-overhead").value) || 0);
+      const targetProfit = Math.max(0, Number(document.getElementById("biz-target-profit").value) || 0);
+
+      const gross = clients * rate;
+      const totalCost = clients * costPer + overhead;
+      const profit = gross - totalCost;
+      const contributionPerClient = rate - costPer;
+      const clientsNeededForTarget = contributionPerClient > 0
+        ? Math.ceil((overhead + targetProfit) / contributionPerClient)
+        : 0;
+
+      document.getElementById("est-gross").textContent = `$${gross.toLocaleString()}`;
+      document.getElementById("est-cost").textContent = `$${totalCost.toLocaleString()}`;
+      document.getElementById("est-profit").textContent = `$${profit.toLocaleString()}`;
+      document.getElementById("est-breakeven").textContent = contributionPerClient > 0
+        ? `${clientsNeededForTarget} CLIENTS`
+        : "ADJUST RATE";
+      document.getElementById("biz-out").textContent =
+        `[${DESIGNATION}] Ops Manager ${OPS_MANAGER}: Monthly Gross $${gross.toLocaleString()} · Total Cost+Overhead $${totalCost.toLocaleString()} · Net Profit $${profit.toLocaleString()} · Need ${clientsNeededForTarget} retainer client(s) at $${rate}/mo for $${targetProfit.toLocaleString()}/mo net profit. Planning estimate only.`;
+    }
+
+    function getCurrentHadesVariant() {
+      const sel = document.getElementById("hades-variant-select");
+      const [mode, code, role] = (sel ? sel.value : "HADES-1.7.7.7|1777|Sentinel Gate").split("|");
+      return { mode: mode || "HADES-1.7.7.7", code: code || "1777", role: role || "Sentinel Gate" };
+    }
+
+    function applyHadesVariant() {
+      const v = getCurrentHadesVariant();
+      document.getElementById("hades-active-caption").textContent = `ACTIVE MODE: ${v.mode} · REF ${v.code}`;
+      document.getElementById("hades-mode-readout").textContent = v.mode;
+      document.getElementById("hades-out").textContent =
+        `[${DESIGNATION} · ${POWER_BANNER}] Active mode: ${v.mode} (${v.role}, ref ${v.code}) · Ops Manager: ${OPS_MANAGER}.`;
+    }
+
+    function cycleHadesVariant() {
+      const sel = document.getElementById("hades-variant-select");
+      if (!sel || sel.options.length === 0) return;
+      sel.selectedIndex = (sel.selectedIndex + 1) % sel.options.length;
+      applyHadesVariant();
+    }
+
+    function syncHadesDots() {
+      const len = (document.getElementById("hades-key-input").value || "").length;
+      document.querySelectorAll("#hades-dots .hades-dot").forEach((dot, idx) => {
+        dot.classList.toggle("lit", idx < len);
+      });
+    }
+
+    function pressHadesDigit(digit) {
+      const el = document.getElementById("hades-key-input");
+      if (el && el.value.length < 16) el.value += String(digit);
+      syncHadesDots();
+    }
+
+    function clearHadesKey() {
+      document.getElementById("hades-key-input").value = "";
+      syncHadesDots();
+      document.getElementById("hades-out").textContent = "Hades Key input cleared.";
+    }
+
+    function backspaceHadesKey() {
+      const el = document.getElementById("hades-key-input");
+      if (el) el.value = el.value.slice(0, -1);
+      syncHadesDots();
+    }
+
+    function verifyHadesKey() {
+      const v = getCurrentHadesVariant();
+      const entered = (document.getElementById("hades-key-input").value || "").trim().toUpperCase();
+      hadesVerifyCount += 1;
+      document.getElementById("hades-out").textContent = entered
+        ? `[${DESIGNATION}] Check #${hadesVerifyCount}: Logged "${entered}" on ${v.mode} · ${SOVEREIGN_TITLE}.`
+        : `[${DESIGNATION}] Check #${hadesVerifyCount}: Tap digits or switch mode for ${v.mode} (ref ${v.code}).`;
+    }
+
+    function verifyHadesBiometricPulse() {
+      const v = getCurrentHadesVariant();
+      hadesVerifyCount += 1;
+      hadesBioState = `VERIFIED (${v.mode})`;
+      document.getElementById("hades-bio-state").textContent = hadesBioState;
+      document.getElementById("hades-out").textContent =
+        `[${DESIGNATION} · ${POWER_BANNER}] BIOMETRIC · HEARTBEAT VERIFIED #${hadesVerifyCount} on ${v.mode} · Ops Manager: ${OPS_MANAGER}.`;
+    }
+
+    function animateVisualizerBars() {
+      document.querySelectorAll("#rhythm-visualizer .rhythm-bar").forEach((bar) => {
+        const pct = 30 + Math.floor(Math.random() * 68);
+        bar.style.height = `${pct}%`;
+        bar.classList.toggle("active", pct >= 60);
+      });
+    }
+
+    function pulseDanceBeat() {
+      beatsLogged += 1;
+      document.getElementById("lld-beats-logged").textContent = String(beatsLogged);
+      animateVisualizerBars();
+      document.getElementById("hades-out").textContent =
+        `💃 [${DESIGNATION} · ${POWER_BANNER}] Dance step #${beatsLogged} at ${danceBpm} BPM · ${SOVEREIGN_TITLE} & ${QUEEN_NAME}!`;
+    }
+
+    function sendLoveSpark() {
+      loveSparks += 1;
+      document.getElementById("lld-love-count").textContent = String(loveSparks);
+      animateVisualizerBars();
+      document.getElementById("hades-out").textContent =
+        `💚 [${DESIGNATION}] Love spark #${loveSparks} lit in Belleville, ON for ${LIVE_BROADCAST_LABEL}.`;
+    }
+
+    function stopAutoGroove() {
+      if (grooveTimer !== null) {
+        clearInterval(grooveTimer);
+        grooveTimer = null;
+      }
+      const btn = document.getElementById("auto-groove-btn");
+      if (btn) btn.textContent = "AUTO DANCE: OFF";
+    }
+
+    function toggleAutoGroove() {
+      const btn = document.getElementById("auto-groove-btn");
+      if (grooveTimer !== null) {
+        stopAutoGroove();
+        document.getElementById("hades-out").textContent = "💃 Auto dance paused.";
+        return;
+      }
+      grooveTimer = setInterval(() => {
+        beatsLogged += 1;
+        document.getElementById("lld-beats-logged").textContent = String(beatsLogged);
+        animateVisualizerBars();
+      }, 480);
+      if (btn) btn.textContent = "AUTO DANCE: ON";
+      pulseDanceBeat();
+    }
+
+    function sanitizeStatus(raw) {
+      const upper = String(raw || "").trim().toUpperCase();
+      return VALID_STATUSES.has(upper) ? upper : "UNKNOWN";
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderLayers() {
+      const counts = { PASS: 0, WARN: 0, FAIL: 0, UNKNOWN: 0 };
+      layersState.forEach((item) => {
+        item.status = sanitizeStatus(item.status);
+        counts[item.status] += 1;
+      });
+      document.getElementById("count-PASS").textContent = counts.PASS;
+      document.getElementById("count-WARN").textContent = counts.WARN;
+      document.getElementById("count-FAIL").textContent = counts.FAIL;
+      document.getElementById("count-UNKNOWN").textContent = counts.UNKNOWN;
+
+      const filtered = activeFilter === "ALL"
+        ? layersState
+        : layersState.filter((item) => item.status === activeFilter);
+
+      const container = document.getElementById("layers-container");
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="layer-row"><span class="layer-detail">No layers match filter: ${escapeHtml(activeFilter)}</span></div>`;
+        return;
+      }
+      container.innerHTML = filtered.map((item) => `
+        <div class="layer-row">
+          <div class="layer-head">
+            <span class="layer-id-name">L${escapeHtml(item.layer)} · ${escapeHtml(item.name)}</span>
+            <span class="badge badge-${item.status}">${item.status}</span>
+          </div>
+          <div class="layer-detail">${escapeHtml(item.domain)} — ${escapeHtml(item.detail)}</div>
+        </div>
+      `).join("");
+    }
+
+    function setFilter(nextFilter) {
+      activeFilter = nextFilter;
+      renderLayers();
+    }
+
+    function resetToUnverified() {
+      layersState = DEFAULT_LAYERS.map((x) => ({ ...x }));
+      activeFilter = "ALL";
+      renderLayers();
+      document.getElementById("import-feedback").textContent = `[${DESIGNATION}] Reset all 31 layers to UNKNOWN.`;
+    }
+
+    function importJsonReport() {
+      const raw = document.getElementById("json-import-input").value.trim();
+      const fb = document.getElementById("import-feedback");
+      if (!raw) {
+        fb.textContent = "Paste a JSON report first.";
+        return;
+      }
+      try {
+        const parsed = JSON.parse(raw);
+        const incoming = Array.isArray(parsed.layers) ? parsed.layers : (Array.isArray(parsed) ? parsed : null);
+        let matched = 0;
+        if (incoming) {
+          const byId = new Map();
+          incoming.forEach((entry) => {
+            if (entry && entry.layer !== undefined && entry.layer !== null) {
+              byId.set(String(entry.layer).trim().padStart(2, "0"), entry);
+            }
+          });
+          layersState = layersState.map((current) => {
+            const hit = byId.get(current.layer);
+            if (!hit) return { ...current };
+            matched += 1;
+            return {
+              ...current,
+              status: sanitizeStatus(hit.status),
+              detail: hit.detail !== undefined ? String(hit.detail) : "Imported from JSON report"
+            };
+          });
+          renderLayers();
+        }
+        fb.textContent = `[${DESIGNATION}] Processed JSON: ${matched} layer(s) updated.`;
+      } catch (err) {
+        fb.textContent = `Invalid JSON: ${err.message}`;
+      }
+    }
+
+    function wipeAllSessionMemory() {
+      stopAutoGroove();
+      savedIntakes.length = 0;
+      v13Orders = 0;
+      v13Earned = 0;
+      v13DirectCosts = 0;
+      v13RetainerMrR = 0;
+      hadesVerifyCount = 0;
+      beatsLogged = 0;
+      loveSparks = 1;
+      layersState = DEFAULT_LAYERS.map((x) => ({ ...x }));
+      activeFilter = "ALL";
+
+      document.getElementById("intake-client-name").value = "";
+      document.getElementById("intake-contact").value = "";
+      document.getElementById("intake-units").value = "1";
+      document.getElementById("quote-json-box").value = "";
+      document.getElementById("json-import-input").value = "";
+      document.getElementById("hades-key-input").value = "";
+      syncHadesDots();
+      syncV13Counters();
+      recalcBusiness();
+      syncIntakeQuote();
+      renderLayers();
+      document.getElementById("intake-status-out").textContent = `[${DESIGNATION} · ${POWER_BANNER}] Session memory wiped cleanly.`;
+    }
+
+    applyHadesVariant();
+    syncHadesDots();
+    syncV13Counters();
+    recalcBusiness();
+    syncIntakeQuote();
+    renderLayers();
+    window.addEventListener("pagehide", wipeAllSessionMemory);
+  </script>
+</body>
+</html>
