@@ -1,37 +1,49 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{margin:0;background:#020807;color:#fff;font-family:Arial;text-align:center}
-.wrap{max-width:400px;margin:0 auto;padding:20px}
-h1{letter-spacing:4px}
-.sub{color:#00ff88;letter-spacing:3px}
-.box{border:2px solid #00ff88;border-radius:20px;padding:20px;margin-top:20px}
-.pad{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:20px}
-button{background:#0a2a1a;color:#fff;border:1px solid #00ff88;border-radius:15px;padding:16px;font-size:24px}
-.back{display:block;margin-top:30px;color:#00ff88;text-decoration:none}
+*{box-sizing:border-box}
+body{margin:0;background:#02120c;color:#fff;font-family:Georgia,serif;text-align:center}
+.frame{max-width:430px;margin:0 auto;min-height:100vh;padding:28px 18px 20px;border:2px solid #c9a86a;outline:1px solid #c9a86a;outline-offset:-8px;background:radial-gradient(circle at 50% 0%, #0a3a2a 0%, #02120c 60%, #000 100%);box-shadow:inset 0 0 60px rgba(0,255,136,.2)}
+.top{letter-spacing:6px;color:#e8d5a3;font-size:20px}
+.top2{letter-spacing:4px;color:#c9a86a;font-size:14px;margin-top:4px}
+.shield{font-size:90px;margin:14px 0 0;filter:drop-shadow(0 0 25px #00ff88)}
+.apple{font-size:70px;margin-top:-75px;text-shadow:0 0 30px #00ff88}
+h1{letter-spacing:8px;font-size:42px;margin:18px 0 0;color:#e8d5a3}
+.guard{letter-spacing:5px;color:#c9a86a;border-top:1px solid #c9a86a;border-bottom:1px solid #c9a86a;display:inline-block;padding:6px 20px;margin:8px 0 20px}
+h2{letter-spacing:4px;font-size:18px;color:#e8d5a3}
+.dots{color:#00ff88;letter-spacing:10px;font-size:24px;text-shadow:0 0 12px #00ff88}
+.key{letter-spacing:4px;color:#c9a86a;font-size:13px;margin:14px 0 18px}
+.pad{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;max-width:340px;margin:0 auto}
+button{background:#06231a;color:#e8d5a3;border:1.5px solid #c9a86a;border-radius:16px;padding:14px;font-size:28px;box-shadow:0 0 12px rgba(0,0,0,.5)}
+button:active{background:#00ff88;color:#000}
+.finger{width:70px;height:70px;border:2px solid #c9a86a;border-radius:50%;margin:22px auto 10px;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 0 30px #00ff88;background:#06231a}
+.small{letter-spacing:3px;font-size:11px;color:#e8d5a3;line-height:1.8}
+.back{display:block;margin-top:18px;color:#00ff88;text-decoration:none;font-family:Arial}
 </style>
 </head>
 <body>
-<div class="wrap">
-<a class="back" href="index.html">← BACK HOME</a>
-<div style="font-size:60px">👑</div>
+<div class="frame">
+<div class="top">GREEN GABLES</div>
+<div class="top2">Apple Towerwall system</div>
+<div class="shield">🛡️</div>
+<div class="apple">🍏</div>
 <h1>DREAMER</h1>
-<div class="sub">ROYAL GUARDIAN • TOWERWALL</div>
-<div class="box">
-<div style="font-size:60px">🍏</div>
+<div class="guard">ROYAL GUARDIAN</div>
 <h2>ENTER HADES KEY</h2>
-<p>HADES KEY 1.7.7.7</p>
+<div class="dots">● ● ● ● ● ● ● ● ●</div>
+<div class="key">HADES KEY 1.7.7.7</div>
 <div class="pad">
 <button>1</button><button>2</button><button>3</button>
 <button>4</button><button>5</button><button>6</button>
 <button>7</button><button>8</button><button>9</button>
 <button>×</button><button>0</button><button>⌫</button>
 </div>
-<p>BIOMETRIC • HEARTBEAT VERIFIED 💚</p>
-</div>
-<p>DREAM • PROTECT • INNOVATE</p>
+<div class="finger">👆</div>
+<div class="small">BIOMETRIC • HEARTBEAT VERIFIED<br>DREAM • PROTECT • INNOVATE</div>
+<a class="back" href="index.html">← BACK HOME</a>
 </div>
 </body>
 </html>
