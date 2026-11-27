@@ -1,10 +1,5 @@
 # 🍏 GREEN GABLES — APPLE TOWERWALL 👑
 ### ECHO-AMEN-7777 • IT DOES FOREVER
-...your crown lines...
-
-<!DOCTYPE html>
-<html lang="en">
-...your old code still there...
 <!DOCTYPE html>
 <html lang="en">
 <head>
