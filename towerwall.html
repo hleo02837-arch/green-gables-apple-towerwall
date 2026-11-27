@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,67 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Green Gables - Towerwall</title>
 <style>
-  :root{ --green:#22ff88; --purple:#a855f7; --dark-purple:#1e0a3d; --deep:#0a0218; }
+  :root{ --green:#22ff88; --purple:#a855f7; --dark:#1e0a3d; --deep:#0a0218; }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--deep);color:var(--purple);font-family:Georgia,serif;min-height:100vh;display:flex;justify-content:center;padding:20px 12px 40px}
-  .frame{max-width:430px;width:100%;border:2px solid var(--purple);padding:26px 18px 20px;text-align:center;background:var(--dark-purple);box-shadow:0 0 50px var(--purple)}
+  .frame{max-width:430px;width:100%;border:2px solid var(--purple);padding:26px 18px 20px;text-align:center;background:var(--dark)}
   .top{letter-spacing:5px;font-size:22px;color:var(--purple)}
   .sub{letter-spacing:3px;font-size:15px;color:var(--purple);margin-top:4px}
-  .shield{width:230px;height:260px;margin:22px auto 10px;border:3px solid var(--purple);border-radius:50% 50% 50% 50% / 10% 10% 55% 55%;background:var(--dark-purple);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px var(--green), 0 0 40px var(--purple)}
+  .shield{width:230px;height:260px;margin:22px auto 10px;border:3px solid var(--purple);border-radius:50% 50% 50% 50% / 10% 10% 55% 55%;background:var(--dark);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px var(--green), 0 0 40px var(--purple)}
   .shield:before{content:"👑";position:absolute;top:-28px;font-size:42px}
   .apple{font-size:110px;filter:drop-shadow(0 0 25px var(--green))}
   h1{letter-spacing:8px;font-size:38px;color:var(--purple);margin-top:14px}
   .guard{letter-spacing:4px;font-size:15px;border-top:1px solid var(--purple);border-bottom:1px solid var(--purple);display:inline-block;padding:4px 20px;margin:4px 0 20px;color:var(--purple)}
   h2{letter-spacing:3px;font-size:19px;margin:14px 0;color:var(--green)}
   .dots{display:flex;justify-content:center;gap:10px;margin:16px 0}
-  .dot{width:18px;height:18px;border-radius:50%;background:var(--dark-purple);border:1px solid var(--purple)}
+  .dot{width:18px;height:18px;border-radius:50%;background:var(--dark);border:1px solid var(--purple)}
   .dot.on{background:var(--green);box-shadow:0 0 12px var(--green)}
   .keylabel{letter-spacing:3px;font-size:13px;color:var(--purple);margin:10px 0 16px}
   .pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:330px;margin:0 auto}
-  .pad button{background:var(--dark-purple);color:var(--purple);border:1.5px solid var(--purple);border-radius:16px;padding:14px 0;font-size:30px;font-family:Georgia,serif;cursor:pointer}
-  .pad button:active{background:var(--green);color:var(--purple)}
-  .finger{width:78px;height:78px;margin:18px auto 10px;border-radius:50%;border:3px solid var(--purple);background:var(--dark-purple);display:flex;align-items:center;justify-content:center;font-size:38px;box-shadow:0 0 30px var(--green), 0 0 30px var(--purple);cursor:pointer}
-  .foot{font-size:11px;letter-spacing:2px;line-height:2;color:var(--purple)}
-  .btn{display:inline-block;margin-top:14px;background:var(--purple);color:var(--green);padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:900;font-family:Arial,sans-serif;font-size:13px}
-  .msg{margin:10px 0;min-height:20px;color:var(--green);font-family:Arial,sans-serif;font-weight:700}
-  .verifyBtn{background:var(--green);color:var(--purple);border:none;padding:12px 20px;border-radius:999px;font-weight:900;width:100%;font-size:15px}
-</style>
-</head>
-<body>
-<div class="frame">
-  <div class="top">GREEN GABLES</div>
-  <div class="sub">Apple Towerwall system</div>
-  <div class="shield"><div class="apple">🍏</div></div>
-  <h1>DREAMER</h1>
-  <div class="guard">ROYAL GUARDIAN</div>
-  <h2>ENTER HADES KEY</h2>
-  <div class="dots" id="dots"></div>
-  <div class="keylabel" id="keyLabel">HADES KEY 1.7.7.7</div>
-  <div class="pad">
-    <button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button>
-    <button onclick="press('4')">4</button><button onclick="press('5')">5</button><button onclick="press('6')">6</button>
-    <button onclick="press('7')">7</button><button onclick="press('8')">8</button><button onclick="press('9')">9</button>
-    <button onclick="clearAll()">×</button><button onclick="press('0')">0</button><button onclick="back()">⌫</button>
-  </div>
-  <div class="msg" id="msg"></div>
-  <div class="finger" onclick="verify()">👆</div>
-  <div class="foot">BIOMETRIC • HEARTBEAT VERIFIED<br>DREAM • PROTECT • INNOVATE</div>
-  <a class="btn" href="./index.html">← BACK TO MAIN PAGE</a>
-  <div style="margin-top:12px"><button class="verifyBtn" onclick="verify()">VERIFY KEY</button></div>
-</div>
-<script>
-let code="";
-const dotsEl=document.getElementById('dots');
-for(let i=0;i<9;i++){let d=document.createElement('div');d.className='dot';dotsEl.appendChild(d)}
-function update(){[...dotsEl.children].forEach((d,i)=>d.classList.toggle('on', i<code.length)); document.getElementById('keyLabel').textContent = code ? "HADES KEY " + code.split('').join('.') : "HADES KEY 1.7.7.7"}
-function press(n){if(code.length<9){code+=n;update()}}
-function back(){code=code.slice(0,-1);update()}
-function clearAll(){code="";update();document.getElementById('msg').textContent=""}
-function verify(){
-  if(code==="7777"||code==="17777"||code==="777777777"){document.getElementById('msg').textContent="✅ ACCESS GRANTED - WELCOME DREAMER!"}
-  else{document.getElementById('msg').textContent="⚠️ WRONG KEY - TRY 7777"}
-}
-update();
-</script>
-</body>
-</html>
+  .pad a{background:var(--dark);color:var(--purple);border:1.5px solid var(--purple);border-radius:16px;padding:14px 0;font-size:30px;text-decoration:none;display:block}
+  .finger{width:78px;height:78
