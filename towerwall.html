@@ -1,213 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>🍏 Green Gables Apple Towerwall · ECHO-AMEN-7777</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      background: #02120c;
-      color: #00ff88;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Arial, sans-serif;
-      padding: 14px;
-    }
-    .page {
-      max-width: 430px;
-      margin: 0 auto;
-      min-height: calc(100vh - 28px);
-      padding: 16px;
-      background: radial-gradient(circle at 50% 0%, rgba(57, 255, 20, 0.22), transparent 62%), #03190f;
-      border: 1px solid #39ff14;
-      border-radius: 14px;
-      box-shadow: 0 0 24px rgba(57, 255, 20, 0.26);
-    }
-    h1 {
-      text-align: center;
-      color: #ffd700;
-      letter-spacing: 3px;
-      margin: 6px 0 4px;
-      font-size: 1.35rem;
-    }
-    .sub {
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: #aaffcc;
-      margin-bottom: 10px;
-    }
-    .shield {
-      width: 96px;
-      height: 96px;
-      margin: 8px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #0c4722 0%, #041d0e 100%);
-      border: 2px solid #00ff88;
-      box-shadow: 0 0 18px rgba(0, 255, 136, 0.45);
-    }
-    .msg {
-      text-align: center;
-      color: #ffd700;
-      min-height: 22px;
-      margin: 10px 0 6px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 0.85rem;
-    }
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 10px 0 14px;
-    }
-    .dots i {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #062111;
-      border: 2px solid #00ff88;
-      transition: all 0.15s ease;
-    }
-    .dots i.on {
-      background: #00ff88;
-      box-shadow: 0 0 12px #00ff88;
-    }
-    .pad {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .pad button {
-      height: 55px;
-      background: #0a3d2b;
-      color: #7dff52;
-      border: 2px solid #d4af37;
-      border-radius: 10px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .pad button:hover,
-    .pad button.active {
-      background: #ffd700;
-      color: #000;
-    }
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .action-btn {
-      min-height: 44px;
-      border-radius: 8px;
-      border: 1px solid #00ff88;
-      background: #072915;
-      color: #00ff88;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .back {
-      display: block;
-      text-align: center;
-      color: #ffffff;
-      background: #062413;
-      border: 1px solid #00ff88;
-      border-radius: 8px;
-      padding: 10px;
-      text-decoration: none;
-      margin-top: 14px;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Gables - Towerwall</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#022a22;color:#d4af6a;font-family:Georgia,serif;min-height:100vh;display:flex;justify-content:center;padding:20px 12px 40px;overflow-x:hidden}
+  .frame{max-width:430px;width:100%;border:1px solid #c9a86a;padding:26px 18px 20px;text-align:center;position:relative;background:radial-gradient(circle at 50% 0%, #0a4a3a, #021a15 70%)}
+  .top{letter-spacing:5px;font-size:22px;color:#e8c97a}
+  .sub{letter-spacing:3px;font-size:15px;color:#cbb27e;margin-top:4px}
+  .shield{width:230px;height:260px;margin:22px auto 10px;border:3px solid #c9a86a;border-radius:50% 50% 50% 50% / 10% 10% 55% 55%;background:linear-gradient(180deg,#0b3d2e,#021a15);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(34,197,94,.3)}
+  .shield:before{content:"👑";position:absolute;top:-28px;font-size:42px}
+  .apple{font-size:110px;filter:drop-shadow(0 0 20px #22ff88);color:#22ff88}
+  h1{letter-spacing:8px;font-size:38px;color:#d4af6a;margin-top:14px}
+  .guard{letter-spacing:4px;font-size:15px;border-top:1px solid #c9a86a;border-bottom:1px solid #c9a86a;display:inline-block;padding:4px 20px;margin:4px 0 20px}
+  h2{letter-spacing:3px;font-size:19px;margin:14px 0}
+  .dots{display:flex;justify-content:center;gap:10px;margin:16px 0}
+  .dot{width:18px;height:18px;border-radius:50%;background:#0a3a2a;border:1px solid #2a6a4a}
+  .dot.on{background:#22ff88;box-shadow:0 0 12px #22ff88}
+  .keylabel{letter-spacing:3px;font-size:13px;color:#cbb27e;margin:10px 0 16px}
+  .pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:330px;margin:0 auto}
+  .pad button{background:#03362a;color:#e8c97a;border:1.5px solid #c9a86a;border-radius:16px;padding:14px 0;font-size:30px;font-family:Georgia,serif;cursor:pointer}
+  .pad button:active{background:#22c55e;color:white}
+  .finger{width:78px;height:78px;margin:18px auto 10px;border-radius:50%;border:3px solid #c9a86a;background:#022a22;display:flex;align-items:center;justify-content:center;font-size:38px;box-shadow:0 0 30px #22ff88;cursor:pointer}
+  .foot{font-size:11px;letter-spacing:2px;line-height:2;color:#cbb27e}
+  .btn{display:inline-block;margin-top:14px;background:#22c55e;color:white;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:900;font-family:Arial,sans-serif;font-size:13px}
+  .msg{margin:10px 0;min-height:20px;color:#7CFFB2;font-family:Arial,sans-serif;font-weight:700}
+</style>
 </head>
 <body>
-  <div class="page">
-    <div style="text-align:center;font-size:1.8rem;">👑</div>
-    <div class="shield" aria-label="Apple Towerwall Emblem">🍏</div>
-    <h1>🍏 GREEN GABLES</h1>
-    <div class="sub">🍏 APPLE TOWERWALL SYSTEM · ECHO-AMEN-7777</div>
-    <div class="msg" id="msg">🍏 ENTER HADES KEY</div>
-    <div class="dots" id="dots" aria-hidden="true">
-      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-    </div>
-
-    <div class="pad">
-      <button type="button" onclick="press('1')">1</button>
-      <button type="button" onclick="press('2')">2</button>
-      <button type="button" onclick="press('3')">3</button>
-      <button type="button" onclick="press('4')">4</button>
-      <button type="button" onclick="press('5')">5</button>
-      <button type="button" onclick="press('6')">6</button>
-      <button type="button" onclick="press('7')">7</button>
-      <button type="button" onclick="press('8')">8</button>
-      <button type="button" onclick="press('9')">9</button>
-      <button type="button" onclick="clearKey()">CLR</button>
-      <button type="button" onclick="press('0')">0</button>
-      <button type="button" onclick="backspaceKey()">⌫</button>
-    </div>
-
-    <div class="actions">
-      <button type="button" class="action-btn" onclick="verifyKey()">🍏 VERIFY KEY</button>
-      <button type="button" class="action-btn" onclick="clearKey()">🍏 RESET DOTS</button>
-    </div>
-
-    <a class="back" href="index.html">🍏 BACK TO MAIN PAGE (INDEX.HTML)</a>
+<div class="frame">
+  <div class="top">GREEN GABLES</div>
+  <div class="sub">Apple Towerwall system</div>
+  <div class="shield"><div class="apple">🍏</div></div>
+  <h1>DREAMER</h1>
+  <div class="guard">ROYAL GUARDIAN</div>
+  <h2>ENTER HADES KEY</h2>
+  <div class="dots" id="dots"></div>
+  <div class="keylabel" id="keyLabel">HADES KEY 1.7.7.7</div>
+  <div class="pad">
+    <button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button>
+    <button onclick="press('4')">4</button><button onclick="press('5')">5</button><button onclick="press('6')">6</button>
+    <button onclick="press('7')">7</button><button onclick="press('8')">8</button><button onclick="press('9')">9</button>
+    <button onclick="clearAll()">×</button><button onclick="press('0')">0</button><button onclick="back()">⌫</button>
   </div>
-
-  <script>
-    const TOWERWALL_CORE = "🍏";
-    let keyBuffer = "";
-    const dotEls = Array.from(document.querySelectorAll("#dots i"));
-    const msgEl = document.getElementById("msg");
-
-    function renderDots() {
-      dotEls.forEach((dot, idx) => {
-        dot.classList.toggle("on", idx < keyBuffer.length);
-      });
-    }
-
-    function press(digit) {
-      if (keyBuffer.length >= 10) {
-        msgEl.textContent = TOWERWALL_CORE + " MAX 10 DIGITS REACHED";
-        return;
-      }
-      keyBuffer += String(digit);
-      renderDots();
-      msgEl.textContent = TOWERWALL_CORE + " KEY BUFFER: " + keyBuffer.replace(/./g, "•");
-    }
-
-    function backspaceKey() {
-      keyBuffer = keyBuffer.slice(0, -1);
-      renderDots();
-      msgEl.textContent = keyBuffer.length
-        ? TOWERWALL_CORE + " KEY BUFFER: " + keyBuffer.replace(/./g, "•")
-        : TOWERWALL_CORE + " ENTER HADES KEY";
-    }
-
-    function clearKey() {
-      keyBuffer = "";
-      renderDots();
-      msgEl.textContent = TOWERWALL_CORE + " ENTER HADES KEY";
-    }
-
-    function verifyKey() {
-      if (!keyBuffer) {
-        msgEl.textContent = TOWERWALL_CORE + " TAP DIGITS FIRST";
-        return;
-      }
-      msgEl.textContent = TOWERWALL_CORE + " CHECKED [" + keyBuffer + "] · APPLE TOWERWALL ACTIVE";
-    }
-  </script>
+  <div class="msg" id="msg"></div>
+  <div class="finger" onclick="verify()">👆</div>
+  <div class="foot">BIOMETRIC • HEARTBEAT VERIFIED<br>DREAM • PROTECT • INNOVATE</div>
+  <a class="btn" href="./index.html">← BACK TO MAIN PAGE</a>
+  <div style="margin-top:12px"><button onclick="verify()" style="background:#22c55e;color:white;border:none;padding:12px 20px;border-radius:999px;font-weight:900;width:100%">VERIFY KEY</button></div>
+</div>
+<script>
+let code="";
+const dotsEl=document.getElementById('dots');
+for(let i=0;i<9;i++){let d=document.createElement('div');d.className='dot';dotsEl.appendChild(d)}
+function update(){[...dotsEl.children].forEach((d,i)=>d.classList.toggle('on', i<code.length)); document.getElementById('keyLabel').textContent = code ? "HADES KEY " + code.split('').join('.') : "HADES KEY 1.7.7.7"}
+function press(n){if(code.length<9){code+=n;update()}}
+function back(){code=code.slice(0,-1);update()}
+function clearAll(){code="";update();document.getElementById('msg').textContent=""}
+function verify(){
+  if(code==="7777"||code==="17777"||code==="777777777"){document.getElementById('msg').textContent="✅ ACCESS GRANTED - WELCOME DREAMER!"; document.getElementById('msg').style.color="#7CFFB2"}
+  else{document.getElementById('msg').textContent="❌ WRONG KEY - TRY 7777"; document.getElementById('msg').style.color="#ff6b6b"}
+}
+update();
+</script>
 </body>
 </html>
