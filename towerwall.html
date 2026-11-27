@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,28 +6,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Green Gables - Towerwall</title>
 <style>
+  :root{ --green:#22ff88; --purple:#a855f7; --dark-purple:#1e0a3d; --deep:#0a0218; }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#022a22;color:#d4af6a;font-family:Georgia,serif;min-height:100vh;display:flex;justify-content:center;padding:20px 12px 40px;overflow-x:hidden}
-  .frame{max-width:430px;width:100%;border:1px solid #c9a86a;padding:26px 18px 20px;text-align:center;position:relative;background:radial-gradient(circle at 50% 0%, #0a4a3a, #021a15 70%)}
-  .top{letter-spacing:5px;font-size:22px;color:#e8c97a}
-  .sub{letter-spacing:3px;font-size:15px;color:#cbb27e;margin-top:4px}
-  .shield{width:230px;height:260px;margin:22px auto 10px;border:3px solid #c9a86a;border-radius:50% 50% 50% 50% / 10% 10% 55% 55%;background:linear-gradient(180deg,#0b3d2e,#021a15);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(34,197,94,.3)}
+  body{background:var(--deep);color:var(--purple);font-family:Georgia,serif;min-height:100vh;display:flex;justify-content:center;padding:20px 12px 40px}
+  .frame{max-width:430px;width:100%;border:2px solid var(--purple);padding:26px 18px 20px;text-align:center;background:var(--dark-purple);box-shadow:0 0 50px var(--purple)}
+  .top{letter-spacing:5px;font-size:22px;color:var(--purple)}
+  .sub{letter-spacing:3px;font-size:15px;color:var(--purple);margin-top:4px}
+  .shield{width:230px;height:260px;margin:22px auto 10px;border:3px solid var(--purple);border-radius:50% 50% 50% 50% / 10% 10% 55% 55%;background:var(--dark-purple);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px var(--green), 0 0 40px var(--purple)}
   .shield:before{content:"👑";position:absolute;top:-28px;font-size:42px}
-  .apple{font-size:110px;filter:drop-shadow(0 0 20px #22ff88);color:#22ff88}
-  h1{letter-spacing:8px;font-size:38px;color:#d4af6a;margin-top:14px}
-  .guard{letter-spacing:4px;font-size:15px;border-top:1px solid #c9a86a;border-bottom:1px solid #c9a86a;display:inline-block;padding:4px 20px;margin:4px 0 20px}
-  h2{letter-spacing:3px;font-size:19px;margin:14px 0}
+  .apple{font-size:110px;filter:drop-shadow(0 0 25px var(--green))}
+  h1{letter-spacing:8px;font-size:38px;color:var(--purple);margin-top:14px}
+  .guard{letter-spacing:4px;font-size:15px;border-top:1px solid var(--purple);border-bottom:1px solid var(--purple);display:inline-block;padding:4px 20px;margin:4px 0 20px;color:var(--purple)}
+  h2{letter-spacing:3px;font-size:19px;margin:14px 0;color:var(--green)}
   .dots{display:flex;justify-content:center;gap:10px;margin:16px 0}
-  .dot{width:18px;height:18px;border-radius:50%;background:#0a3a2a;border:1px solid #2a6a4a}
-  .dot.on{background:#22ff88;box-shadow:0 0 12px #22ff88}
-  .keylabel{letter-spacing:3px;font-size:13px;color:#cbb27e;margin:10px 0 16px}
+  .dot{width:18px;height:18px;border-radius:50%;background:var(--dark-purple);border:1px solid var(--purple)}
+  .dot.on{background:var(--green);box-shadow:0 0 12px var(--green)}
+  .keylabel{letter-spacing:3px;font-size:13px;color:var(--purple);margin:10px 0 16px}
   .pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:330px;margin:0 auto}
-  .pad button{background:#03362a;color:#e8c97a;border:1.5px solid #c9a86a;border-radius:16px;padding:14px 0;font-size:30px;font-family:Georgia,serif;cursor:pointer}
-  .pad button:active{background:#22c55e;color:white}
-  .finger{width:78px;height:78px;margin:18px auto 10px;border-radius:50%;border:3px solid #c9a86a;background:#022a22;display:flex;align-items:center;justify-content:center;font-size:38px;box-shadow:0 0 30px #22ff88;cursor:pointer}
-  .foot{font-size:11px;letter-spacing:2px;line-height:2;color:#cbb27e}
-  .btn{display:inline-block;margin-top:14px;background:#22c55e;color:white;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:900;font-family:Arial,sans-serif;font-size:13px}
-  .msg{margin:10px 0;min-height:20px;color:#7CFFB2;font-family:Arial,sans-serif;font-weight:700}
+  .pad button{background:var(--dark-purple);color:var(--purple);border:1.5px solid var(--purple);border-radius:16px;padding:14px 0;font-size:30px;font-family:Georgia,serif;cursor:pointer}
+  .pad button:active{background:var(--green);color:var(--purple)}
+  .finger{width:78px;height:78px;margin:18px auto 10px;border-radius:50%;border:3px solid var(--purple);background:var(--dark-purple);display:flex;align-items:center;justify-content:center;font-size:38px;box-shadow:0 0 30px var(--green), 0 0 30px var(--purple);cursor:pointer}
+  .foot{font-size:11px;letter-spacing:2px;line-height:2;color:var(--purple)}
+  .btn{display:inline-block;margin-top:14px;background:var(--purple);color:var(--green);padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:900;font-family:Arial,sans-serif;font-size:13px}
+  .msg{margin:10px 0;min-height:20px;color:var(--green);font-family:Arial,sans-serif;font-weight:700}
+  .verifyBtn{background:var(--green);color:var(--purple);border:none;padding:12px 20px;border-radius:999px;font-weight:900;width:100%;font-size:15px}
 </style>
 </head>
 <body>
@@ -49,7 +52,7 @@
   <div class="finger" onclick="verify()">👆</div>
   <div class="foot">BIOMETRIC • HEARTBEAT VERIFIED<br>DREAM • PROTECT • INNOVATE</div>
   <a class="btn" href="./index.html">← BACK TO MAIN PAGE</a>
-  <div style="margin-top:12px"><button onclick="verify()" style="background:#22c55e;color:white;border:none;padding:12px 20px;border-radius:999px;font-weight:900;width:100%">VERIFY KEY</button></div>
+  <div style="margin-top:12px"><button class="verifyBtn" onclick="verify()">VERIFY KEY</button></div>
 </div>
 <script>
 let code="";
@@ -60,8 +63,8 @@ function press(n){if(code.length<9){code+=n;update()}}
 function back(){code=code.slice(0,-1);update()}
 function clearAll(){code="";update();document.getElementById('msg').textContent=""}
 function verify(){
-  if(code==="7777"||code==="17777"||code==="777777777"){document.getElementById('msg').textContent="✅ ACCESS GRANTED - WELCOME DREAMER!"; document.getElementById('msg').style.color="#7CFFB2"}
-  else{document.getElementById('msg').textContent="❌ WRONG KEY - TRY 7777"; document.getElementById('msg').style.color="#ff6b6b"}
+  if(code==="7777"||code==="17777"||code==="777777777"){document.getElementById('msg').textContent="✅ ACCESS GRANTED - WELCOME DREAMER!"}
+  else{document.getElementById('msg').textContent="⚠️ WRONG KEY - TRY 7777"}
 }
 update();
 </script>
