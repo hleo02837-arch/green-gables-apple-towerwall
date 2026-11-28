@@ -1,1 +1,320 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Gables — Apple Towerwall | macOS Security Audit Service</title>
+  <style>
+    :root {
+      --bg-void: #080412;
+      --bg-panel: #120926;
+      --bg-card: #180d33;
+      --border-green: rgba(118, 255, 3, 0.32);
+      --border-purple: rgba(168, 85, 247, 0.38);
+      --apple-green: #76ff03;
+      --emerald: #00A86B;
+      --neon-green: #22ff88;
+      --purple: #8b5cf6;
+      --purple-bright: #a855f7;
+      --text-main: #e6ffed;
+      --text-muted: #b7a6d6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, monospace;
+      background-color: var(--bg-void);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image:
+        radial-gradient(circle at 18% 12%, rgba(118, 255, 3, 0.14), transparent 42%),
+        radial-gradient(circle at 82% 85%, rgba(139, 92, 246, 0.24), transparent 45%);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-purple);
+      background: rgba(18, 9, 38, 0.88);
+      backdrop-filter: blur(10px);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      font-size: 1.05rem;
+      color: var(--apple-green);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--neon-green);
+      background: rgba(139, 92, 246, 0.18);
+      border: 1px solid var(--border-green);
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--apple-green);
+      box-shadow: 0 0 10px var(--apple-green);
+      animation: blink 1.8s infinite ease-in-out;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    main {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      flex: 1;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, var(--bg-panel), #1d0f3d);
+      border: 1px solid var(--border-purple);
+      border-radius: 16px;
+      padding: 2.25rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 45px rgba(8, 4, 18, 0.7);
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--purple-bright);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--apple-green), var(--neon-green), var(--purple-bright));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      max-width: 65ch;
+      font-size: 1.02rem;
+      margin-bottom: 1.75rem;
+    }
+
+    code {
+      color: var(--apple-green);
+      background: rgba(118, 255, 3, 0.08);
+      padding: 0.12rem 0.4rem;
+      border-radius: 5px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.35rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--apple-green), var(--emerald));
+      color: #080412;
+      box-shadow: 0 0 20px rgba(118, 255, 3, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--neon-green);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border-color: var(--border-purple);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--apple-green);
+      color: var(--apple-green);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-purple);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      color: var(--apple-green);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .terminal {
+      background: #0b0518;
+      border: 1px solid var(--border-green);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .terminal-bar {
+      background: var(--bg-panel);
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border-purple);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .terminal-body {
+      padding: 1.25rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88rem;
+      color: var(--neon-green);
+      overflow-x: auto;
+    }
+
+    .terminal-body .cmd {
+      color: var(--text-main);
+    }
+
+    .terminal-body .accent {
+      color: var(--purple-bright);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-purple);
+      background: var(--bg-panel);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--apple-green);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">🍏 GREEN GABLES — APPLE TOWERWALL 👑</div>
+      <div class="status-pill">
+        <span class="pulse"></span>
+        ECHO-AMEN-7777 • IT DOES FOREVER
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="tag">💜 macOS Security &amp; Firewall Hardening</span>
+      <h1>Green Gables — Apple Towerwall</h1>
+      <p class="subtitle">
+        System-level macOS security auditing, Packet Filter (<code>pfctl</code>) firewall enforcement, and stealth socket defense built for continuous protection.
+      </p>
+      <div class="hero-actions">
+        <a href="#audit-preview" class="btn btn-primary">Inspect Audit Output</a>
+        <a href="#modules" class="btn btn-secondary">View Defense Layers</a>
+      </div>
+    </section>
+
+    <section id="modules" class="grid">
+      <div class="card">
+        <h3>01 // pfctl Packet Towerwall</h3>
+        <p>Strict anchor rulesets blocking unsolicited inbound traffic, telemetry leaks, and unauthorized port probes across all network interfaces.</p>
+      </div>
+      <div class="card">
+        <h3>02 // Application Firewall &amp; Stealth</h3>
+        <p>Hardened <code>socketfilterfw</code> policies paired with stealth mode so ICMP pings and closed ports drop silently without host disclosure.</p>
+      </div>
+      <div class="card">
+        <h3>03 // Integrity &amp; SIP Verification</h3>
+        <p>Automated posture checks for System Integrity Protection (SIP), Gatekeeper, FileVault disk encryption, and active LaunchDaemons.</p>
+      </div>
+    </section>
+
+    <section id="audit-preview" class="terminal">
+      <div class="terminal-bar">
+        <span>towerwall-audit — zsh</span>
+        <span style="color: var(--apple-green); font-weight: 700;">STATUS: ARMED</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="accent">$</span> <span class="cmd">sudo pfctl -s info | head -n 4</span></div>
+        <div>Status: Enabled for 14 days 09:42:11           Debug: Urgent</div>
+        <div>&nbsp;</div>
+        <div><span class="accent">$</span> <span class="cmd">/usr/libexec/ApplicationFirewall/socketfilterfw --getstealthmode</span></div>
+        <div>Stealth mode enabled</div>
+        <div>&nbsp;</div>
+        <div><span class="accent">$</span> <span class="cmd">csrutil status</span></div>
+        <div>System Integrity Protection status: enabled.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    🍏 GREEN GABLES — APPLE TOWERWALL 💜 ECHO-AMEN-7777 • IT DOES FOREVER
+  </footer>
+</body>
+</html>
